@@ -46,34 +46,3 @@ const RegisterForm = (): JSX.Element => {
 };
 
 export default RegisterForm;
-
-// <form onSubmit={submitRegister} noValidate autoComplete="off">
-//   <label htmlFor="nameRegister"> Name </label>
-//   <input
-//     id="name"
-//     value={formData.name}
-//     onChange={changeData}
-//     autoComplete="off"
-//   />
-//   <label htmlFor="usernameRegister"> Username </label>
-//   <input
-//     id="username"
-//     value={formData.username}
-//     onChange={changeData}
-//     autoComplete="off"
-//   />
-//   <label htmlFor="passwordRegister" type="password">
-//     {" "}
-//     Password{" "}
-//   </label>
-//   <input
-//     id="password"
-//     type="password"
-//     value={formData.password}
-//     onChange={changeData}
-//     autoComplete="off"
-//   />
-//   <button disabled={buttonDisabled} type="submit" value="Send">
-//     Register
-//   </button>
-// </form>;
