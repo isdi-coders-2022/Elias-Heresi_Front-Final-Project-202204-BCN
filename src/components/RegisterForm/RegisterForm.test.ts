@@ -1,5 +1,4 @@
 import { render, screen } from "@testing-library/react";
-import React from "react";
 import RegisterForm from "./RegisterForm";
 
 describe("Given the RegisterForm component", () => {
@@ -15,8 +14,6 @@ describe("Given the RegisterForm component", () => {
 
       expect(searchedButtons).toHaveLength(expectedButtons);
       expect(searchedInputBoxes).toHaveLength(expectedInputBoxes);
-
-      screen.debug();
     });
   });
 });
