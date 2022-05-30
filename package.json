@@ -14,6 +14,7 @@
     "react": "^18.1.0",
     "react-bootstrap": "^2.4.0",
     "react-dom": "^18.1.0",
+    "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "styled-components": "^5.3.5",
     "typescript": "^4.7.2",
@@ -54,12 +55,12 @@
   "jest": {
     "collectCoverageFrom": [
       "!src/index.js",
-      "!src/reportWebVitals.js",
-      "!src/setupTests.js",
-      "!.eslintrc.js",
-      "!coverage/*/.js",
-      "!src/**/*.test.js",
-      "!src/**/*.test.js.snap"
+      "!src/reportWebVitals.ts",
+      "!src/setupTests.ts",
+      "!src/react-app-env.d.ts",
+      "!coverage/*/.ts",
+      "!src/**/*.test.ts",
+      "!src/**/*.test.ts.snap"
     ]
   }
 }
