@@ -1,46 +1,160 @@
-# Getting Started with Create React App
+# Bonanza app: Improve your well-being (Front-end)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## **MVP versions**
 
-## Available Scripts
+### V0: Basic PERMA status
 
-In the project directory, you can run:
+- Login user
+- Register user
+- Entry creation. Optional text detail and image.
 
-### `npm start`
+### V1: Historic
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- History page: see summary registry of past entries. Edit each one.
+- Detail page: detailed account of past entries
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### V2: Detailed PERMA
 
-### `npm test`
+- Information about each variable
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### V3: Entry modification
 
-### `npm run build`
+### V4: Pagination
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## **Nice to have versions**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### V5: About
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### V6: Self learning
 
-### `npm run eject`
+- Regression to calculate weight of each variable
+- Show which have bigger impact and recommend focus
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## **Pages**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Register user
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- RegisterForm
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Login-user
 
-## Learn More
+- LoginForm
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Landing page
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Landing
+- Navigation cards
+
+### Entry list page
+
+- Filter
+- EntryList
+  - Entry
+- Paginator
+
+### Detailed entry
+
+- DetailedEntry
+  - PERMA chart
+  - PERMA table
+  - Status bar
+  - Image
+
+### Create entry
+
+- EntryForm
+  - Sliders
+  - Text box
+  - Input image
+
+### 404 page
+
+### About
+
+### Well being analysis
+
+- EntryCharts
+
+## **Data layer**
+
+### User
+
+- register
+- login
+- triggers
+
+### Diary
+
+- newEntry
+- collection
+- perPage
+- currentPage
+
+### UI
+
+- loading
+- modal
+
+## **Components**
+
+### RegisterForm
+
+- Render input form and button
+- Receive information to register status
+- Submit register form
+
+### LoginForm
+
+- Render input form and button
+- Receive information to change user status
+- Submit login form
+
+### EntryForm
+
+- Render input form, sliders, image input, cancel and submit button
+- Receive information to change entry status
+- Submit new entry
+
+### Entry
+
+- Render PERMA, well being, safety and commentary status on card
+- Render delete and edit button
+- Delete entry when click on delete
+
+### EntryList
+
+- Render all entries in collection
+
+### Filter
+
+- Render filters
+- Modify collection status
+
+### Paginator
+
+- Render paginator
+- Modify collection status depending on total per page and current page
+
+### Landing
+
+- Render landing infromation
+
+### DetailedEntry
+
+- Render detailed entry information, as well as delete and edit button
+- Pass delete action to button
+- Pass edit action to button
+
+### Header
+
+- Render basic information
+- Render links to pages
+
+### Footer
+
+- Render basic information
+- Render links to pages
+
+### EntryCharts
+
+- Render charts depending on user insights
