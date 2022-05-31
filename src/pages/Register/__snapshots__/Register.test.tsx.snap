@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given the Register page component When it's invoked Then it should always match this snapshot 1`] = `
+<div
+  className="sc-gsnTZi jauQXh"
+>
+  <img
+    alt="Placeholder"
+    className="register__image"
+    src="https://www.happiness.com/community/uploads/monthly_2020_08/happy-children-kids-joyful.jpg.307017a030aa7b740d260c45d39745b2.jpg"
+  />
+  <div
+    className="register__form"
+  >
+    <h1>
+      Bonanza
+    </h1>
+    <h2>
+      Sign up to improve your life, one day at a time
+    </h2>
+    <div
+      className="sc-bczRLJ kpSipn"
+    >
+      <form
+        autoComplete="off"
+        className=""
+        noValidate={true}
+        onSubmit={[Function]}
+      >
+        <div
+          className="mb-3"
+        >
+          <label
+            className="form-label"
+            htmlFor="name"
+          >
+            Name
+          </label>
+          <input
+            className="form-control"
+            id="name"
+            onChange={[Function]}
+            placeholder="Enter first name"
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          className="mb-3"
+        >
+          <label
+            className="form-label"
+            htmlFor="surname"
+          >
+            Surname
+          </label>
+          <input
+            className="form-control"
+            id="surname"
+            onChange={[Function]}
+            placeholder="Enter last name"
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          className="mb-3"
+        >
+          <label
+            className="form-label"
+            htmlFor="email"
+          >
+            Email address
+          </label>
+          <input
+            className="form-control"
+            id="email"
+            onChange={[Function]}
+            placeholder="Enter email"
+            type="email"
+            value=""
+          />
+        </div>
+        <div
+          className="mb-3"
+        >
+          <label
+            className="form-label"
+            htmlFor="username"
+          >
+            Username
+          </label>
+          <input
+            className="form-control"
+            id="username"
+            onChange={[Function]}
+            placeholder="Choose your username"
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          className="mb-3"
+        >
+          <label
+            className="form-label"
+            htmlFor="password"
+          >
+            Password
+          </label>
+          <input
+            className="form-control"
+            id="password"
+            onChange={[Function]}
+            placeholder="Choose your password"
+            type="password"
+            value=""
+          />
+        </div>
+        <section
+          className="container text-center"
+        >
+          <button
+            className="btn btn-primary"
+            disabled={true}
+            type="submit"
+          >
+            Submit
+          </button>
+          <p>
+            Already a member?
+          </p>
+          <button
+            className="btn btn-secondary"
+            disabled={false}
+            type="button"
+          >
+            Login
+          </button>
+        </section>
+      </form>
+    </div>
+  </div>
+</div>
+`;
