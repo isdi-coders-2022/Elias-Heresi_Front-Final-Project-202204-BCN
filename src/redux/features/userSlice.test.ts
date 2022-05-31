@@ -3,10 +3,6 @@ import userReducer, {
   logoutActionCreator,
 } from "./userSlice";
 
-// name: "",
-// surname: "",
-// username: "",
-// logged: false,
 describe("Given a userSlice reducer", () => {
   describe("When it receives a user and a login action", () => {
     test("Then it should return the same user logged", () => {
