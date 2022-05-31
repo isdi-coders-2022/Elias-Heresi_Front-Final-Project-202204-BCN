@@ -43,7 +43,7 @@ const LoginForm = (): JSX.Element => {
     <LoginFormContainer>
       <Form autoComplete="off" onSubmit={loginUser} noValidate>
         <Form.Group className="mb-3">
-          <Form.Label>Username</Form.Label>
+          <Form.Label htmlFor="username">Username</Form.Label>
           <Form.Control
             id="username"
             type="text"
@@ -54,7 +54,7 @@ const LoginForm = (): JSX.Element => {
         </Form.Group>
 
         <Form.Group className="mb-3">
-          <Form.Label>Password</Form.Label>
+          <Form.Label htmlFor="password">Password</Form.Label>
           <Form.Control
             id="password"
             type="password"

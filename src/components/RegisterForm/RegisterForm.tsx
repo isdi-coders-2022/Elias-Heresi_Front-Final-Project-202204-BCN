@@ -51,7 +51,7 @@ const RegisterForm = (): JSX.Element => {
     <RegisterFormContainer>
       <Form autoComplete="off" onSubmit={submitRegister} noValidate>
         <Form.Group className="mb-3">
-          <Form.Label>Name</Form.Label>
+          <Form.Label htmlFor="name">Name</Form.Label>
           <Form.Control
             id="name"
             type="text"
@@ -62,7 +62,7 @@ const RegisterForm = (): JSX.Element => {
         </Form.Group>
 
         <Form.Group className="mb-3">
-          <Form.Label>Surname</Form.Label>
+          <Form.Label htmlFor="surname">Surname</Form.Label>
           <Form.Control
             id="surname"
             type="text"
@@ -73,7 +73,7 @@ const RegisterForm = (): JSX.Element => {
         </Form.Group>
 
         <Form.Group className="mb-3">
-          <Form.Label>Email address</Form.Label>
+          <Form.Label htmlFor="email">Email address</Form.Label>
           <Form.Control
             id="email"
             type="email"
@@ -84,7 +84,7 @@ const RegisterForm = (): JSX.Element => {
         </Form.Group>
 
         <Form.Group className="mb-3">
-          <Form.Label>Username</Form.Label>
+          <Form.Label htmlFor="username">Username</Form.Label>
           <Form.Control
             id="username"
             type="text"
@@ -95,7 +95,7 @@ const RegisterForm = (): JSX.Element => {
         </Form.Group>
 
         <Form.Group className="mb-3">
-          <Form.Label>Password</Form.Label>
+          <Form.Label htmlFor="password">Password</Form.Label>
           <Form.Control
             id="password"
             type="password"
