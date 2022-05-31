@@ -8,7 +8,6 @@ export interface UserData {
   surname: string;
   username: string;
 }
-
 export interface UserState extends UserData {
   logged: boolean;
 }
