@@ -1,11 +1,13 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useState, FormEvent } from "react";
 import { Button, Form } from "react-bootstrap";
 import { RegisterFormContainer } from "./RegisterFormContainer";
 import { RegisterInformation } from "../../redux/interfaces/userInterfaces";
 // import { useSelector } from "react-redux";
 // import { RootState } from "../../redux/store/store";
-// import { useAppDispatch } from "../../redux/store/hooks";
+import { useAppDispatch } from "../../redux/store/hooks";
+import { registerUserThunk } from "../../redux/thunks/thunks";
 // import { NavigateFunction, useNavigate } from "react-router-dom";
+
 const RegisterForm = (): JSX.Element => {
   const formInitialState = {
     name: "",
@@ -20,26 +22,33 @@ const RegisterForm = (): JSX.Element => {
   const [formData, setFormData] = useState(formInitialState);
   //const [buttonDisabled, setButtonDisabled] = useState(true);
 
-  //const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
   //const navigate = useNavigate();
 
   const changeData = (event: ChangeEvent<HTMLInputElement>): void => {
     setFormData({ ...formData, [event.target.id]: event.target.value });
   };
 
-  // const resetForm = (): void => {
-  //   setFormData(formInitialState);
-  // };
+  const resetForm = (): void => {
+    setFormData(formInitialState);
+  };
+
+  const submitRegister = (event: FormEvent<HTMLFormElement>): void => {
+    event.preventDefault();
+    dispatch(registerUserThunk(formData));
+    resetForm();
+  };
 
   return (
     <RegisterFormContainer>
-      <Form autoComplete="off">
+      <Form autoComplete="off" onSubmit={submitRegister} noValidate>
         <Form.Group className="mb-3">
           <Form.Label>Name</Form.Label>
           <Form.Control
             id="name"
             type="text"
             placeholder="Enter first name"
+            value={formData.name}
             onChange={changeData}
           />
         </Form.Group>
@@ -50,6 +59,7 @@ const RegisterForm = (): JSX.Element => {
             id="surname"
             type="text"
             placeholder="Enter last name"
+            value={formData.surname}
             onChange={changeData}
           />
         </Form.Group>
@@ -60,6 +70,7 @@ const RegisterForm = (): JSX.Element => {
             id="email"
             type="email"
             placeholder="Enter email"
+            value={formData.email}
             onChange={changeData}
           />
         </Form.Group>
@@ -70,6 +81,7 @@ const RegisterForm = (): JSX.Element => {
             id="username"
             type="text"
             placeholder="Choose your username"
+            value={formData.username}
             onChange={changeData}
           />
         </Form.Group>
@@ -80,6 +92,7 @@ const RegisterForm = (): JSX.Element => {
             id="password"
             type="password"
             placeholder="Choose your password"
+            value={formData.password}
             onChange={changeData}
           />
         </Form.Group>
