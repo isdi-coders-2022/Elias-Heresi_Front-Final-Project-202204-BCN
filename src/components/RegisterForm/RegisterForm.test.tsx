@@ -1,5 +1,7 @@
-import { render, screen } from "@testing-library/react";
+import { Provider } from "react-redux";
 import RegisterForm from "./RegisterForm";
+import store from "../../redux/store/store";
+import { render, screen } from "@testing-library/react";
 
 describe("Given the RegisterForm component", () => {
   describe("When instantiated", () => {
@@ -7,7 +9,11 @@ describe("Given the RegisterForm component", () => {
       const expectedButtons = 2;
       const expectedInputBoxes = 4;
 
-      render(RegisterForm());
+      render(
+        <Provider store={store}>
+          <RegisterForm />
+        </Provider>
+      );
 
       const searchedButtons = screen.getAllByRole("button");
       const searchedInputBoxes = screen.getAllByRole("textbox");

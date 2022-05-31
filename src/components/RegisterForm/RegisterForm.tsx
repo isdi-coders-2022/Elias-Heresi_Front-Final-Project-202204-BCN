@@ -2,11 +2,8 @@ import { ChangeEvent, useState, FormEvent, useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 import { RegisterFormContainer } from "./RegisterFormContainer";
 import { RegisterInformation } from "../../redux/interfaces/userInterfaces";
-// import { useSelector } from "react-redux";
-// import { RootState } from "../../redux/store/store";
 import { registerUserThunk } from "../../redux/thunks/thunks";
 import { useAppDispatch } from "../../redux/store/hooks";
-// import { NavigateFunction, useNavigate } from "react-router-dom";
 
 const RegisterForm = (): JSX.Element => {
   const formInitialState = {
@@ -17,13 +14,10 @@ const RegisterForm = (): JSX.Element => {
     password: "",
   } as RegisterInformation;
 
-  //const user = useSelector((state: RootState) => state.user);
-
   const [formData, setFormData] = useState(formInitialState);
   const [buttonDisabled, setButtonDisabled] = useState(true);
 
   const dispatch = useAppDispatch();
-  //const navigate = useNavigate();
 
   const changeData = (event: ChangeEvent<HTMLInputElement>): void => {
     setFormData({ ...formData, [event.target.id]: event.target.value });
