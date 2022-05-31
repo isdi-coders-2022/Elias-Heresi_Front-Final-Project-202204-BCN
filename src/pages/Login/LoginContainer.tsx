@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const RegisterContainer = styled.div`
+export const LoginContainer = styled.div`
   height: 100vh;
   background-color: rgb(111, 219, 135);
   text-align: center;

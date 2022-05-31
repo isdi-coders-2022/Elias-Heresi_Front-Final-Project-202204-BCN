@@ -5,7 +5,7 @@ import LoginForm from "./LoginForm";
 
 describe("Given the RegisterForm component", () => {
   describe("When instantiated", () => {
-    test("Then 2 buttons and 4 input boxes will be rendered", () => {
+    test("Then 2 buttons and 1 input boxes will be rendered", () => {
       const expectedButtons = 2;
       const expectedInputBoxes = 1;
 

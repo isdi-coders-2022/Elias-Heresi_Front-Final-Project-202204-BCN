@@ -5,7 +5,7 @@ const RegisterPage = () => {
   return (
     <RegisterContainer>
       <h1>Welcome to Bonanza</h1>
-      <h2>Register</h2>
+      <h2>Create a new user</h2>
       <RegisterForm />
     </RegisterContainer>
   );
