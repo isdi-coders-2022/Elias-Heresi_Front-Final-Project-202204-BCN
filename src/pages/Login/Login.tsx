@@ -1,14 +1,23 @@
 import LoginForm from "../../components/LoginForm/LoginForm";
 import { LoginContainer } from "./LoginContainer";
 
-const LoginPage = () => {
+const Login = () => {
   return (
-    <LoginContainer>
-      <h1>Welcome to Bonanza</h1>
-      <h2>Login</h2>
-      <LoginForm />
-    </LoginContainer>
+    <>
+      <LoginContainer>
+        <img
+          src="https://csbs.utah.edu/_resources/images/Happy%20People.jpg"
+          alt="Placeholder"
+          className="login__image"
+        />
+        <div className="login__form">
+          <h1>Bonanza</h1>
+          <h2>Login to your account</h2>
+          <LoginForm />
+        </div>
+      </LoginContainer>
+    </>
   );
 };
 
-export default LoginPage;
+export default Login;
