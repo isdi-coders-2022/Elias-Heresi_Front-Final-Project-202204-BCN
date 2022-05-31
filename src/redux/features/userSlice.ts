@@ -7,6 +7,12 @@ interface IState {
   logged: boolean;
 }
 
+interface DecodedToken {
+  name: string;
+  surname: string;
+  username: string;
+}
+
 const initialState = {
   name: "",
   surname: "",
@@ -18,7 +24,7 @@ const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    login: (user: IState, action: PayloadAction<IState>) => ({
+    login: (user, action: PayloadAction<DecodedToken>) => ({
       ...action.payload,
       logged: true,
     }),
