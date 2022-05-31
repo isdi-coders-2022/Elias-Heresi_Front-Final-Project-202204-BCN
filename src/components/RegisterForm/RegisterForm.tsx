@@ -1,11 +1,11 @@
-import { ChangeEvent, useState, FormEvent } from "react";
+import { ChangeEvent, useState, FormEvent, useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 import { RegisterFormContainer } from "./RegisterFormContainer";
 import { RegisterInformation } from "../../redux/interfaces/userInterfaces";
 // import { useSelector } from "react-redux";
 // import { RootState } from "../../redux/store/store";
-import { useAppDispatch } from "../../redux/store/hooks";
 import { registerUserThunk } from "../../redux/thunks/thunks";
+import { useAppDispatch } from "../../redux/store/hooks";
 // import { NavigateFunction, useNavigate } from "react-router-dom";
 
 const RegisterForm = (): JSX.Element => {
@@ -20,7 +20,7 @@ const RegisterForm = (): JSX.Element => {
   //const user = useSelector((state: RootState) => state.user);
 
   const [formData, setFormData] = useState(formInitialState);
-  //const [buttonDisabled, setButtonDisabled] = useState(true);
+  const [buttonDisabled, setButtonDisabled] = useState(true);
 
   const dispatch = useAppDispatch();
   //const navigate = useNavigate();
@@ -38,6 +38,20 @@ const RegisterForm = (): JSX.Element => {
     dispatch(registerUserThunk(formData));
     resetForm();
   };
+
+  useEffect(() => {
+    if (
+      formData.name &&
+      formData.email &&
+      formData.surname &&
+      formData.password &&
+      formData.username
+    ) {
+      setButtonDisabled(false);
+      return;
+    }
+    setButtonDisabled(true);
+  }, [formData]);
 
   return (
     <RegisterFormContainer>
@@ -98,7 +112,7 @@ const RegisterForm = (): JSX.Element => {
         </Form.Group>
 
         <section className="container text-center">
-          <Button variant="primary" type="submit">
+          <Button variant="primary" type="submit" disabled={buttonDisabled}>
             Submit
           </Button>
 
