@@ -1,17 +1,17 @@
 import { Provider } from "react-redux";
-import RegisterForm from "./RegisterForm";
 import store from "../../redux/store/store";
 import { render, screen } from "@testing-library/react";
+import LoginForm from "./LoginForm";
 
 describe("Given the RegisterForm component", () => {
   describe("When instantiated", () => {
-    test("Then 2 buttons and 4 input boxes will be rendered", () => {
+    test("Then 2 buttons and 1 input boxes will be rendered", () => {
       const expectedButtons = 2;
-      const expectedInputBoxes = 4;
+      const expectedInputBoxes = 1;
 
       render(
         <Provider store={store}>
-          <RegisterForm />
+          <LoginForm />
         </Provider>
       );
 
