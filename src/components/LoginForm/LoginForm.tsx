@@ -2,9 +2,13 @@ import { LoginFormContainer } from "./LoginFormContainer";
 
 import { ChangeEvent, useState, FormEvent, useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
-import { LoginUser } from "../../redux/interfaces/UserInterfaces";
 import { loginUserThunk } from "../../redux/thunks/userThunks/userThunks";
 import { useAppDispatch } from "../../redux/store/hooks";
+
+interface LoginUser {
+  username: string;
+  password: string;
+}
 
 const LoginForm = (): JSX.Element => {
   const formInitialState = {
