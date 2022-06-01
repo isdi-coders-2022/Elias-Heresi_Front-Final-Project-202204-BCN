@@ -10,7 +10,7 @@
 
 ### V1: Historic
 
-- History page: see summary registry of past entries. Edit each one.
+- History page: see summary registry of all past entries. Edit each one.
 - Detail page: detailed account of past entries
 
 ### V2: Detailed PERMA
