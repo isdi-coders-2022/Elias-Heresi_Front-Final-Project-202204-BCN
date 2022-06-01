@@ -85,7 +85,7 @@ describe("Given the loadActionCreator", () => {
         collection: [mockFirstEntry],
       };
 
-      const action = loadActionCreator(mockFirstEntry);
+      const action = loadActionCreator([mockFirstEntry]);
       const loadedState = diaryReducer(initialState, action);
 
       expect(loadedState).toEqual(expectedState);

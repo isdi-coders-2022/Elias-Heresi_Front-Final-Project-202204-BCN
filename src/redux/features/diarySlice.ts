@@ -12,9 +12,9 @@ const diarySlice = createSlice({
   name: "diary",
   initialState,
   reducers: {
-    load: (diary: DiaryState, action: PayloadAction<DiaryEntry>) => ({
+    load: (diary: DiaryState, action: PayloadAction<DiaryEntry[]>) => ({
       ...diary,
-      collection: [...diary.collection, action.payload],
+      collection: action.payload,
     }),
     resetCollection: (diary: DiaryState) => ({
       ...diary,
