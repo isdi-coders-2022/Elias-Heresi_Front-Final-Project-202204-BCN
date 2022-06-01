@@ -1,14 +1,14 @@
 import axios from "axios";
 import jwtDecode from "jwt-decode";
-import { loginActionCreator } from "../features/userSlice";
-import { AppDispatch } from "../store/store";
+import { loginActionCreator } from "../../features/userSlice";
+import { AppDispatch } from "../../store/store";
 
 import {
   UserData,
   RegisterInformation,
   LoginUser,
   ApiLoginResponse,
-} from "../interfaces/userInterfaces";
+} from "../../interfaces/userInterfaces";
 
 export const registerUserThunk =
   (formData: RegisterInformation) => async (dispatch: AppDispatch) => {

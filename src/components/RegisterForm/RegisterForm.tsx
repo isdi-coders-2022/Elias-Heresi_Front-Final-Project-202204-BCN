@@ -2,7 +2,7 @@ import { ChangeEvent, useState, FormEvent, useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 import { RegisterFormContainer } from "./RegisterFormContainer";
 import { RegisterInformation } from "../../redux/interfaces/userInterfaces";
-import { registerUserThunk } from "../../redux/thunks/thunks";
+import { registerUserThunk } from "../../redux/thunks/userThunks/userThunks";
 import { useAppDispatch } from "../../redux/store/hooks";
 
 const RegisterForm = (): JSX.Element => {
