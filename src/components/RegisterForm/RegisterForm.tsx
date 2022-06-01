@@ -4,8 +4,12 @@ import { RegisterFormContainer } from "./RegisterFormContainer";
 import { RegisterInformation } from "../../redux/interfaces/UserInterfaces";
 import { registerUserThunk } from "../../redux/thunks/userThunks/userThunks";
 import { useAppDispatch } from "../../redux/store/hooks";
+import { loadEntriesThunk } from "../../redux/thunks/diaryThunks/diaryThunks";
 
 const RegisterForm = (): JSX.Element => {
+  const token: string =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQ2hhbXBhZ25lIiwic3VybmFtZSI6IlBhcGkiLCJ1c2VybmFtZSI6ImVsYXlhcyIsImlhdCI6MTY1NDA4NDM1M30.jVRRrjo0Fc3a6fti4HXpOWS8_rW-5IdtJ3HdwugvLGc";
+
   const formInitialState = {
     name: "",
     surname: "",
@@ -45,7 +49,8 @@ const RegisterForm = (): JSX.Element => {
       return;
     }
     setButtonDisabled(true);
-  }, [formData]);
+    dispatch(loadEntriesThunk(token));
+  }, [formData, dispatch]);
 
   return (
     <RegisterFormContainer>

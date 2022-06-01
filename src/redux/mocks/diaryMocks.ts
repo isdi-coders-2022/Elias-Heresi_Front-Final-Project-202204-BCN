@@ -30,3 +30,24 @@ export const mockDiary = {
   username: "champagne_papi",
   diary: [mockFirstEntry, mockSecondEntry],
 } as Diary;
+
+export const mockApiGetResponse = {
+  username: "marta",
+  diary: [
+    {
+      date: "2020-05-18T14:10:30.000Z",
+      vitality: 4,
+      positiveEmotion: 10,
+      engagement: 4,
+      relationships: 7,
+      meaning: 4,
+      accomplishment: 6,
+      wellBeing: 6,
+      image:
+        "https://thumbs.dreamstime.com/b/cierra-los-empresarios-d%C3%A1ndole-la-mano-durante-una-reuni%C3%B3n-empresa-de-negocios-transacciones-apret%C3%B3n-manos-165281340.jpg",
+      commentary: "Had a good day at the office. Excited on what is coming",
+      id: null,
+    },
+  ],
+  id: "62972bb8798815da176d11b4",
+};
