@@ -2,7 +2,7 @@
 
 exports[`Given the Login page component When it's invoked Then it should always match this snapshot 1`] = `
 <div
-  className="sc-gsnTZi jPXtGa"
+  className="sc-gsnTZi hjWrFS"
 >
   <img
     alt="Placeholder"
@@ -19,7 +19,7 @@ exports[`Given the Login page component When it's invoked Then it should always 
       Login to your account
     </h2>
     <div
-      className="sc-bczRLJ kpSipn"
+      className="sc-bczRLJ brPyMg"
     >
       <form
         autoComplete="off"

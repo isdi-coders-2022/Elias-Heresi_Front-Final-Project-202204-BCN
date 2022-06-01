@@ -1,12 +1,11 @@
 import styled from "styled-components";
 
 export const LoginContainer = styled.div`
-  height: 100vh;
+  height: 100%;
   background-color: rgb(111, 219, 135);
   text-align: center;
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: space-around;
   div {
     display: flex;
@@ -24,6 +23,7 @@ export const LoginContainer = styled.div`
   img {
     width: 500px;
     height: auto;
+    object-fit: cover;
   }
   @media (max-width: 900px) {
     .login__image {
