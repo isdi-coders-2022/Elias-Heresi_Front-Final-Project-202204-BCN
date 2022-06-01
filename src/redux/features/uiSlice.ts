@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Ui } from "../interfaces/uiInterface";
+import { Ui } from "../interfaces/UiInterface";
 
 const initialState = {
   loading: false,

@@ -2,7 +2,7 @@ import { LoginFormContainer } from "./LoginFormContainer";
 
 import { ChangeEvent, useState, FormEvent, useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
-import { LoginUser } from "../../redux/interfaces/userInterfaces";
+import { LoginUser } from "../../redux/interfaces/UserInterfaces";
 import { loginUserThunk } from "../../redux/thunks/userThunks/userThunks";
 import { useAppDispatch } from "../../redux/store/hooks";
 
