@@ -8,7 +8,7 @@ import {
   RegisterInformation,
   LoginUser,
   ApiLoginResponse,
-} from "../../interfaces/userInterfaces";
+} from "../../interfaces/UserInterfaces";
 import {
   finishedLoadingActionCreator,
   loadingActionCreator,
