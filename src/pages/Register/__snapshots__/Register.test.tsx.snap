@@ -2,7 +2,7 @@
 
 exports[`Given the Register page component When it's invoked Then it should always match this snapshot 1`] = `
 <div
-  className="sc-gsnTZi iYDljS"
+  className="sc-dkzDqf hwsKjx"
 >
   <img
     alt="Placeholder"
@@ -19,7 +19,7 @@ exports[`Given the Register page component When it's invoked Then it should alwa
       Sign up to improve your life, one day at a time
     </h2>
     <div
-      className="sc-bczRLJ brPyMg"
+      className="sc-gsnTZi llAkgu"
     >
       <form
         autoComplete="off"
