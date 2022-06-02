@@ -3,6 +3,7 @@ import RegisterForm from "./RegisterForm";
 import store from "../../redux/store/store";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { BrowserRouter } from "react-router-dom";
 
 const mockDispatch = jest.fn();
 
@@ -13,14 +14,16 @@ jest.mock("react-redux", () => ({
 
 describe("Given the RegisterForm component", () => {
   describe("When invoked", () => {
-    test("Then 2 buttons and 4 input boxes will be rendered", () => {
-      const expectedButtons = 2;
+    test("Then 1 button (the other is a link) and 4 input boxes will be rendered", () => {
+      const expectedButtons = 1;
       const expectedInputBoxes = 4;
 
       render(
-        <Provider store={store}>
-          <RegisterForm />
-        </Provider>
+        <BrowserRouter>
+          <Provider store={store}>
+            <RegisterForm />
+          </Provider>
+        </BrowserRouter>
       );
 
       const searchedButtons = screen.getAllByRole("button");
@@ -33,9 +36,11 @@ describe("Given the RegisterForm component", () => {
   describe("When invoked, and the submit button is enabled and clicked on", () => {
     test("Then an action will be dispatched", () => {
       render(
-        <Provider store={store}>
-          <RegisterForm />
-        </Provider>
+        <BrowserRouter>
+          <Provider store={store}>
+            <RegisterForm />
+          </Provider>
+        </BrowserRouter>
       );
 
       const nameInputText = screen.getByLabelText("Name");
