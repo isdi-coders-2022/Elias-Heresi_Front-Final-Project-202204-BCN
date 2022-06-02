@@ -5,7 +5,13 @@ import LoginForm from "./LoginForm";
 import userEvent from "@testing-library/user-event";
 import { BrowserRouter } from "react-router-dom";
 
+const mockUseNavigate = jest.fn();
 const mockDispatch = jest.fn();
+
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  useNavigate: () => mockUseNavigate,
+}));
 
 jest.mock("react-redux", () => ({
   ...jest.requireActual("react-redux"),
@@ -36,11 +42,11 @@ describe("Given the RegisterForm component", () => {
   describe("When invoked, and the submit button is enabled and clicked on", () => {
     test("Then an action will be dispatched", () => {
       render(
-        <BrowserRouter>
-          <Provider store={store}>
+        <Provider store={store}>
+          <BrowserRouter>
             <LoginForm />
-          </Provider>
-        </BrowserRouter>
+          </BrowserRouter>
+        </Provider>
       );
 
       const usernameInputText = screen.getByLabelText("Username");
