@@ -19,7 +19,7 @@ exports[`Given the Login page component When it's invoked Then it should always 
       Login to your account
     </h2>
     <div
-      className="sc-bczRLJ brPyMg"
+      className="sc-bczRLJ fUXCFd"
     >
       <form
         autoComplete="off"

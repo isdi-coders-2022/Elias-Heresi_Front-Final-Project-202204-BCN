@@ -19,7 +19,7 @@ exports[`Given the Register page component When it's invoked Then it should alwa
       Sign up to improve your life, one day at a time
     </h2>
     <div
-      className="sc-gsnTZi llAkgu"
+      className="sc-gsnTZi eukqAv"
     >
       <form
         autoComplete="off"

@@ -6,6 +6,7 @@ export const RegisterFormContainer = styled.div`
   border-radius: 25px;
   background-color: rgb(151, 227, 168);
   width: 90%;
+  min-width: 300px;
   max-width: 400px;
 
   form {

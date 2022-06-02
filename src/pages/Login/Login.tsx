@@ -3,9 +3,10 @@ import LoginForm from "../../components/LoginForm/LoginForm";
 import { LoginContainer } from "./LoginContainer";
 import { RootState } from "../../redux/store/store";
 import Loading from "../../components/Loading/Loading";
+import { Ui } from "../../redux/interfaces/UiInterface";
 
 const Login = () => {
-  const loading: boolean = useSelector((state: RootState) => state.ui.loading);
+  const { loading }: Ui = useSelector((state: RootState) => state.ui);
 
   return (
     <>

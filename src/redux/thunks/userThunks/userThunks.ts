@@ -1,6 +1,9 @@
 import axios from "axios";
 import jwtDecode from "jwt-decode";
-import { loginActionCreator } from "../../features/userSlice";
+import {
+  loginActionCreator,
+  logoutActionCreator,
+} from "../../features/userSlice";
 import { AppDispatch } from "../../store/store";
 
 import {
@@ -12,6 +15,7 @@ import {
 import {
   finishedLoadingActionCreator,
   loadingActionCreator,
+  feedbackOnActionCreator,
 } from "../../features/uiSlice";
 
 export const registerUserThunk =
@@ -35,6 +39,7 @@ export const registerUserThunk =
       const userInfo: UserData = jwtDecode(token);
       dispatch(loginActionCreator(userInfo));
       dispatch(finishedLoadingActionCreator());
+      dispatch(feedbackOnActionCreator());
     } catch (error) {
       dispatch(finishedLoadingActionCreator());
     }
@@ -43,6 +48,7 @@ export const registerUserThunk =
 export const loginUserThunk =
   (loginInformation: LoginUser) => async (dispatch: AppDispatch) => {
     try {
+      dispatch(loadingActionCreator());
       const route: string = `${process.env.REACT_APP_API_URL}user/login`;
       const {
         data: { token },
@@ -51,7 +57,13 @@ export const loginUserThunk =
       const userInfo: UserData = jwtDecode(token);
       dispatch(loginActionCreator(userInfo));
       dispatch(finishedLoadingActionCreator());
+      dispatch(feedbackOnActionCreator());
     } catch (error) {
       dispatch(finishedLoadingActionCreator());
     }
   };
+
+export const logOutUserThunk = () => (dispatch: AppDispatch) => {
+  localStorage.removeItem("token");
+  dispatch(logoutActionCreator());
+};
