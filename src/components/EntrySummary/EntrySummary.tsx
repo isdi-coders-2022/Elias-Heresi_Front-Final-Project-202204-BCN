@@ -1,15 +1,13 @@
 import { Button, Card, Row, Col } from "react-bootstrap";
 import { FaTimesCircle } from "react-icons/fa";
+import PermaChart from "../PermaChart/PermaChart";
 
 const EntrySummary = (): JSX.Element => {
   return (
     <Card style={{ width: "30rem" }}>
       <Row className="no-gutters">
-        <Col>
-          <Card.Img
-            variant="top"
-            src="https://user-images.githubusercontent.com/30630774/35770613-9a038f80-08ec-11e8-9a6a-2e9e7d99e0c8.png"
-          />
+        <Col xs={{ span: 6 }}>
+          <PermaChart values={[1, 2, 3, 4, 5, 6]} />
         </Col>
         <Col>
           <Card.Body>
