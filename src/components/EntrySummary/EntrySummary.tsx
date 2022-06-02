@@ -1,5 +1,5 @@
 import { Button, Card, Row, Col } from "react-bootstrap";
-import { FaTimesCircle, FaEdit } from "react-icons/fa";
+import { FaTimesCircle } from "react-icons/fa";
 
 const EntrySummary = (): JSX.Element => {
   return (
