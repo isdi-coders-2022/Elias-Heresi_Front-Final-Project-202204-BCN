@@ -8,3 +8,7 @@ export interface PermaChartData {
   labels: string[];
   datasets: [{ label: string; data: number[]; backgroundColor: string[] }];
 }
+
+export interface PermavValues {
+  values: number[];
+}
