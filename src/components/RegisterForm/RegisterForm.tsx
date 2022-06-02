@@ -1,7 +1,7 @@
 import { ChangeEvent, useState, FormEvent, useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 import { RegisterFormContainer } from "./RegisterFormContainer";
-import { RegisterInformation } from "../../redux/interfaces/UserInterfaces";
+import { RegisterInformation } from "../../redux/interfaces/UserInterface";
 import { registerUserThunk } from "../../redux/thunks/userThunks/userThunks";
 import { useAppDispatch } from "../../redux/store/hooks";
 import { loadEntriesThunk } from "../../redux/thunks/diaryThunks/diaryThunks";

@@ -24,3 +24,7 @@ export interface DiaryState {
   total: number;
   collection: Collection;
 }
+
+export interface FakeInterface {
+  change: string;
+}
