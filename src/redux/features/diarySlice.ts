@@ -20,16 +20,14 @@ const diarySlice = createSlice({
       ...diary,
       collection: [],
     }),
-    nextPage: (diary: DiaryState) =>
-      void {
-        ...diary,
-        page: (diary.page += 1),
-      },
-    previousPage: (diary: DiaryState) =>
-      void {
-        ...diary,
-        page: (diary.page -= 1),
-      },
+    nextPage: (diary: DiaryState) => ({
+      ...diary,
+      page: diary.page + 1,
+    }),
+    previousPage: (diary: DiaryState) => ({
+      ...diary,
+      page: diary.page - 1,
+    }),
   },
 });
 
