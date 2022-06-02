@@ -1,10 +1,11 @@
-import PermaChart from "../../components/PermaChart/PermaChart";
+import EntrySummary from "../../components/EntrySummary/EntrySummary";
+import { mockApiGetResponse } from "../../redux/mocks/diaryMocks";
 import { HistoricContainer } from "./HistoricContainer";
 
 const Historic = () => {
   return (
     <HistoricContainer>
-      <PermaChart values={[1, 2, 3, 4, 5, 6]} />
+      <EntrySummary entry={mockApiGetResponse[0]} />
     </HistoricContainer>
   );
 };

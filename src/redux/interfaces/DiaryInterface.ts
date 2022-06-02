@@ -11,6 +11,19 @@ export interface DiaryEntry {
   commentary: string;
 }
 
+export interface DiaryApiResponse {
+  date: string;
+  vitality: number;
+  positiveEmotions: number;
+  engagement: number;
+  relationships: number;
+  meaning: number;
+  accomplishment: number;
+  wellBeing: number;
+  image: string;
+  commentary: string;
+}
+
 export interface Diary {
   username: string;
   diary: Collection;

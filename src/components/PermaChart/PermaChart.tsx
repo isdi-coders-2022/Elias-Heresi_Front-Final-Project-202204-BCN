@@ -2,6 +2,7 @@ import { Chart, ArcElement, RadialLinearScale } from "chart.js";
 import { PolarArea } from "react-chartjs-2";
 import { PermavValues } from "../../redux/interfaces/ChartInterfaces";
 import { definePermaValues } from "../../utils/definePermaValues";
+import { PermaChartContainer } from "./PermaChartContainer";
 
 Chart.register(RadialLinearScale);
 Chart.register(ArcElement);
@@ -19,7 +20,11 @@ const options = {
 const PermaChart = ({ values }: PermavValues): JSX.Element => {
   const data = definePermaValues(values);
 
-  return <PolarArea data={data} options={options} />;
+  return (
+    <PermaChartContainer>
+      <PolarArea data={data} options={options} />
+    </PermaChartContainer>
+  );
 };
 
 export default PermaChart;

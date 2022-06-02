@@ -35,7 +35,7 @@ export const mockApiGetResponse = [
   {
     date: "2020-05-18T14:10:30.000Z",
     vitality: 4,
-    positiveEmotion: 10,
+    positiveEmotions: 10,
     engagement: 4,
     relationships: 7,
     meaning: 4,
