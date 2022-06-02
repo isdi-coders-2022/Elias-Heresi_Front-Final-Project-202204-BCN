@@ -130,13 +130,13 @@ exports[`Given the Register page component When it's invoked Then it should alwa
           <p>
             Already a member?
           </p>
-          <button
+          <a
             className="btn btn-secondary"
-            disabled={false}
-            type="button"
+            href="/login"
+            onClick={[Function]}
           >
             Login
-          </button>
+          </a>
         </section>
       </form>
     </div>

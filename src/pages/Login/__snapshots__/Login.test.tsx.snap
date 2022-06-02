@@ -2,7 +2,7 @@
 
 exports[`Given the Login page component When it's invoked Then it should always match this snapshot 1`] = `
 <div
-  className="sc-gsnTZi hjWrFS"
+  className="sc-gsnTZi ftoCxN"
 >
   <img
     alt="Placeholder"
@@ -76,13 +76,13 @@ exports[`Given the Login page component When it's invoked Then it should always 
           <p>
             Not a member yet?
           </p>
-          <button
+          <a
             className="btn btn-secondary"
-            disabled={false}
-            type="button"
+            href="/register"
+            onClick={[Function]}
           >
             Register
-          </button>
+          </a>
         </section>
       </form>
     </div>
