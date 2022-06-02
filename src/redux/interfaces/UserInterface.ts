@@ -20,3 +20,5 @@ export interface RegisterInformation extends UserData {
 export interface ApiLoginResponse {
   data: { token: string };
 }
+
+export type Token = string | null;
