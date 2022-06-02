@@ -1,6 +1,9 @@
 import axios from "axios";
 import jwtDecode from "jwt-decode";
-import { loginActionCreator } from "../../features/userSlice";
+import {
+  loginActionCreator,
+  logoutActionCreator,
+} from "../../features/userSlice";
 import { AppDispatch } from "../../store/store";
 
 import {
@@ -59,3 +62,8 @@ export const loginUserThunk =
       dispatch(finishedLoadingActionCreator());
     }
   };
+
+export const logOutUserThunk = () => (dispatch: AppDispatch) => {
+  localStorage.removeItem("token");
+  dispatch(logoutActionCreator());
+};
