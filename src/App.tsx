@@ -11,6 +11,9 @@ import {
   logoutActionCreator,
 } from "./redux/features/userSlice";
 import { useAppDispatch } from "./redux/store/hooks";
+import { resetCollectionActionCreator } from "./redux/features/diarySlice";
+import { loadEntriesThunk } from "./redux/thunks/diaryThunks/diaryThunks";
+
 const App = (): JSX.Element => {
   const dispatch = useAppDispatch();
 
@@ -20,8 +23,10 @@ const App = (): JSX.Element => {
     if (token) {
       const userInfo: UserData = jwtDecode(token);
       dispatch(loginActionCreator(userInfo));
+      dispatch(loadEntriesThunk(token));
     } else {
       dispatch(logoutActionCreator());
+      dispatch(resetCollectionActionCreator());
     }
   }, [dispatch]);
 

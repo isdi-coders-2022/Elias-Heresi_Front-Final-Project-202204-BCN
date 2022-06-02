@@ -5,11 +5,7 @@ import { Button, Form } from "react-bootstrap";
 import { loginUserThunk } from "../../redux/thunks/userThunks/userThunks";
 import { useAppDispatch } from "../../redux/store/hooks";
 import { Link } from "react-router-dom";
-
-interface LoginUser {
-  username: string;
-  password: string;
-}
+import { LoginUser } from "../../redux/interfaces/UserInterface";
 
 const LoginForm = (): JSX.Element => {
   const formInitialState = {
