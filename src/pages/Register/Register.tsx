@@ -3,9 +3,21 @@ import Loading from "../../components/Loading/Loading";
 import RegisterForm from "../../components/RegisterForm/RegisterForm";
 import { RegisterContainer } from "./RegisterContainer";
 import { RootState } from "../../redux/store/store";
+import { UserState } from "../../redux/interfaces/UserInterface";
+import { Ui } from "../../redux/interfaces/UiInterface";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const Register = () => {
-  const loading: boolean = useSelector((state: RootState) => state.ui.loading);
+  const { loading }: Ui = useSelector((state: RootState) => state.ui);
+  const { logged }: UserState = useSelector((state: RootState) => state.user);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (logged) {
+      navigate("/historic");
+    }
+  }, [navigate, logged]);
 
   return (
     <RegisterContainer>
