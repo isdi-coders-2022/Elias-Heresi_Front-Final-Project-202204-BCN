@@ -17,6 +17,7 @@ import {
   loadingActionCreator,
   feedbackOnActionCreator,
 } from "../../features/uiSlice";
+import { loadEntriesThunk } from "../diaryThunks/diaryThunks";
 
 export const registerUserThunk =
   (formData: RegisterInformation) => async (dispatch: AppDispatch) => {
@@ -38,6 +39,7 @@ export const registerUserThunk =
       localStorage.setItem("token", token);
       const userInfo: UserData = jwtDecode(token);
       dispatch(loginActionCreator(userInfo));
+      dispatch(loadEntriesThunk(token));
       dispatch(finishedLoadingActionCreator());
       dispatch(feedbackOnActionCreator());
     } catch (error) {
@@ -56,6 +58,7 @@ export const loginUserThunk =
       localStorage.setItem("token", token);
       const userInfo: UserData = jwtDecode(token);
       dispatch(loginActionCreator(userInfo));
+      dispatch(loadEntriesThunk(token));
       dispatch(finishedLoadingActionCreator());
       dispatch(feedbackOnActionCreator());
     } catch (error) {

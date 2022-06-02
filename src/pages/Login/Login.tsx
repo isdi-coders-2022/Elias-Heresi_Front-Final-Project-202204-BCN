@@ -21,8 +21,8 @@ const Login = () => {
 
   return (
     <>
+      {loading && <Loading />}
       <LoginContainer>
-        {loading && <Loading />}
         <img
           src="https://csbs.utah.edu/_resources/images/Happy%20People.jpg"
           alt="Placeholder"

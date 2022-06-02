@@ -24,6 +24,10 @@ export interface DiaryApiResponse {
   commentary: string;
 }
 
+export interface GetApiResponse {
+  data: { diary: Collection };
+}
+
 export interface Diary {
   username: string;
   diary: Collection;
