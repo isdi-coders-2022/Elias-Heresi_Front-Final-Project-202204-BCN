@@ -6,7 +6,7 @@ import { definePermaValues } from "../../utils/definePermaValues";
 Chart.register(RadialLinearScale);
 Chart.register(ArcElement);
 
-const PermaChart = (): JSX.Element => {
+const PermaChart = ({ values }: any): JSX.Element => {
   const options = {
     plugins: { legend: { display: true } },
     scales: {
@@ -17,8 +17,8 @@ const PermaChart = (): JSX.Element => {
     },
   };
 
-  const data = definePermaValues([1, 2, 3, 4, 5, 6]);
-  console.log(data);
+  console.log(values);
+  const data = definePermaValues(values);
 
   return <PolarArea data={data} options={options} />;
 };

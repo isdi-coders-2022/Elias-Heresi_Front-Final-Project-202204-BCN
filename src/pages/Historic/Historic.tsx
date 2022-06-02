@@ -4,7 +4,7 @@ import { HistoricContainer } from "./HistoricContainer";
 const Historic = () => {
   return (
     <HistoricContainer>
-      <PermaChart />
+      <PermaChart values={[1, 2, 3, 4, 5, 6]} />
     </HistoricContainer>
   );
 };
