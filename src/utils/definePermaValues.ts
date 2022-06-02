@@ -6,7 +6,7 @@ export const definePermaValues = (values: number[]) => {
     datasets: [
       {
         label: "PERMA chart",
-        data: [6, 9, 7, 3, 4, 9],
+        data: values,
         backgroundColor: [
           "rgb(255, 99, 132)",
           "rgb(75, 192, 192)",
