@@ -4,6 +4,7 @@ import { ChangeEvent, useState, FormEvent, useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 import { loginUserThunk } from "../../redux/thunks/userThunks/userThunks";
 import { useAppDispatch } from "../../redux/store/hooks";
+import { Link } from "react-router-dom";
 
 interface LoginUser {
   username: string;
@@ -75,9 +76,9 @@ const LoginForm = (): JSX.Element => {
 
           <p>Not a member yet?</p>
 
-          <Button variant="secondary" type="button">
+          <Link to="/register" className="btn btn-secondary">
             Register
-          </Button>
+          </Link>
         </section>
       </Form>
     </LoginFormContainer>

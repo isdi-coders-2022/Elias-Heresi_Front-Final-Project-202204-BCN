@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const LoginContainer = styled.div`
-  height: 100%;
+  height: 100vh;
   background-color: rgb(111, 219, 135);
   text-align: center;
   display: flex;
