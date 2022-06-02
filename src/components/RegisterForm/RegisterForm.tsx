@@ -5,6 +5,7 @@ import { RegisterInformation } from "../../redux/interfaces/UserInterface";
 import { registerUserThunk } from "../../redux/thunks/userThunks/userThunks";
 import { useAppDispatch } from "../../redux/store/hooks";
 import { loadEntriesThunk } from "../../redux/thunks/diaryThunks/diaryThunks";
+import { Link } from "react-router-dom";
 
 const RegisterForm = (): JSX.Element => {
   const token: string =
@@ -116,10 +117,9 @@ const RegisterForm = (): JSX.Element => {
           </Button>
 
           <p>Already a member?</p>
-
-          <Button variant="secondary" type="button">
+          <Link to="/login" className="btn btn-secondary">
             Login
-          </Button>
+          </Link>
         </section>
       </Form>
     </RegisterFormContainer>
