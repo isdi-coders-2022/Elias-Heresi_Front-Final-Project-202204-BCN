@@ -36,12 +36,12 @@ const EntrySummary = ({
         <Col>
           <Card.Body>
             <Row>
-              <Col xs={{ span: 7 }}>
+              <Col xs={{ span: 8 }}>
                 <Card.Title style={{ fontSize: 20 }}>
-                  {date.toString().slice(0, 10)}
+                  {date.toString().slice(0, 10).replaceAll("-", "/")}
                 </Card.Title>
               </Col>
-              <Col xs={{ span: 2, offset: 3 }}>
+              <Col xs={{ span: 2, offset: 2 }}>
                 <FaTimesCircle size={20} color={"red"} />
               </Col>
             </Row>

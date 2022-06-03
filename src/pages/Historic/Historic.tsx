@@ -1,3 +1,4 @@
+import { Row, Col } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import EntrySummary from "../../components/EntrySummary/EntrySummary";
 import NavBar from "../../components/NavBar/NavBar";
@@ -10,16 +11,18 @@ const Historic = () => {
     (state: RootState) => state.diary
   );
 
-  console.log(collection[0]);
-
   return (
     <>
       <NavBar />
       <HistoricContainer>
-        {collection.length > 0 &&
-          collection.map((entry, index) => (
-            <EntrySummary entry={entry} key={index} />
-          ))}
+        <Row>
+          {collection.length > 0 &&
+            collection.map((entry, index) => (
+              <Col>
+                <EntrySummary entry={entry} key={index} />
+              </Col>
+            ))}
+        </Row>
       </HistoricContainer>
     </>
   );

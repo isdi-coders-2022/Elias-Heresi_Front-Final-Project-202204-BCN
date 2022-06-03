@@ -104,7 +104,11 @@ Array [
     </div>
   </nav>,
   <div
-    className="sc-gsnTZi jGMfoV"
-  />,
+    className="sc-gsnTZi fRcMWa"
+  >
+    <div
+      className="row"
+    />
+  </div>,
 ]
 `;
