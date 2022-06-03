@@ -10,6 +10,7 @@ import { loginActionCreator } from "./redux/features/userSlice";
 import { useAppDispatch } from "./redux/store/hooks";
 import { loadEntriesThunk } from "./redux/thunks/diaryThunks/diaryThunks";
 import { logOutUserThunk } from "./redux/thunks/userThunks/userThunks";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = (): JSX.Element => {
   const dispatch = useAppDispatch();
