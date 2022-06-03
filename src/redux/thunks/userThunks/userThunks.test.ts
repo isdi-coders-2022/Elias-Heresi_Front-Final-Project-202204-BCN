@@ -1,3 +1,4 @@
+import { loginActionCreator } from "../../features/userSlice";
 import { server } from "./mocks/server";
 import {
   loginUserThunk,
@@ -19,6 +20,7 @@ describe("Given the loginUserThunk", () => {
   describe("When invoked", () => {
     test("Then the dispatch function will be called", async () => {
       const dispatch = jest.fn();
+
       const thunk = loginUserThunk({ username: "Daddy", password: "yankee" });
       await thunk(dispatch);
 

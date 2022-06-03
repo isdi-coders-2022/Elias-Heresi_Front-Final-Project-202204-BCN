@@ -1,12 +1,12 @@
 import { useSelector } from "react-redux";
 import LoginForm from "../../components/LoginForm/LoginForm";
-import { LoginContainer } from "./LoginContainer";
 import { RootState } from "../../redux/store/store";
 import Loading from "../../components/Loading/Loading";
 import { Ui } from "../../redux/interfaces/UiInterface";
 import { useEffect } from "react";
 import { UserState } from "../../redux/interfaces/UserInterface";
 import { useNavigate } from "react-router-dom";
+import { RegisterContainer } from "../Register/RegisterContainer";
 
 const Login = () => {
   const { loading }: Ui = useSelector((state: RootState) => state.ui);
@@ -22,18 +22,19 @@ const Login = () => {
   return (
     <>
       {loading && <Loading />}
-      <LoginContainer>
+
+      <RegisterContainer>
         <img
           src="https://csbs.utah.edu/_resources/images/Happy%20People.jpg"
           alt="Placeholder"
-          className="login__image"
+          className="form__image"
         />
         <div className="login__form">
           <h1>Bonanza</h1>
           <h2>Login to your account</h2>
           <LoginForm />
         </div>
-      </LoginContainer>
+      </RegisterContainer>
     </>
   );
 };

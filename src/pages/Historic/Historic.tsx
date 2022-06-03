@@ -16,6 +16,7 @@ const Historic = () => {
       <NavBar />
       <HistoricContainer>
         <Row>
+          <h1>Your well-being history</h1>
           {collection.length > 0 &&
             collection.map((entry, index) => (
               <Col>

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const RegisterContainer = styled.div`
-  height: 100%;
+  height: 100vh;
   background-color: rgb(111, 219, 135);
   text-align: center;
   display: flex;
@@ -21,12 +21,12 @@ export const RegisterContainer = styled.div`
     }
   }
   img {
-    width: 500px;
+    width: 300px;
     height: 400px;
     object-fit: cover;
   }
   @media (max-width: 800px) {
-    .register__image {
+    .form__image {
       display: none;
     }
   }

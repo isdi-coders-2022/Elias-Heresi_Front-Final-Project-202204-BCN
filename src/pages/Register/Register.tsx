@@ -26,7 +26,7 @@ const Register = () => {
         <img
           src="https://www.happiness.com/community/uploads/monthly_2020_08/happy-children-kids-joyful.jpg.307017a030aa7b740d260c45d39745b2.jpg"
           alt="Placeholder"
-          className="register__image"
+          className="form__image"
         />
         <div className="register__form">
           <h1>Bonanza</h1>
