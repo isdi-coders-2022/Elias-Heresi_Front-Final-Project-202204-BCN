@@ -15,28 +15,27 @@ const NavBar = (): JSX.Element => {
     <NavBarContainer>
       <Navbar expand="lg">
         <Container>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav" className="ml-auto">
-            <Nav>
-              <Nav.Link href="/historic">Past entries</Nav.Link>
-              <Nav.Link href="#link">Know thyself</Nav.Link>
-            </Nav>
+            <Nav.Link href="/historic">Past entries</Nav.Link>
+            <Nav.Link href="#link">Know thyself</Nav.Link>
           </Navbar.Collapse>
-          <Nav>
-            <Navbar.Brand href="/historic">Bonanza</Navbar.Brand>
-            <NavDropdown
-              title={
-                <span>
-                  User&nbsp;
-                  <FaUser size={20} color={"black"} />
-                </span>
-              }
-              id="basic-nav-dropdown"
-            >
-              <NavDropdown.Item href="#action/3.1">My profile</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item onClick={logout}>Logout</NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
+          <Navbar.Brand href="/historic" className="ml-auto">
+            Bonanza
+          </Navbar.Brand>
+          <NavDropdown
+            title={
+              <span>
+                User&nbsp;
+                <FaUser size={20} color={"black"} />
+              </span>
+            }
+            id="basic-nav-dropdown"
+          >
+            <NavDropdown.Item href="/historic">My profile</NavDropdown.Item>
+            <NavDropdown.Divider />
+            <NavDropdown.Item onClick={logout}>Logout</NavDropdown.Item>
+          </NavDropdown>
         </Container>
       </Navbar>
     </NavBarContainer>
