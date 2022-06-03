@@ -1,7 +1,7 @@
 export interface DiaryEntry {
   date: Date;
   vitality: number;
-  positiveEmotions: number;
+  positiveEmotion: number;
   engagement: number;
   relationships: number;
   meaning: number;

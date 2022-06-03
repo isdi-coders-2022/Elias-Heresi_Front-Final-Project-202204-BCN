@@ -5,7 +5,7 @@ import PermaChart from "../PermaChart/PermaChart";
 
 const EntrySummary = ({
   entry: {
-    positiveEmotions,
+    positiveEmotion,
     engagement,
     relationships,
     meaning,
@@ -24,7 +24,7 @@ const EntrySummary = ({
         <Col xs={{ span: 6 }}>
           <PermaChart
             values={[
-              positiveEmotions,
+              positiveEmotion,
               engagement,
               relationships,
               meaning,
