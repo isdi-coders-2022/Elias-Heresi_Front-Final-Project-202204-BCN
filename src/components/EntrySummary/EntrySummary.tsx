@@ -1,11 +1,11 @@
 import { Button, Card, Row, Col } from "react-bootstrap";
 import { FaTimesCircle } from "react-icons/fa";
-import { DiaryApiResponse } from "../../redux/interfaces/DiaryInterface";
+import { DiaryEntry } from "../../redux/interfaces/DiaryInterface";
 import PermaChart from "../PermaChart/PermaChart";
 
 const EntrySummary = ({
   entry: {
-    positiveEmotions,
+    positiveEmotion,
     engagement,
     relationships,
     meaning,
@@ -16,7 +16,7 @@ const EntrySummary = ({
     date,
   },
 }: {
-  entry: DiaryApiResponse;
+  entry: DiaryEntry;
 }): JSX.Element => {
   return (
     <Card style={{ width: "30rem" }}>
@@ -24,7 +24,7 @@ const EntrySummary = ({
         <Col xs={{ span: 6 }}>
           <PermaChart
             values={[
-              positiveEmotions,
+              positiveEmotion,
               engagement,
               relationships,
               meaning,
@@ -36,12 +36,12 @@ const EntrySummary = ({
         <Col>
           <Card.Body>
             <Row>
-              <Col xs={{ span: 7 }}>
+              <Col xs={{ span: 8 }}>
                 <Card.Title style={{ fontSize: 20 }}>
-                  {date.slice(0, 10)}
+                  {date.toString().slice(0, 10).replaceAll("-", "/")}
                 </Card.Title>
               </Col>
-              <Col xs={{ span: 2, offset: 3 }}>
+              <Col xs={{ span: 2, offset: 2 }}>
                 <FaTimesCircle size={20} color={"red"} />
               </Col>
             </Row>
