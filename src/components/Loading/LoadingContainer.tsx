@@ -6,6 +6,10 @@ const LoadingContainer = styled.section`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    &.loader__text {
+      display: none;
+      font-size: 0.1px;
+    }
   }
 
   #container {

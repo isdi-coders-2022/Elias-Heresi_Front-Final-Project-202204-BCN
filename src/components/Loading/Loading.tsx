@@ -3,6 +3,7 @@ import LoadingContainer from "./LoadingContainer";
 const Loading = (): JSX.Element => {
   return (
     <LoadingContainer>
+      <div className="loader__text">Loading...</div>
       <div id="container">
         <svg viewBox="0 0 100 100">
           <defs>
