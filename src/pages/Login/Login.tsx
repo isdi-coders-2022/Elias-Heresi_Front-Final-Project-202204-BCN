@@ -25,7 +25,7 @@ const Login = () => {
 
       <RegisterContainer>
         <img
-          src="https://csbs.utah.edu/_resources/images/Happy%20People.jpg"
+          src="https://pbs.twimg.com/media/EnTgFNJWEAA7fGQ.jpg"
           alt="Placeholder"
           className="form__image"
         />
