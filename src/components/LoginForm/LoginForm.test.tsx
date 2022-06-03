@@ -61,4 +61,20 @@ describe("Given the RegisterForm component", () => {
       expect(mockDispatch).toHaveBeenCalled();
     });
   });
+  describe("When the register button is clicked on", () => {
+    test("Then the user will be redirected to another page", () => {
+      render(
+        <Provider store={store}>
+          <BrowserRouter>
+            <LoginForm />
+          </BrowserRouter>
+        </Provider>
+      );
+
+      const registerButton = screen.getByRole("button", { name: "Register" });
+      userEvent.click(registerButton);
+
+      expect(mockUseNavigate).toHaveBeenCalled();
+    });
+  });
 });
