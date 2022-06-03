@@ -7,6 +7,7 @@ import { UserState } from "../../redux/interfaces/UserInterface";
 import { Ui } from "../../redux/interfaces/UiInterface";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { ToastContainer } from "react-toastify";
 
 const Register = () => {
   const { loading }: Ui = useSelector((state: RootState) => state.ui);
@@ -22,6 +23,7 @@ const Register = () => {
   return (
     <>
       {loading && <Loading />}
+      <ToastContainer />
       <RegisterContainer>
         <img
           src="https://www.happiness.com/community/uploads/monthly_2020_08/happy-children-kids-joyful.jpg.307017a030aa7b740d260c45d39745b2.jpg"

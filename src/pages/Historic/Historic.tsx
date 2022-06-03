@@ -1,5 +1,6 @@
 import { Row, Col } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import { ToastContainer } from "react-toastify";
 import EntrySummary from "../../components/EntrySummary/EntrySummary";
 import NavBar from "../../components/NavBar/NavBar";
 import { DiaryState } from "../../redux/interfaces/DiaryInterface";
@@ -14,13 +15,14 @@ const Historic = () => {
   return (
     <>
       <NavBar />
+      <ToastContainer />
       <HistoricContainer>
         <Row>
           <h1>Your well-being history</h1>
           {collection.length > 0 &&
             collection.map((entry, index) => (
-              <Col>
-                <EntrySummary entry={entry} key={index} />
+              <Col key={index}>
+                <EntrySummary entry={entry} />
               </Col>
             ))}
         </Row>
