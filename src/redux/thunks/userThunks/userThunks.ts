@@ -18,6 +18,7 @@ import {
   feedbackOnActionCreator,
 } from "../../features/uiSlice";
 import { loadEntriesThunk } from "../diaryThunks/diaryThunks";
+import { resetCollectionActionCreator } from "../../features/diarySlice";
 
 export const registerUserThunk =
   (formData: RegisterInformation) => async (dispatch: AppDispatch) => {
@@ -69,4 +70,5 @@ export const loginUserThunk =
 export const logOutUserThunk = () => (dispatch: AppDispatch) => {
   localStorage.removeItem("token");
   dispatch(logoutActionCreator());
+  dispatch(resetCollectionActionCreator());
 };

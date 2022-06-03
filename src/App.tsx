@@ -6,13 +6,10 @@ import Login from "./pages/Login/Login";
 import Historic from "./pages/Historic/Historic";
 import CheckLogged from "./components/CheckLogged/CheckLogged";
 import jwtDecode from "jwt-decode";
-import {
-  loginActionCreator,
-  logoutActionCreator,
-} from "./redux/features/userSlice";
+import { loginActionCreator } from "./redux/features/userSlice";
 import { useAppDispatch } from "./redux/store/hooks";
-import { resetCollectionActionCreator } from "./redux/features/diarySlice";
 import { loadEntriesThunk } from "./redux/thunks/diaryThunks/diaryThunks";
+import { logOutUserThunk } from "./redux/thunks/userThunks/userThunks";
 
 const App = (): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -25,8 +22,7 @@ const App = (): JSX.Element => {
       dispatch(loginActionCreator(userInfo));
       dispatch(loadEntriesThunk(token));
     } else {
-      dispatch(logoutActionCreator());
-      dispatch(resetCollectionActionCreator());
+      dispatch(logOutUserThunk());
     }
   }, [dispatch]);
 

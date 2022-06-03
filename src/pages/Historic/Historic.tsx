@@ -1,12 +1,16 @@
 import EntrySummary from "../../components/EntrySummary/EntrySummary";
+import NavBar from "../../components/NavBar/NavBar";
 import { mockApiGetResponse } from "../../redux/mocks/diaryMocks";
 import { HistoricContainer } from "./HistoricContainer";
 
 const Historic = () => {
   return (
-    <HistoricContainer>
-      <EntrySummary entry={mockApiGetResponse[0]} />
-    </HistoricContainer>
+    <>
+      <NavBar />
+      <HistoricContainer>
+        <EntrySummary entry={mockApiGetResponse[0]} />
+      </HistoricContainer>
+    </>
   );
 };
 

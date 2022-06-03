@@ -1,115 +1,218 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Given the Historic page component When it's invoked Then it should always match this snapshot 1`] = `
-<div
-  className="sc-gsnTZi jGMfoV"
->
-  <div
-    className="card"
-    style={
-      Object {
-        "width": "30rem",
-      }
-    }
+Array [
+  <nav
+    className="navbar navbar-expand-lg navbar-light bg-light"
   >
     <div
-      className="no-gutters row"
+      className="container"
     >
+      <a
+        className="navbar-brand"
+        href="#home"
+      >
+        Bonanza
+      </a>
+      <button
+        aria-controls="/historic"
+        aria-label="Toggle navigation"
+        className="navbar-toggler collapsed"
+        onClick={[Function]}
+        type="button"
+      >
+        <span
+          className="navbar-toggler-icon"
+        />
+      </button>
       <div
-        className="col-6"
+        aria-expanded={null}
+        className="navbar-collapse collapse"
+        id="basic-navbar-nav"
       >
         <div
-          className="sc-bczRLJ icUQoL"
+          className="me-auto navbar-nav"
+          onKeyDown={[Function]}
         >
-          <canvas
-            height={150}
-            role="img"
-            width={300}
-          />
+          <a
+            className="nav-link"
+            data-rr-ui-event-key="/historic"
+            disabled={false}
+            href="/historic"
+            onClick={[Function]}
+          >
+            Home
+          </a>
+          <a
+            className="nav-link"
+            data-rr-ui-event-key="/historic"
+            disabled={false}
+            href="/historic"
+            onClick={[Function]}
+          >
+            Past entries
+          </a>
+          <a
+            className="nav-link"
+            data-rr-ui-event-key="#link"
+            disabled={false}
+            href="#link"
+            onClick={[Function]}
+          >
+            Know thyself
+          </a>
+          <div
+            className="nav-item dropdown"
+          >
+            <a
+              aria-expanded={false}
+              className="dropdown-toggle nav-link"
+              data-rr-ui-event-key={null}
+              href="#"
+              id="basic-nav-dropdown"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="button"
+              tabIndex={0}
+            >
+              <span>
+                User 
+                <svg
+                  color="black"
+                  fill="currentColor"
+                  height={20}
+                  stroke="currentColor"
+                  strokeWidth="0"
+                  style={
+                    Object {
+                      "color": "black",
+                    }
+                  }
+                  viewBox="0 0 448 512"
+                  width={20}
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"
+                  />
+                </svg>
+              </span>
+            </a>
+          </div>
         </div>
       </div>
+    </div>
+  </nav>,
+  <div
+    className="sc-gsnTZi jGMfoV"
+  >
+    <div
+      className="card"
+      style={
+        Object {
+          "width": "30rem",
+        }
+      }
+    >
       <div
-        className="col"
+        className="no-gutters row"
       >
         <div
-          className="card-body"
+          className="col-6"
         >
           <div
-            className="row"
+            className="sc-bczRLJ icUQoL"
+          >
+            <canvas
+              height={150}
+              role="img"
+              width={300}
+            />
+          </div>
+        </div>
+        <div
+          className="col"
+        >
+          <div
+            className="card-body"
           >
             <div
-              className="col-7"
+              className="row"
             >
               <div
-                className="card-title h5"
-                style={
-                  Object {
-                    "fontSize": 20,
-                  }
-                }
+                className="col-7"
               >
-                2020-05-18
+                <div
+                  className="card-title h5"
+                  style={
+                    Object {
+                      "fontSize": 20,
+                    }
+                  }
+                >
+                  2020-05-18
+                </div>
+              </div>
+              <div
+                className="col-2 offset-3"
+              >
+                <svg
+                  color="red"
+                  fill="currentColor"
+                  height={20}
+                  stroke="currentColor"
+                  strokeWidth="0"
+                  style={
+                    Object {
+                      "color": "red",
+                    }
+                  }
+                  viewBox="0 0 512 512"
+                  width={20}
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"
+                  />
+                </svg>
               </div>
             </div>
-            <div
-              className="col-2 offset-3"
-            >
-              <svg
-                color="red"
-                fill="currentColor"
-                height={20}
-                stroke="currentColor"
-                strokeWidth="0"
-                style={
-                  Object {
-                    "color": "red",
-                  }
+            <p
+              className="card-text"
+              style={
+                Object {
+                  "fontSize": 24,
+                  "fontWeight": "bold",
                 }
-                viewBox="0 0 512 512"
-                width={20}
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"
-                />
-              </svg>
-            </div>
-          </div>
-          <p
-            className="card-text"
-            style={
-              Object {
-                "fontSize": 24,
-                "fontWeight": "bold",
               }
-            }
-          >
-            Well being: 
-            6
-          </p>
-          <p
-            className="card-text"
-          >
-            Had a good day at the office. Excited on what is coming...
-          </p>
-          <div
-            className="row"
-          >
-            <div
-              className="offset-2 col"
             >
-              <button
-                className="d-flex align-items-center justify-content-center btn btn-primary"
-                disabled={false}
-                type="button"
+              Well being: 
+              6
+            </p>
+            <p
+              className="card-text"
+            >
+              Had a good day at the office. Excited on what is coming...
+            </p>
+            <div
+              className="row"
+            >
+              <div
+                className="offset-2 col"
               >
-                See details
-              </button>
+                <button
+                  className="d-flex align-items-center justify-content-center btn btn-primary"
+                  disabled={false}
+                  type="button"
+                >
+                  See details
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
