@@ -2,9 +2,13 @@ import { ChangeEvent, useState, FormEvent, useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 import { RegisterFormContainer } from "./RegisterFormContainer";
 import { RegisterInformation } from "../../redux/interfaces/UserInterface";
-import { registerUserThunk } from "../../redux/thunks/userThunks/userThunks";
+import {
+  logOutUserThunk,
+  registerUserThunk,
+} from "../../redux/thunks/userThunks/userThunks";
 import { useAppDispatch } from "../../redux/store/hooks";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { finishedLoadingActionCreator } from "../../redux/features/uiSlice";
 
 const RegisterForm = (): JSX.Element => {
   const formInitialState = {
@@ -19,6 +23,7 @@ const RegisterForm = (): JSX.Element => {
   const [buttonDisabled, setButtonDisabled] = useState(true);
 
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const changeData = (event: ChangeEvent<HTMLInputElement>): void => {
     setFormData({ ...formData, [event.target.id]: event.target.value });
@@ -32,6 +37,12 @@ const RegisterForm = (): JSX.Element => {
     event.preventDefault();
     dispatch(registerUserThunk(formData));
     resetForm();
+  };
+
+  const navigateToLogin = (): void => {
+    dispatch(logOutUserThunk());
+    dispatch(finishedLoadingActionCreator());
+    navigate("/login");
   };
 
   useEffect(() => {
@@ -112,9 +123,9 @@ const RegisterForm = (): JSX.Element => {
           </Button>
 
           <p>Already a member?</p>
-          <Link to="/login" className="btn btn-secondary">
+          <Button variant="secondary" type="button" onClick={navigateToLogin}>
             Login
-          </Link>
+          </Button>
         </section>
       </Form>
     </RegisterFormContainer>
