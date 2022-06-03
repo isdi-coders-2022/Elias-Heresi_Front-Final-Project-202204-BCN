@@ -1,6 +1,6 @@
 import { Button, Card, Row, Col } from "react-bootstrap";
 import { FaTimesCircle } from "react-icons/fa";
-import { DiaryApiResponse } from "../../redux/interfaces/DiaryInterface";
+import { DiaryEntry } from "../../redux/interfaces/DiaryInterface";
 import PermaChart from "../PermaChart/PermaChart";
 
 const EntrySummary = ({
@@ -16,7 +16,7 @@ const EntrySummary = ({
     date,
   },
 }: {
-  entry: DiaryApiResponse;
+  entry: DiaryEntry;
 }): JSX.Element => {
   return (
     <Card style={{ width: "30rem" }}>
@@ -38,7 +38,7 @@ const EntrySummary = ({
             <Row>
               <Col xs={{ span: 7 }}>
                 <Card.Title style={{ fontSize: 20 }}>
-                  {date.slice(0, 10)}
+                  {date.toString().slice(0, 10)}
                 </Card.Title>
               </Col>
               <Col xs={{ span: 2, offset: 3 }}>

@@ -33,7 +33,7 @@ export const mockDiary = {
 
 export const mockApiGetResponse = [
   {
-    date: "2020-05-18T14:10:30.000Z",
+    date: new Date("December 17, 1995 03:24:00"),
     vitality: 4,
     positiveEmotions: 10,
     engagement: 4,
