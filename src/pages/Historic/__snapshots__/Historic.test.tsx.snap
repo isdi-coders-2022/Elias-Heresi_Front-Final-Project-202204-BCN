@@ -15,7 +15,7 @@ Array [
         Bonanza
       </a>
       <button
-        aria-controls="basic-navbar-nav"
+        aria-controls="/historic"
         aria-label="Toggle navigation"
         className="navbar-toggler collapsed"
         onClick={[Function]}
@@ -36,18 +36,18 @@ Array [
         >
           <a
             className="nav-link"
-            data-rr-ui-event-key="#home"
+            data-rr-ui-event-key="/historic"
             disabled={false}
-            href="#home"
+            href="/historic"
             onClick={[Function]}
           >
             Home
           </a>
           <a
             className="nav-link"
-            data-rr-ui-event-key="#link"
+            data-rr-ui-event-key="/historic"
             disabled={false}
-            href="#link"
+            href="/historic"
             onClick={[Function]}
           >
             Past entries
