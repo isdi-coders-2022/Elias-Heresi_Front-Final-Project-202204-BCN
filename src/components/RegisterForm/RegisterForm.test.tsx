@@ -3,6 +3,7 @@ import RegisterForm from "./RegisterForm";
 import store from "../../redux/store/store";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import TestRenderer from "react-test-renderer";
 import { BrowserRouter } from "react-router-dom";
 
 const mockDispatch = jest.fn();
@@ -14,8 +15,8 @@ jest.mock("react-redux", () => ({
 
 describe("Given the RegisterForm component", () => {
   describe("When invoked", () => {
-    test("Then 1 button (the other is a link) and 4 input boxes will be rendered", () => {
-      const expectedButtons = 1;
+    test("Then 2 buttons and 4 input boxes will be rendered", () => {
+      const expectedButtons = 2;
       const expectedInputBoxes = 4;
 
       render(
@@ -59,6 +60,18 @@ describe("Given the RegisterForm component", () => {
       userEvent.click(submitButton);
 
       expect(mockDispatch).toHaveBeenCalled();
+    });
+
+    test("Then it should always match this snapshot", () => {
+      const testedLoginPage = TestRenderer.create(
+        <Provider store={store}>
+          <BrowserRouter>
+            <RegisterForm />
+          </BrowserRouter>
+        </Provider>
+      );
+
+      expect(testedLoginPage).toMatchSnapshot();
     });
   });
 });
