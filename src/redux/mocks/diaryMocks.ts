@@ -11,6 +11,7 @@ export const mockFirstEntry = {
   wellBeing: 5,
   image: "url",
   commentary: "Today was OK",
+  _id: "aa",
 } as DiaryEntry;
 
 export const mockSecondEntry = {
@@ -24,6 +25,7 @@ export const mockSecondEntry = {
   wellBeing: 7,
   image: "url",
   commentary: "Today was better",
+  _id: "aa",
 } as DiaryEntry;
 
 export const mockDiary = {
@@ -44,6 +46,6 @@ export const mockApiGetResponse = [
     image:
       "https://thumbs.dreamstime.com/b/cierra-los-empresarios-d%C3%A1ndole-la-mano-durante-una-reuni%C3%B3n-empresa-de-negocios-transacciones-apret%C3%B3n-manos-165281340.jpg",
     commentary: "Had a good day at the office. Excited on what is coming",
-    id: null,
+    _id: "aa",
   },
 ];

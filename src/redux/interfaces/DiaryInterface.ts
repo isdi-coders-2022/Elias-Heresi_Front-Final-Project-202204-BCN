@@ -9,10 +9,11 @@ export interface DiaryEntry {
   wellBeing: number;
   image: string;
   commentary: string;
+  _id: string;
 }
 
 export interface GetApiResponse {
-  data: { diary: Collection };
+  data: { entries: Collection };
 }
 
 export interface Diary {
