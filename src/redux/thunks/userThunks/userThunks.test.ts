@@ -1,4 +1,3 @@
-import { loginActionCreator } from "../../features/userSlice";
 import { server } from "./mocks/server";
 import {
   loginUserThunk,

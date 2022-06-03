@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { UserState } from "../../redux/interfaces/UserInterface";
 import { useNavigate } from "react-router-dom";
 import { RegisterContainer } from "../Register/RegisterContainer";
+import { ToastContainer } from "react-toastify";
 
 const Login = () => {
   const { loading }: Ui = useSelector((state: RootState) => state.ui);
@@ -23,6 +24,7 @@ const Login = () => {
     <>
       {loading && <Loading />}
 
+      <ToastContainer />
       <RegisterContainer>
         <img
           src="https://pbs.twimg.com/media/EnTgFNJWEAA7fGQ.jpg"

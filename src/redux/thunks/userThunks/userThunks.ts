@@ -15,10 +15,10 @@ import {
 import {
   finishedLoadingActionCreator,
   loadingActionCreator,
-  feedbackOnActionCreator,
 } from "../../features/uiSlice";
 import { loadEntriesThunk } from "../diaryThunks/diaryThunks";
 import { resetCollectionActionCreator } from "../../features/diarySlice";
+import { notify } from "../../../utils/toast";
 
 export const registerUserThunk =
   (formData: RegisterInformation) => async (dispatch: AppDispatch) => {
@@ -42,9 +42,9 @@ export const registerUserThunk =
       dispatch(loginActionCreator(userInfo));
       dispatch(loadEntriesThunk(token));
       dispatch(finishedLoadingActionCreator());
-      dispatch(feedbackOnActionCreator());
     } catch (error) {
       dispatch(finishedLoadingActionCreator());
+      notify({ message: "User registration failed.", type: "error" });
     }
   };
 
@@ -61,8 +61,8 @@ export const loginUserThunk =
       dispatch(loginActionCreator(userInfo));
       dispatch(loadEntriesThunk(token));
       dispatch(finishedLoadingActionCreator());
-      dispatch(feedbackOnActionCreator());
     } catch (error) {
+      notify({ message: "Incorrect username and/or password", type: "error" });
       dispatch(finishedLoadingActionCreator());
     }
   };
