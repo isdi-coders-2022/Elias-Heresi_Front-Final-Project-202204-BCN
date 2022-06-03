@@ -8,9 +8,9 @@ export const loadEntriesThunk =
     const diaryRoute: string = `${process.env.REACT_APP_API_URL}diary/all`;
     const token = `Bearer ${key}`;
     const {
-      data: { diary },
+      data: { entries },
     }: GetApiResponse = await axios.get(diaryRoute, {
       headers: { Authorization: token },
     });
-    dispatch(loadActionCreator(diary));
+    dispatch(loadActionCreator(entries));
   };
