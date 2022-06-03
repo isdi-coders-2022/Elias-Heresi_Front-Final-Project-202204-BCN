@@ -2,6 +2,7 @@ import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import { FaUser } from "react-icons/fa";
 import { useAppDispatch } from "../../redux/store/hooks";
 import { logOutUserThunk } from "../../redux/thunks/userThunks/userThunks";
+import NavBarContainer from "./NavBarContainer";
 
 const NavBar = (): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -11,15 +12,17 @@ const NavBar = (): JSX.Element => {
   };
 
   return (
-    <Navbar bg="light" expand="lg">
-      <Container>
-        <Navbar.Brand href="#home">Bonanza</Navbar.Brand>
-        <Navbar.Toggle aria-controls="/historic" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="/historic">Home</Nav.Link>
-            <Nav.Link href="/historic">Past entries</Nav.Link>
-            <Nav.Link href="#link">Know thyself</Nav.Link>
+    <NavBarContainer>
+      <Navbar expand="lg">
+        <Container>
+          <Navbar.Collapse id="basic-navbar-nav" className="ml-auto">
+            <Nav>
+              <Nav.Link href="/historic">Past entries</Nav.Link>
+              <Nav.Link href="#link">Know thyself</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+          <Nav>
+            <Navbar.Brand href="/historic">Bonanza</Navbar.Brand>
             <NavDropdown
               title={
                 <span>
@@ -34,9 +37,9 @@ const NavBar = (): JSX.Element => {
               <NavDropdown.Item onClick={logout}>Logout</NavDropdown.Item>
             </NavDropdown>
           </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+        </Container>
+      </Navbar>
+    </NavBarContainer>
   );
 };
 
