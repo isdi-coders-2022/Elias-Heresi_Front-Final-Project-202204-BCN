@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Given the RegisterForm component When invoked, and the submit button is enabled and clicked on Then it should always match this snapshot 1`] = `
+exports[`When invoked, and the submit button is enabled and clicked on Then it should always match this snapshot 1`] = `
 <div
   className="sc-bczRLJ fUXCFd"
 >

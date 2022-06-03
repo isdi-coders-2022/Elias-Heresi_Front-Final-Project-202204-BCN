@@ -8,13 +8,11 @@ afterAll(() => server.close());
 describe("Given the loadEntriesThunk", () => {
   describe("When invoked", () => {
     test("Then the dispatch function will be called", async () => {
-      const expectedResponse = 201;
-
-      const dispatch = jest.fn().mockReturnValue(expectedResponse);
+      const dispatch = jest.fn();
       const thunk = loadEntriesThunk("xx");
       await thunk(dispatch);
 
-      expect(dispatch).toHaveReturnedWith(expectedResponse);
+      expect(dispatch).toHaveBeenCalled();
     });
   });
 });
