@@ -1,6 +1,8 @@
 import { Button, Card, Row, Col } from "react-bootstrap";
 import { FaTimesCircle } from "react-icons/fa";
 import { DiaryEntry } from "../../redux/interfaces/DiaryInterface";
+import { useAppDispatch } from "../../redux/store/hooks";
+import { deleteEntryThunk } from "../../redux/thunks/diaryThunks/diaryThunks";
 import PermaChart from "../PermaChart/PermaChart";
 
 const EntrySummary = ({
@@ -14,10 +16,16 @@ const EntrySummary = ({
     commentary,
     wellBeing,
     date,
+    id,
   },
 }: {
   entry: DiaryEntry;
 }): JSX.Element => {
+  const dispatch = useAppDispatch();
+  const deleteCard = () => {
+    dispatch(deleteEntryThunk(id));
+  };
+
   return (
     <Card style={{ width: "30rem" }}>
       <Row className="no-gutters">
@@ -42,7 +50,7 @@ const EntrySummary = ({
                 </Card.Title>
               </Col>
               <Col xs={{ span: 2, offset: 2 }}>
-                <FaTimesCircle size={20} color={"red"} />
+                <FaTimesCircle size={20} color={"red"} onClick={deleteCard} />
               </Col>
             </Row>
 

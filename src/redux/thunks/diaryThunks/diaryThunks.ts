@@ -9,6 +9,7 @@ import {
   finishedLoadingActionCreator,
   loadingActionCreator,
 } from "../../features/uiSlice";
+import { Token } from "../../interfaces/UserInterface";
 
 export const loadEntriesThunk =
   (key: string) => async (dispatch: AppDispatch) => {
@@ -25,9 +26,10 @@ export const loadEntriesThunk =
   };
 
 export const deleteEntryThunk =
-  (key: string, entryId: string) => async (dispatch: AppDispatch) => {
+  (entryId: string) => async (dispatch: AppDispatch) => {
     dispatch(loadingActionCreator());
     const diaryRoute: string = `${process.env.REACT_APP_API_URL}diary/delete`;
+    const key: Token = localStorage.getItem("token");
     const token = `Bearer ${key}`;
     await axios.delete(diaryRoute, {
       headers: { Authorization: token },

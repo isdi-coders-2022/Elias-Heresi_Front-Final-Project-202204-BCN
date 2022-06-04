@@ -22,7 +22,7 @@ const diarySlice = createSlice({
     }),
     deleteEntry: (diary: DiaryState, action: PayloadAction<string>) => {
       const newCollection = diary.collection.filter(
-        (entry) => entry.id === action.payload
+        (entry) => entry.id !== action.payload
       );
 
       return {
