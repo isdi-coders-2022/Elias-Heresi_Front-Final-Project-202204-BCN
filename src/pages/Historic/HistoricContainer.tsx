@@ -2,6 +2,11 @@ import styled from "styled-components";
 
 export const HistoricContainer = styled.div`
   height: 100vh;
+  h2 {
+    text-align: center;
+    margin-top: 30px;
+  }
+
   h1 {
     padding-top: 25px;
     text-align: center;
