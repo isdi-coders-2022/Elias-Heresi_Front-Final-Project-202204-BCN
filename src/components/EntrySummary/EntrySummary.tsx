@@ -6,7 +6,6 @@ import {
 } from "../../redux/features/uiSlice";
 import { DiaryEntry } from "../../redux/interfaces/DiaryInterface";
 import { useAppDispatch } from "../../redux/store/hooks";
-import { deleteEntryThunk } from "../../redux/thunks/diaryThunks/diaryThunks";
 import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
 import PermaChart from "../PermaChart/PermaChart";
 
@@ -36,8 +35,6 @@ const EntrySummary = ({
       <ConfirmationModal
         displayText="Are you sure you want to delete this entry?"
         action={() => {
-          //dispatch(deleteEntryThunk("aa"));
-          console.log(id);
           dispatch(feedbackOffActionCreator());
         }}
       />
