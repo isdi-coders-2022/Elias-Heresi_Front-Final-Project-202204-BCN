@@ -10,6 +10,10 @@ jest.mock("react-redux", () => ({
   useSelector: () => ({ collection: mockApiGetResponse }),
 }));
 
+jest.mock("react-chartjs-2", () => ({
+  PolarArea: () => <canvas role="img" />,
+}));
+
 describe("Given the Historic page component", () => {
   describe("When it's invoked", () => {
     test("Then if the collection contains 1 entries, then 1 card will be rendered", () => {
