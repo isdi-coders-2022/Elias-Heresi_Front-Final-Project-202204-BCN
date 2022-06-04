@@ -15,15 +15,15 @@ const ConfirmationModal = ({ displayText, action }: ConfirmationInput) => {
   return (
     <Modal show={feedback} onHide={handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title>Modal heading</Modal.Title>
+        <Modal.Title>Bonanza</Modal.Title>
       </Modal.Header>
       <Modal.Body>{displayText}</Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={handleClose}>
-          Close
+          Cancel
         </Button>
         <Button variant="primary" onClick={action}>
-          Continue
+          Yes
         </Button>
       </Modal.Footer>
     </Modal>

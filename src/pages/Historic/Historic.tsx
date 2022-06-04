@@ -1,7 +1,6 @@
 import { Row, Col } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
-import ConfirmationModal from "../../components/ConfirmationModal/ConfirmationModal";
 import EntrySummary from "../../components/EntrySummary/EntrySummary";
 import NavBar from "../../components/NavBar/NavBar";
 import { DiaryState } from "../../redux/interfaces/DiaryInterface";
@@ -20,11 +19,6 @@ const Historic = () => {
   return (
     <>
       <NavBar />
-
-      <ConfirmationModal
-        displayText="soy un mene"
-        action={() => console.log("se logró")}
-      />
 
       <ToastContainer />
       <HistoricContainer>
