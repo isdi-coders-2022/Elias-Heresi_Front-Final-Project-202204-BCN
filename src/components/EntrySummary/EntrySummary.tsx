@@ -1,8 +1,8 @@
 import { Button, Card, Row, Col } from "react-bootstrap";
 import { FaTimesCircle } from "react-icons/fa";
+import { feedbackOnActionCreator } from "../../redux/features/uiSlice";
 import { DiaryEntry } from "../../redux/interfaces/DiaryInterface";
 import { useAppDispatch } from "../../redux/store/hooks";
-import { deleteEntryThunk } from "../../redux/thunks/diaryThunks/diaryThunks";
 import PermaChart from "../PermaChart/PermaChart";
 
 const EntrySummary = ({
@@ -23,7 +23,7 @@ const EntrySummary = ({
 }): JSX.Element => {
   const dispatch = useAppDispatch();
   const deleteCard = () => {
-    dispatch(deleteEntryThunk(id));
+    dispatch(feedbackOnActionCreator());
   };
 
   return (
