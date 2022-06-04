@@ -19,6 +19,7 @@ const Historic = () => {
   return (
     <>
       <NavBar />
+
       <ToastContainer />
       <HistoricContainer>
         <Row>
