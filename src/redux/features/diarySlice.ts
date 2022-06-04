@@ -20,6 +20,16 @@ const diarySlice = createSlice({
       ...diary,
       collection: [],
     }),
+    deleteEntry: (diary: DiaryState, action: PayloadAction<string>) => {
+      const newCollection = diary.collection.filter(
+        (entry) => entry.id !== action.payload
+      );
+
+      return {
+        ...diary,
+        collection: newCollection,
+      };
+    },
     nextPage: (diary: DiaryState) => ({
       ...diary,
       page: diary.page + 1,
@@ -36,6 +46,7 @@ export const {
   nextPage: nextPageActionCreator,
   previousPage: previousPageActionCreator,
   resetCollection: resetCollectionActionCreator,
+  deleteEntry: deleteEntryActionCreator,
 } = diarySlice.actions;
 
 export default diarySlice.reducer;

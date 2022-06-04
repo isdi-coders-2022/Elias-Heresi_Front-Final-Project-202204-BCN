@@ -1,6 +1,10 @@
 import { render, screen } from "@testing-library/react";
 import PermaChart from "./PermaChart";
 
+jest.mock("react-chartjs-2", () => ({
+  PolarArea: () => <canvas role="img" />,
+}));
+
 const inputtedValues = [1, 2, 3, 4, 5, 6];
 
 describe("Given the PermaChart component", () => {

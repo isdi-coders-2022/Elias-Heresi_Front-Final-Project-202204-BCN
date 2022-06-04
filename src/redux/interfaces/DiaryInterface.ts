@@ -9,7 +9,7 @@ export interface DiaryEntry {
   wellBeing: number;
   image: string;
   commentary: string;
-  _id: string;
+  id: string;
 }
 
 export interface GetApiResponse {
