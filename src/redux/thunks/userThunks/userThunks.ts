@@ -41,10 +41,11 @@ export const registerUserThunk =
       const userInfo: UserData = jwtDecode(token);
       dispatch(loginActionCreator(userInfo));
       dispatch(loadEntriesThunk(token));
-      dispatch(finishedLoadingActionCreator());
     } catch (error) {
       dispatch(finishedLoadingActionCreator());
       notify({ message: "User registration failed.", type: "error" });
+    } finally {
+      dispatch(finishedLoadingActionCreator());
     }
   };
 
@@ -60,9 +61,9 @@ export const loginUserThunk =
       const userInfo: UserData = jwtDecode(token);
       dispatch(loginActionCreator(userInfo));
       dispatch(loadEntriesThunk(token));
-      dispatch(finishedLoadingActionCreator());
     } catch (error) {
       notify({ message: "Incorrect username and/or password", type: "error" });
+    } finally {
       dispatch(finishedLoadingActionCreator());
     }
   };
