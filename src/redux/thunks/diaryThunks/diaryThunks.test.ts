@@ -1,4 +1,9 @@
-import { loadEntriesThunk } from "./diaryThunks";
+import {
+  loadActionCreator,
+  deleteEntryActionCreator,
+} from "../../features/diarySlice";
+import { mockApiGetResponse } from "../../mocks/diaryMocks";
+import { loadEntriesThunk, deleteEntryThunk } from "./diaryThunks";
 import { server } from "./mocks/server";
 
 beforeEach(() => server.listen());
@@ -7,12 +12,43 @@ afterAll(() => server.close());
 
 describe("Given the loadEntriesThunk", () => {
   describe("When invoked", () => {
-    test("Then the dispatch function will be called", async () => {
-      const dispatch = jest.fn();
-      const thunk = loadEntriesThunk("xx");
+    const dispatch = jest.fn();
+    const thunk = loadEntriesThunk("xx");
+    test("Then the dispatch function will be called 3 times", async () => {
       await thunk(dispatch);
 
-      expect(dispatch).toHaveBeenCalled();
+      const expectedCalls = 3;
+
+      expect(dispatch).toHaveBeenCalledTimes(expectedCalls);
+    });
+    test("Then the dispatch function will be called with the loadActionCreator", async () => {
+      const action = loadActionCreator(mockApiGetResponse);
+
+      await thunk(dispatch);
+
+      expect(dispatch).toHaveBeenCalledWith(action);
+    });
+  });
+});
+
+describe("Given the deleteEntryThunk", () => {
+  describe("When invoked", () => {
+    const fakeId = "xx";
+    const dispatch = jest.fn();
+    const thunk = deleteEntryThunk(fakeId);
+    test("Then the dispatch function will be called 3 times", async () => {
+      await thunk(dispatch);
+
+      const expectedCalls = 3;
+
+      expect(dispatch).toHaveBeenCalledTimes(expectedCalls);
+    });
+    test("Then the deleteActionCreator will be dispatched", async () => {
+      await thunk(dispatch);
+
+      const action = deleteEntryActionCreator(fakeId);
+
+      expect(dispatch).toHaveBeenCalledWith(action);
     });
   });
 });

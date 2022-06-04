@@ -10,31 +10,46 @@ import {
   loadingActionCreator,
 } from "../../features/uiSlice";
 import { Token } from "../../interfaces/UserInterface";
+import { notify } from "../../../utils/toast";
 
 export const loadEntriesThunk =
   (key: string) => async (dispatch: AppDispatch) => {
-    dispatch(loadingActionCreator());
-    const diaryRoute: string = `${process.env.REACT_APP_API_URL}diary/all`;
-    const token = `Bearer ${key}`;
-    const {
-      data: { entries },
-    }: GetApiResponse = await axios.get(diaryRoute, {
-      headers: { Authorization: token },
-    });
-    dispatch(loadActionCreator(entries));
-    dispatch(finishedLoadingActionCreator());
+    try {
+      dispatch(loadingActionCreator());
+      const diaryRoute: string = `${process.env.REACT_APP_API_URL}diary/all`;
+      const token = `Bearer ${key}`;
+      const {
+        data: { entries },
+      }: GetApiResponse = await axios.get(diaryRoute, {
+        headers: { Authorization: token },
+      });
+      dispatch(loadActionCreator(entries));
+    } catch (error) {
+      notify({ message: "Failed to load user's entries", type: "error" });
+    } finally {
+      dispatch(finishedLoadingActionCreator());
+    }
   };
 
 export const deleteEntryThunk =
   (entryId: string) => async (dispatch: AppDispatch) => {
-    dispatch(loadingActionCreator());
-    const diaryRoute: string = `${process.env.REACT_APP_API_URL}diary/delete`;
-    const key: Token = localStorage.getItem("token");
-    const token = `Bearer ${key}`;
-    await axios.delete(diaryRoute, {
-      headers: { Authorization: token },
-      data: { entryId },
-    });
-    dispatch(deleteEntryActionCreator(entryId));
-    dispatch(finishedLoadingActionCreator());
+    try {
+      dispatch(loadingActionCreator());
+      const diaryRoute: string = `${process.env.REACT_APP_API_URL}diary/delete`;
+      const key: Token = localStorage.getItem("token");
+      const token = `Bearer ${key}`;
+      await axios.delete(diaryRoute, {
+        headers: { Authorization: token },
+        data: { entryId },
+      });
+      dispatch(deleteEntryActionCreator(entryId));
+      notify({
+        message: "Succesfully deleted well-being entry",
+        type: "success",
+      });
+    } catch (error) {
+      notify({ message: "Failed to delete well-being entry", type: "error" });
+    } finally {
+      dispatch(finishedLoadingActionCreator());
+    }
   };

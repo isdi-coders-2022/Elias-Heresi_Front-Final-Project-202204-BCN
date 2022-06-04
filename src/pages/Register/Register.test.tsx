@@ -4,18 +4,18 @@ import Register from "./Register";
 import { BrowserRouter } from "react-router-dom";
 import { render, screen } from "@testing-library/react";
 
-const mockUseNavigate = jest.fn();
-
-jest.mock("react-router-dom", () => ({
-  ...jest.requireActual("react-router-dom"),
-  useNavigate: () => mockUseNavigate,
-}));
-
 let mockLogged: boolean = false;
 
 jest.mock("react-redux", () => ({
   ...jest.requireActual("react-redux"),
   useSelector: () => ({ logged: mockLogged }),
+}));
+
+const mockUseNavigate = jest.fn();
+
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  useNavigate: () => mockUseNavigate,
 }));
 
 describe("Given the Register page component", () => {
