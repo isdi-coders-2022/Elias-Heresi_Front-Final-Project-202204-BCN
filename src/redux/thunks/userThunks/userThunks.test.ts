@@ -1,3 +1,4 @@
+import { loginActionCreator } from "../../features/userSlice";
 import { server } from "./mocks/server";
 import {
   loginUserThunk,
@@ -9,45 +10,64 @@ beforeEach(() => server.listen());
 afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
-jest.mock("jwt-decode", () =>
-  jest
-    .fn()
-    .mockResolvedValue({ name: "daddy", surname: "yankee", username: "daddy" })
-);
+const decodedToken = { name: "daddy", surname: "yankee", username: "daddy" };
+
+jest.mock("jwt-decode", () => () => decodedToken);
 
 describe("Given the loginUserThunk", () => {
   describe("When invoked", () => {
-    test("Then the dispatch function will be called", async () => {
-      const dispatch = jest.fn();
+    const dispatch = jest.fn();
+    const loginInformation = { username: "Daddy", password: "yankee" };
+    const thunk = loginUserThunk(loginInformation);
+    test("Then the dispatch function will be called 4 times", async () => {
+      const expectedNumberOfCalls = 4;
 
-      const thunk = loginUserThunk({ username: "Daddy", password: "yankee" });
       await thunk(dispatch);
 
-      expect(dispatch).toHaveBeenCalled();
+      expect(dispatch).toHaveBeenCalledTimes(expectedNumberOfCalls);
+    });
+    test("Then the dispatch function will be called with the login action creator", async () => {
+      const action = loginActionCreator(decodedToken);
+
+      await thunk(dispatch);
+
+      expect(dispatch).toHaveBeenCalledWith(action);
     });
   });
   describe("When RegisterUserThunk is invoked", () => {
-    test("Then the dispatch function will be called", async () => {
+    const dispatch = jest.fn();
+    const thunk = registerUserThunk({
+      name: "king",
+      surname: "daddy",
+      email: "daddy@yankee.com",
+      username: "daddy",
+      password: "yankee",
+    });
+    test("Then the dispatch function will be called 4 times", async () => {
+      await thunk(dispatch);
+      const expectedNumberOfCalls = 4;
+
+      expect(dispatch).toHaveBeenCalledTimes(expectedNumberOfCalls);
+    });
+    test("Then the dispatch function will be called with the loginActionCreator", async () => {
       const dispatch = jest.fn();
-      const thunk = registerUserThunk({
-        name: "king",
-        surname: "daddy",
-        email: "daddy@yankee.com",
-        username: "daddy",
-        password: "yankee",
-      });
+
+      const action = loginActionCreator(decodedToken);
+
       await thunk(dispatch);
 
-      expect(dispatch).toHaveBeenCalled();
+      expect(dispatch).toHaveBeenCalledWith(action);
     });
   });
   describe("When logOutUserThunk is called", () => {
-    test("Then the dispatch function will be called", async () => {
+    test("Then the dispatch function will be called two times", async () => {
       const dispatch = jest.fn();
       const thunk = logOutUserThunk();
       await thunk(dispatch);
 
-      expect(dispatch).toHaveBeenCalled();
+      const expectedNumberOfCalls = 2;
+
+      expect(dispatch).toHaveBeenCalledTimes(expectedNumberOfCalls);
     });
   });
 });

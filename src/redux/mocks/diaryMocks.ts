@@ -1,7 +1,7 @@
 import { DiaryEntry, Diary } from "../interfaces/DiaryInterface";
 
 export const mockFirstEntry = {
-  date: new Date("December 17, 2021 03:24:00"),
+  date: new Date("December 17, 2021 03:24:00").toString(),
   vitality: 7,
   positiveEmotion: 5,
   engagement: 9,
@@ -15,7 +15,7 @@ export const mockFirstEntry = {
 } as DiaryEntry;
 
 export const mockSecondEntry = {
-  date: new Date("January 17, 2021 03:24:00"),
+  date: new Date("January 17, 2021 03:24:00").toString(),
   vitality: 5,
   positiveEmotion: 7,
   engagement: 2,
@@ -35,7 +35,7 @@ export const mockDiary = {
 
 export const mockApiGetResponse = [
   {
-    date: new Date("December 17, 1995 03:24:00"),
+    date: new Date("December 17, 1995 03:24:00").toString(),
     vitality: 4,
     positiveEmotion: 10,
     engagement: 4,
