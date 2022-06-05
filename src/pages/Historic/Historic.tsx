@@ -2,13 +2,16 @@ import { Row, Col } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import EntrySummary from "../../components/EntrySummary/EntrySummary";
+import Loading from "../../components/Loading/Loading";
 import NavBar from "../../components/NavBar/NavBar";
 import { DiaryState } from "../../redux/interfaces/DiaryInterface";
+import { Ui } from "../../redux/interfaces/UiInterface";
 import { UserState } from "../../redux/interfaces/UserInterface";
 import { RootState } from "../../redux/store/store";
 import { HistoricContainer } from "./HistoricContainer";
 
 const Historic = () => {
+  const { loading }: Ui = useSelector((state: RootState) => state.ui);
   const { collection }: DiaryState = useSelector(
     (state: RootState) => state.diary
   );
@@ -19,7 +22,7 @@ const Historic = () => {
   return (
     <>
       <NavBar />
-
+      {loading && <Loading />}
       <ToastContainer />
       <HistoricContainer>
         <Row>

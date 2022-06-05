@@ -1,11 +1,17 @@
 import { Button, Card, Row, Col } from "react-bootstrap";
 import { FaTimesCircle } from "react-icons/fa";
+import { useSelector } from "react-redux";
 import {
   feedbackOffActionCreator,
   feedbackOnActionCreator,
+  resetEntryIdActionCreator,
+  saveEntryIdActionCreator,
 } from "../../redux/features/uiSlice";
 import { DiaryEntry } from "../../redux/interfaces/DiaryInterface";
+import { Ui } from "../../redux/interfaces/UiInterface";
 import { useAppDispatch } from "../../redux/store/hooks";
+import { RootState } from "../../redux/store/store";
+import { deleteEntryThunk } from "../../redux/thunks/diaryThunks/diaryThunks";
 import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
 import PermaChart from "../PermaChart/PermaChart";
 
@@ -26,15 +32,20 @@ const EntrySummary = ({
   entry: DiaryEntry;
 }): JSX.Element => {
   const dispatch = useAppDispatch();
+
+  const { entryId }: Ui = useSelector((state: RootState) => state.ui);
   const deleteCard = () => {
     dispatch(feedbackOnActionCreator());
+    dispatch(saveEntryIdActionCreator(id));
   };
 
   return (
     <>
       <ConfirmationModal
-        displayText="Are you sure you want to delete this entry?"
+        displayText={`Are you sure you want to delete this entry?`}
         action={() => {
+          dispatch(deleteEntryThunk(entryId));
+          dispatch(resetEntryIdActionCreator());
           dispatch(feedbackOffActionCreator());
         }}
       />

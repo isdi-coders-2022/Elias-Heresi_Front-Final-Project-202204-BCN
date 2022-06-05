@@ -4,7 +4,7 @@ import { Ui } from "../interfaces/UiInterface";
 const initialState = {
   loading: false,
   feedback: false,
-  entryId: null,
+  entryId: "",
 } as Ui;
 
 const uiSlice = createSlice({
@@ -29,7 +29,7 @@ const uiSlice = createSlice({
     }),
     resetEntryId: (ui: Ui) => ({
       ...ui,
-      entryId: null,
+      entryId: "",
     }),
     saveEntryId: (ui: Ui, action: PayloadAction<string>) => ({
       ...ui,
