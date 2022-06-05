@@ -42,36 +42,84 @@ const CreateForm = (): JSX.Element => {
           <Form.Label className="create-form__sublabel">
             General health and feeling of safety
           </Form.Label>
+          <Form.Range
+            id="vitality"
+            value={formData.vitality}
+            onChange={changeData}
+            placeholder="Vitality"
+            min={0}
+            max={10}
+          />
         </Form.Group>
         <Form.Group className="mb-3 create-form__slider">
           <Form.Label htmlFor="positiveEmotion">Positive emotion</Form.Label>
           <Form.Label className="create-form__sublabel">
             Feelings of hope, joy, love pride and gratitude
           </Form.Label>
+          <Form.Range
+            id="positiveEmotion"
+            value={formData.positiveEmotion}
+            onChange={changeData}
+            placeholder="Positive emotion"
+            min={0}
+            max={10}
+          />
         </Form.Group>
         <Form.Group className="mb-3 create-form__slider">
           <Form.Label htmlFor="engagement">Engagement</Form.Label>
           <Form.Label className="create-form__sublabel">
             Feelings of hope, joy, love pride and gratitude
           </Form.Label>
+          <Form.Range
+            id="engagement"
+            value={formData.engagement}
+            onChange={changeData}
+            placeholder="Engagement"
+            min={0}
+            max={10}
+          />
         </Form.Group>
         <Form.Group className="mb-3 create-form__slider">
           <Form.Label htmlFor="relationships">Relationships</Form.Label>
           <Form.Label className="create-form__sublabel">
             Feelings of hope, joy, love pride and gratitude
           </Form.Label>
+          <Form.Range
+            id="relationships"
+            value={formData.relationships}
+            onChange={changeData}
+            placeholder="Relationships"
+            min={0}
+            max={10}
+          />
         </Form.Group>{" "}
         <Form.Group className="mb-3 create-form__slider">
           <Form.Label htmlFor="meaning">Meaning</Form.Label>
           <Form.Label className="create-form__sublabel">
             Feelings of hope, joy, love pride and gratitude
           </Form.Label>
+          <Form.Range
+            id="meaning"
+            value={formData.meaning}
+            onChange={changeData}
+            placeholder="Meaning"
+            min={0}
+            max={10}
+          />
         </Form.Group>
         <Form.Group className="mb-3 create-form__slider">
           <Form.Label htmlFor="accomplishment">Accomplishment</Form.Label>
           <Form.Label className="create-form__sublabel">
             Feelings of hope, joy, love pride and gratitude
           </Form.Label>
+          <Form.Range
+            id="accomplishment"
+            value={formData.accomplishment}
+            onChange={changeData}
+            placeholder="Accomplishment"
+            min={0}
+            max={10}
+          />
         </Form.Group>
         <Form.Group className="mb-3 create-form__file">
           <Form.Label>Add an image summarizing today</Form.Label>
