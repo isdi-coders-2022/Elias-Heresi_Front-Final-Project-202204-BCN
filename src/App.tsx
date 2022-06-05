@@ -8,7 +8,6 @@ import CheckLogged from "./components/CheckLogged/CheckLogged";
 import jwtDecode from "jwt-decode";
 import { loginActionCreator } from "./redux/features/userSlice";
 import { useAppDispatch } from "./redux/store/hooks";
-import { loadEntriesThunk } from "./redux/thunks/diaryThunks/diaryThunks";
 import { logOutUserThunk } from "./redux/thunks/userThunks/userThunks";
 import "react-toastify/dist/ReactToastify.css";
 import Create from "./pages/Create/Create";
