@@ -136,6 +136,8 @@ const CreateForm = (): JSX.Element => {
             Write any reflections or thoughts that come to mind:
           </Form.Label>
           <Form.Control
+            as="textarea"
+            rows={4}
             type="text"
             placeholder="Comments"
             id="commentary"
