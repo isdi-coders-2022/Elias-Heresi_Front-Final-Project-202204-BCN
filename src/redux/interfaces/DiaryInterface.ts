@@ -1,4 +1,17 @@
-export interface DiaryEntry {
+export interface CreateEntryForm {
+  date: string;
+  vitality: string;
+  positiveEmotion: string;
+  engagement: string;
+  relationships: string;
+  meaning: string;
+  accomplishment: string;
+  wellBeing: string;
+  image: string;
+  commentary: string;
+}
+
+export interface CreateEntry {
   date: string;
   vitality: number;
   positiveEmotion: number;
@@ -9,6 +22,9 @@ export interface DiaryEntry {
   wellBeing: number;
   image: string;
   commentary: string;
+}
+
+export interface DiaryEntry extends CreateEntry {
   id: string;
 }
 

@@ -9,6 +9,7 @@ const mockUsername = "Chocolatero";
 
 jest.mock("react-redux", () => ({
   ...jest.requireActual("react-redux"),
+  useDispatch: () => jest.fn(),
   useSelector: () => ({
     collection: mockApiGetResponse,
     loading: false,
