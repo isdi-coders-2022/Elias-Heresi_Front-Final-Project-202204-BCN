@@ -1,13 +1,23 @@
+import jwtDecode from "jwt-decode";
+import { useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import EntrySummary from "../../components/EntrySummary/EntrySummary";
 import Loading from "../../components/Loading/Loading";
 import NavBar from "../../components/NavBar/NavBar";
+import { loginActionCreator } from "../../redux/features/userSlice";
 import { DiaryState } from "../../redux/interfaces/DiaryInterface";
 import { Ui } from "../../redux/interfaces/UiInterface";
-import { UserState } from "../../redux/interfaces/UserInterface";
+import {
+  UserState,
+  UserData,
+  Token,
+} from "../../redux/interfaces/UserInterface";
+import { useAppDispatch } from "../../redux/store/hooks";
 import { RootState } from "../../redux/store/store";
+import { loadEntriesThunk } from "../../redux/thunks/diaryThunks/diaryThunks";
+import { logOutUserThunk } from "../../redux/thunks/userThunks/userThunks";
 import { HistoricContainer } from "./HistoricContainer";
 
 const Historic = (): JSX.Element => {
@@ -18,6 +28,20 @@ const Historic = (): JSX.Element => {
   const { username, name }: UserState = useSelector(
     (state: RootState) => state.user
   );
+
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    const token: Token = localStorage.getItem("token");
+
+    if (token) {
+      const userInfo: UserData = jwtDecode(token);
+      dispatch(loginActionCreator(userInfo));
+      dispatch(loadEntriesThunk(token));
+    } else {
+      dispatch(logOutUserThunk());
+    }
+  }, [dispatch]);
 
   return (
     <>

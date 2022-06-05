@@ -22,7 +22,6 @@ const App = (): JSX.Element => {
     if (token) {
       const userInfo: UserData = jwtDecode(token);
       dispatch(loginActionCreator(userInfo));
-      dispatch(loadEntriesThunk(token));
     } else {
       dispatch(logOutUserThunk());
     }
