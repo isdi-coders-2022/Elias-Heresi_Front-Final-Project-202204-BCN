@@ -5,9 +5,16 @@ import { mockApiGetResponse } from "../../redux/mocks/diaryMocks";
 import store from "../../redux/store/store";
 import Historic from "./Historic";
 
+const mockUsername = "Chocolatero";
+
 jest.mock("react-redux", () => ({
   ...jest.requireActual("react-redux"),
-  useSelector: () => ({ collection: mockApiGetResponse }),
+  useSelector: () => ({
+    collection: mockApiGetResponse,
+    loading: false,
+    username: "Pakito",
+    name: mockUsername,
+  }),
 }));
 
 jest.mock("react-chartjs-2", () => ({
@@ -29,6 +36,18 @@ describe("Given the Historic page component", () => {
       const searchedCards = screen.getAllByRole("img");
 
       expect(searchedCards).toHaveLength(numberOfExpectedEntries);
+    });
+    test("Then the username will be rendered", () => {
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <Historic />
+          </Provider>
+        </BrowserRouter>
+      );
+      const searchedText = screen.getByRole("heading");
+
+      expect(searchedText).toHaveTextContent(mockUsername);
     });
   });
 });

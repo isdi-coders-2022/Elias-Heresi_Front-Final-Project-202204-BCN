@@ -8,7 +8,10 @@ import { ConfirmationInput, Ui } from "../../redux/interfaces/UiInterface";
 import { useAppDispatch } from "../../redux/store/hooks";
 import { RootState } from "../../redux/store/store";
 
-const ConfirmationModal = ({ displayText, action }: ConfirmationInput) => {
+const ConfirmationModal = ({
+  displayText,
+  action,
+}: ConfirmationInput): JSX.Element => {
   const dispatch = useAppDispatch();
   const { feedback }: Ui = useSelector((state: RootState) => state.ui);
   const handleClose = () => {

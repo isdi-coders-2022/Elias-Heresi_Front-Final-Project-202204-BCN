@@ -1,6 +1,7 @@
 import { Button, Card, Row, Col } from "react-bootstrap";
 import { FaTimesCircle } from "react-icons/fa";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   feedbackOffActionCreator,
   feedbackOnActionCreator,
@@ -72,7 +73,9 @@ const EntrySummary = ({
                   </Card.Title>
                 </Col>
                 <Col xs={{ span: 2, offset: 2 }}>
-                  <FaTimesCircle size={20} color={"red"} onClick={deleteCard} />
+                  <Button variant="link" onClick={deleteCard}>
+                    <FaTimesCircle size={20} color={"red"} />
+                  </Button>
                 </Col>
               </Row>
 

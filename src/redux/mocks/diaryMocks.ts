@@ -33,6 +33,8 @@ export const mockDiary = {
   diary: [mockFirstEntry, mockSecondEntry],
 } as Diary;
 
+export const mockApiId = "aa";
+
 export const mockApiGetResponse = [
   {
     date: new Date("December 17, 1995 03:24:00").toString(),
@@ -46,6 +48,6 @@ export const mockApiGetResponse = [
     image:
       "https://thumbs.dreamstime.com/b/cierra-los-empresarios-d%C3%A1ndole-la-mano-durante-una-reuni%C3%B3n-empresa-de-negocios-transacciones-apret%C3%B3n-manos-165281340.jpg",
     commentary: "Had a good day at the office. Excited on what is coming",
-    id: "aa",
+    id: mockApiId,
   },
 ];
