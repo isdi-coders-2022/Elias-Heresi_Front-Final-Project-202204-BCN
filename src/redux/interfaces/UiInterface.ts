@@ -1,7 +1,7 @@
 export interface Ui {
   loading: boolean;
   feedback: boolean;
-  entryId: null | string;
+  entryId: string;
 }
 
 export interface ToastInput {

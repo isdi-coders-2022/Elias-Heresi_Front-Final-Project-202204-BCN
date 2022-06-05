@@ -13,12 +13,12 @@ describe("Given the loadingActionCreator", () => {
       const initialState = {
         loading: false,
         feedback: false,
-        entryId: null,
+        entryId: "",
       };
       const expectedState = {
         loading: true,
         feedback: false,
-        entryId: null,
+        entryId: "",
       };
 
       const action = loadingActionCreator();
@@ -35,12 +35,12 @@ describe("Given the finiushedLoadingActionCreator", () => {
       const initialState = {
         loading: true,
         feedback: false,
-        entryId: null,
+        entryId: "",
       };
       const expectedState = {
         loading: false,
         feedback: false,
-        entryId: null,
+        entryId: "",
       };
 
       const action = finishedLoadingActionCreator();
@@ -57,12 +57,12 @@ describe("Given the feedbackOnActionCreator", () => {
       const initialState = {
         loading: false,
         feedback: false,
-        entryId: null,
+        entryId: "",
       };
       const expectedState = {
         loading: false,
         feedback: true,
-        entryId: null,
+        entryId: "",
       };
 
       const action = feedbackOnActionCreator();
@@ -79,12 +79,12 @@ describe("Given the feedbackOffActionCreator", () => {
       const initialState = {
         loading: false,
         feedback: true,
-        entryId: null,
+        entryId: "",
       };
       const expectedState = {
         loading: false,
         feedback: false,
-        entryId: null,
+        entryId: "",
       };
 
       const action = feedbackOffActionCreator();
@@ -103,7 +103,7 @@ describe("Given the saveEntryActionCreator", () => {
       const initialState = {
         loading: false,
         feedback: false,
-        entryId: null,
+        entryId: "",
       };
       const expectedState = {
         loading: false,
@@ -130,7 +130,7 @@ describe("Given the resetEntryIdActionCreator", () => {
       const expectedState = {
         loading: false,
         feedback: false,
-        entryId: null,
+        entryId: "",
       };
 
       const action = resetEntryIdActionCreator();

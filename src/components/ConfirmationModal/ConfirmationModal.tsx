@@ -1,6 +1,9 @@
 import { Modal, Button } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import { feedbackOffActionCreator } from "../../redux/features/uiSlice";
+import {
+  feedbackOffActionCreator,
+  resetEntryIdActionCreator,
+} from "../../redux/features/uiSlice";
 import { ConfirmationInput, Ui } from "../../redux/interfaces/UiInterface";
 import { useAppDispatch } from "../../redux/store/hooks";
 import { RootState } from "../../redux/store/store";
@@ -9,6 +12,7 @@ const ConfirmationModal = ({ displayText, action }: ConfirmationInput) => {
   const dispatch = useAppDispatch();
   const { feedback }: Ui = useSelector((state: RootState) => state.ui);
   const handleClose = () => {
+    dispatch(resetEntryIdActionCreator());
     dispatch(feedbackOffActionCreator());
   };
 
