@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { RegisterContainer } from "../Register/RegisterContainer";
 import { ToastContainer } from "react-toastify";
 
-const Login = () => {
+const Login = (): JSX.Element => {
   const { loading }: Ui = useSelector((state: RootState) => state.ui);
   const { logged }: UserState = useSelector((state: RootState) => state.user);
   const navigate = useNavigate();

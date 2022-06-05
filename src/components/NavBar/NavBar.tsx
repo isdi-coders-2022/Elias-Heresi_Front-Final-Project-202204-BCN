@@ -17,8 +17,8 @@ const NavBar = (): JSX.Element => {
         <Container>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav" className="ml-auto">
-            <Nav.Link href="/historic">Past entries</Nav.Link>
-            <Nav.Link href="#link">Know thyself</Nav.Link>
+            <Nav.Link href="/historic">Historic</Nav.Link>
+            <Nav.Link href="/create">Create</Nav.Link>
           </Navbar.Collapse>
           <Navbar.Brand href="/historic" className="ml-auto">
             Bonanza

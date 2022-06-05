@@ -1,7 +1,6 @@
 import { Button, Card, Row, Col } from "react-bootstrap";
 import { FaTimesCircle } from "react-icons/fa";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import {
   feedbackOffActionCreator,
   feedbackOnActionCreator,

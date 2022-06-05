@@ -11,6 +11,7 @@ import { useAppDispatch } from "./redux/store/hooks";
 import { loadEntriesThunk } from "./redux/thunks/diaryThunks/diaryThunks";
 import { logOutUserThunk } from "./redux/thunks/userThunks/userThunks";
 import "react-toastify/dist/ReactToastify.css";
+import Create from "./pages/Create/Create";
 
 const App = (): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -37,6 +38,14 @@ const App = (): JSX.Element => {
         element={
           <CheckLogged>
             <Historic />
+          </CheckLogged>
+        }
+      />
+      <Route
+        path="/create"
+        element={
+          <CheckLogged>
+            <Create />
           </CheckLogged>
         }
       />

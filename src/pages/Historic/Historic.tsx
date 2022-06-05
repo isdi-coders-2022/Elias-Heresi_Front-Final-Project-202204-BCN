@@ -10,7 +10,7 @@ import { UserState } from "../../redux/interfaces/UserInterface";
 import { RootState } from "../../redux/store/store";
 import { HistoricContainer } from "./HistoricContainer";
 
-const Historic = () => {
+const Historic = (): JSX.Element => {
   const { loading }: Ui = useSelector((state: RootState) => state.ui);
   const { collection }: DiaryState = useSelector(
     (state: RootState) => state.diary
