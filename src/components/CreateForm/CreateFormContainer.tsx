@@ -14,6 +14,7 @@ export const CreateFormContainer = styled.div`
       &__slider {
         margin-bottom: 0px;
       }
+
       &__sublabel {
         font-weight: 400;
         font-size: 20px;
@@ -30,7 +31,12 @@ export const CreateFormContainer = styled.div`
       }
     }
     section {
-      font-size: 24px;
+      font-size: 30px;
+      display: flex;
+      flex-direction: column;
+      button {
+        margin-bottom: 20px;
+      }
     }
   }
 `;

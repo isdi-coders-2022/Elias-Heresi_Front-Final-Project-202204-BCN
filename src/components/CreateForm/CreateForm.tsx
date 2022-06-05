@@ -124,7 +124,7 @@ const CreateForm = (): JSX.Element => {
           />
         </Form.Group>
         <Form.Group className="mb-3 create-form__file">
-          <Form.Label>Add an image which best describes today</Form.Label>
+          <Form.Label>Add an image summarizing today</Form.Label>
           <Form.Control
             type="file"
             id="image"
