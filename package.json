@@ -24,7 +24,6 @@
     "msw": "^0.42.0",
     "react": "^18.1.0",
     "react-bootstrap": "^2.4.0",
-    "react-bootstrap-range-slider": "^3.0.4",
     "react-chartjs-2": "^4.1.0",
     "react-dom": "^18.1.0",
     "react-icons": "^4.4.0",
