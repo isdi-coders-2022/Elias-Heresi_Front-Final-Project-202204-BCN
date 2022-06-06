@@ -14,6 +14,7 @@ import {
 } from "../../features/uiSlice";
 import { Token } from "../../interfaces/UserInterface";
 import { notify } from "../../../utils/toast";
+
 const key: Token = localStorage.getItem("token");
 const token = `Bearer ${key}`;
 const authorization = { headers: { Authorization: token } };

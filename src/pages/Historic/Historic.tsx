@@ -21,6 +21,20 @@ import { logOutUserThunk } from "../../redux/thunks/userThunks/userThunks";
 import { HistoricContainer } from "./HistoricContainer";
 
 const Historic = (): JSX.Element => {
+  const dispatch = useAppDispatch();
+  const token: Token = localStorage.getItem("token");
+
+  useEffect(() => {
+    if (token) {
+      const userInfo: UserData = jwtDecode(token);
+      console.log(userInfo);
+      dispatch(loginActionCreator(userInfo));
+      dispatch(loadEntriesThunk());
+    } else {
+      dispatch(logOutUserThunk());
+    }
+  }, [dispatch, token]);
+
   const { loading }: Ui = useSelector((state: RootState) => state.ui);
   const { collection }: DiaryState = useSelector(
     (state: RootState) => state.diary
@@ -28,20 +42,6 @@ const Historic = (): JSX.Element => {
   const { username, name }: UserState = useSelector(
     (state: RootState) => state.user
   );
-
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    const token: Token = localStorage.getItem("token");
-
-    if (token) {
-      const userInfo: UserData = jwtDecode(token);
-      dispatch(loginActionCreator(userInfo));
-      dispatch(loadEntriesThunk());
-    } else {
-      dispatch(logOutUserThunk());
-    }
-  }, [dispatch]);
 
   return (
     <>
