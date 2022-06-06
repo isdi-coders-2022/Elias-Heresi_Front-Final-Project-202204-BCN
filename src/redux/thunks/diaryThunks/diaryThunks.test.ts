@@ -1,9 +1,18 @@
 import {
   loadActionCreator,
   deleteEntryActionCreator,
+  createEntryActionCreator,
 } from "../../features/diarySlice";
-import { mockApiGetResponse } from "../../mocks/diaryMocks";
-import { loadEntriesThunk, deleteEntryThunk } from "./diaryThunks";
+import {
+  mockApiGetResponse,
+  mockApiId,
+  mockCreatedEntry,
+} from "../../mocks/diaryMocks";
+import {
+  loadEntriesThunk,
+  deleteEntryThunk,
+  createEntryThunk,
+} from "./diaryThunks";
 import { server } from "./mocks/server";
 
 beforeEach(() => server.listen());
@@ -47,6 +56,30 @@ describe("Given the deleteEntryThunk", () => {
       await thunk(dispatch);
 
       const action = deleteEntryActionCreator(fakeId);
+
+      expect(dispatch).toHaveBeenCalledWith(action);
+    });
+  });
+});
+
+describe("Given the createEntryThunk", () => {
+  describe("When invoked", () => {
+    const dispatch = jest.fn();
+    const thunk = createEntryThunk(mockCreatedEntry);
+
+    test("Then the dispatch function will be called 3 times", async () => {
+      await thunk(dispatch);
+
+      const expectedCalls = 3;
+
+      expect(dispatch).toHaveBeenCalledTimes(expectedCalls);
+    });
+    test("Then the createActionCreator will be called", async () => {
+      await thunk(dispatch);
+
+      const entryToBeInputted = { id: mockApiId, ...mockCreatedEntry };
+
+      const action = createEntryActionCreator(entryToBeInputted);
 
       expect(dispatch).toHaveBeenCalledWith(action);
     });

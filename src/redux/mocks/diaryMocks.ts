@@ -1,4 +1,4 @@
-import { DiaryEntry, Diary } from "../interfaces/DiaryInterface";
+import { DiaryEntry, Diary, CreateEntry } from "../interfaces/DiaryInterface";
 
 export const mockFirstEntry = {
   date: new Date("December 17, 2021 03:24:00").toString(),
@@ -27,6 +27,19 @@ export const mockSecondEntry = {
   commentary: "Today was better",
   id: "aa",
 } as DiaryEntry;
+
+export const mockCreatedEntry = {
+  date: new Date("December 17, 2021 03:24:00").toString(),
+  vitality: 7,
+  positiveEmotion: 5,
+  engagement: 9,
+  relationships: 2,
+  meaning: 4,
+  accomplishment: 6,
+  wellBeing: 5,
+  image: "url",
+  commentary: "Today was OK",
+} as CreateEntry;
 
 export const mockDiary = {
   username: "champagne_papi",
