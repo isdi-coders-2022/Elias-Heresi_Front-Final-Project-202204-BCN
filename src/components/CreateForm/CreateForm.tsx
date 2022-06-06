@@ -1,10 +1,14 @@
 import { ChangeEvent, useState, FormEvent } from "react";
 import { Button, Form } from "react-bootstrap";
-import { CreateEntryForm } from "../../redux/interfaces/DiaryInterface";
+import { InitialCreatedEntryForm } from "../../redux/interfaces/DiaryInterface";
+import { useAppDispatch } from "../../redux/store/hooks";
+import { createEntryThunk } from "../../redux/thunks/diaryThunks/diaryThunks";
+import { stringsToNumbers } from "../../utils/dataTransformation";
 import { CreateFormContainer } from "./CreateFormContainer";
 
 const CreateForm = (): JSX.Element => {
   const formInitialState = {
+    date: new Date(),
     vitality: "5",
     positiveEmotion: "5",
     engagement: "5",
@@ -14,9 +18,10 @@ const CreateForm = (): JSX.Element => {
     wellBeing: "5",
     commentary: "",
     image: "",
-  } as CreateEntryForm;
+  } as InitialCreatedEntryForm;
 
   const [formData, setFormData] = useState(formInitialState);
+  const dispatch = useAppDispatch();
 
   const changeData = (event: ChangeEvent<HTMLInputElement>): void => {
     setFormData({ ...formData, [event.target.id]: event.target.value });
@@ -28,6 +33,7 @@ const CreateForm = (): JSX.Element => {
 
   const createEntry = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
+    dispatch(createEntryThunk(stringsToNumbers(formData)));
     resetForm();
   };
 

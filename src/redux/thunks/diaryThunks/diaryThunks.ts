@@ -1,7 +1,7 @@
 import axios from "axios";
 import { AppDispatch } from "../../store/store";
 import {
-  CreateEntryNumbers,
+  TransformedEntryForm,
   GetApiResponse,
 } from "../../interfaces/DiaryInterface";
 import {
@@ -15,6 +15,7 @@ import {
 } from "../../features/uiSlice";
 import { Token } from "../../interfaces/UserInterface";
 import { notify } from "../../../utils/toast";
+import { transformDateToString } from "../../../utils/dataTransformation";
 
 export const loadEntriesThunk =
   (key: string) => async (dispatch: AppDispatch) => {
@@ -59,10 +60,10 @@ export const deleteEntryThunk =
   };
 
 export const createEntryThunk =
-  (newEntry: CreateEntryNumbers) => async (dispatch: AppDispatch) => {
+  (newEntry: TransformedEntryForm) => async (dispatch: AppDispatch) => {
     try {
       dispatch(loadingActionCreator());
-      const diaryRoute: string = `${process.env.REACT_APP_API_URL}/`;
+      const diaryRoute: string = `${process.env.REACT_APP_API_URL}diary`;
       const key: Token = localStorage.getItem("token");
       const token = `Bearer ${key}`;
       const {
@@ -71,7 +72,8 @@ export const createEntryThunk =
         headers: { Authorization: token },
         data: { newEntry },
       });
-      const diaryEntry = { id, ...newEntry };
+      const diaryEntry = transformDateToString({ id, ...newEntry });
+
       dispatch(createEntryActionCreator(diaryEntry));
       notify({
         message: "Succesfully created well-being entry",

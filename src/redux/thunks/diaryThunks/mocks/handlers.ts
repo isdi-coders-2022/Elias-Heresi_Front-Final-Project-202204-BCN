@@ -8,7 +8,7 @@ export const handlers = [
   rest.delete(`${process.env.REACT_APP_API_URL}diary/delete`, (req, res, ctx) =>
     res(ctx.status(201))
   ),
-  rest.post(`${process.env.REACT_APP_API_URL}/`, (req, res, ctx) =>
+  rest.post(`${process.env.REACT_APP_API_URL}diary`, (req, res, ctx) =>
     res(
       ctx.status(201),
       ctx.json({

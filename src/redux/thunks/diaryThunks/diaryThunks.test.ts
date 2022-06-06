@@ -1,3 +1,4 @@
+import { transformDateToString } from "../../../utils/dataTransformation";
 import {
   loadActionCreator,
   deleteEntryActionCreator,
@@ -67,7 +68,7 @@ describe("Given the createEntryThunk", () => {
     const dispatch = jest.fn();
     const thunk = createEntryThunk(mockCreatedEntry);
 
-    test("Then the dispatch function will be called 3 times", async () => {
+    test("Then the dispatch function will be called 2 times", async () => {
       await thunk(dispatch);
 
       const expectedCalls = 3;
@@ -77,7 +78,10 @@ describe("Given the createEntryThunk", () => {
     test("Then the createActionCreator will be called", async () => {
       await thunk(dispatch);
 
-      const entryToBeInputted = { id: mockApiId, ...mockCreatedEntry };
+      const entryToBeInputted = transformDateToString({
+        id: mockApiId,
+        ...mockCreatedEntry,
+      });
 
       const action = createEntryActionCreator(entryToBeInputted);
 

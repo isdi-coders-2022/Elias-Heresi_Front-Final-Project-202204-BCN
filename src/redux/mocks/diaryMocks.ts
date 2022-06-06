@@ -1,7 +1,11 @@
-import { DiaryEntry, Diary, CreateEntry } from "../interfaces/DiaryInterface";
+import {
+  DiaryEntry,
+  Diary,
+  TransformedEntryForm,
+} from "../interfaces/DiaryInterface";
 
 export const mockFirstEntry = {
-  date: new Date("December 17, 2021 03:24:00").toString(),
+  date: new Date("December 17, 2021 03:24:00").toISOString(),
   vitality: 7,
   positiveEmotion: 5,
   engagement: 9,
@@ -15,7 +19,7 @@ export const mockFirstEntry = {
 } as DiaryEntry;
 
 export const mockSecondEntry = {
-  date: new Date("January 17, 2021 03:24:00").toString(),
+  date: new Date("January 17, 2021 03:24:00").toISOString(),
   vitality: 5,
   positiveEmotion: 7,
   engagement: 2,
@@ -29,7 +33,7 @@ export const mockSecondEntry = {
 } as DiaryEntry;
 
 export const mockCreatedEntry = {
-  date: new Date("December 17, 2021 03:24:00").toString(),
+  date: new Date("December 17, 2021 03:24:00"),
   vitality: 7,
   positiveEmotion: 5,
   engagement: 9,
@@ -39,7 +43,7 @@ export const mockCreatedEntry = {
   wellBeing: 5,
   image: "url",
   commentary: "Today was OK",
-} as CreateEntry;
+} as TransformedEntryForm;
 
 export const mockDiary = {
   username: "champagne_papi",
@@ -50,7 +54,7 @@ export const mockApiId = "aa";
 
 export const mockApiGetResponse = [
   {
-    date: new Date("December 17, 1995 03:24:00").toString(),
+    date: new Date("December 17, 1995 03:24:00").toISOString(),
     vitality: 4,
     positiveEmotion: 10,
     engagement: 4,
