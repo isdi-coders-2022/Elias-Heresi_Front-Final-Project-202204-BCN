@@ -5,7 +5,6 @@ import {
   GetApiResponse,
 } from "../../interfaces/DiaryInterface";
 import {
-  createEntryActionCreator,
   deleteEntryActionCreator,
   loadActionCreator,
 } from "../../features/diarySlice";
@@ -15,19 +14,19 @@ import {
 } from "../../features/uiSlice";
 import { Token } from "../../interfaces/UserInterface";
 import { notify } from "../../../utils/toast";
-import { transformDateToString } from "../../../utils/dataTransformation";
+
+const key: Token = localStorage.getItem("token");
+const token = `Bearer ${key}`;
+const authorization = { headers: { Authorization: token } };
 
 export const loadEntriesThunk =
   (key: string) => async (dispatch: AppDispatch) => {
     try {
       dispatch(loadingActionCreator());
       const diaryRoute: string = `${process.env.REACT_APP_API_URL}diary/all`;
-      const token = `Bearer ${key}`;
       const {
         data: { entries },
-      }: GetApiResponse = await axios.get(diaryRoute, {
-        headers: { Authorization: token },
-      });
+      }: GetApiResponse = await axios.get(diaryRoute, authorization);
       dispatch(loadActionCreator(entries));
     } catch (error) {
       notify({ message: "Failed to load user's entries", type: "error" });
@@ -41,12 +40,7 @@ export const deleteEntryThunk =
     try {
       dispatch(loadingActionCreator());
       const diaryRoute: string = `${process.env.REACT_APP_API_URL}diary/delete`;
-      const key: Token = localStorage.getItem("token");
-      const token = `Bearer ${key}`;
-      await axios.delete(diaryRoute, {
-        headers: { Authorization: token },
-        data: { entryId },
-      });
+      await axios.delete(diaryRoute, { ...authorization, data: { entryId } });
       dispatch(deleteEntryActionCreator(entryId));
       notify({
         message: "Succesfully deleted well-being entry",
@@ -64,17 +58,7 @@ export const createEntryThunk =
     try {
       dispatch(loadingActionCreator());
       const diaryRoute: string = `${process.env.REACT_APP_API_URL}diary`;
-      const key: Token = localStorage.getItem("token");
-      const token = `Bearer ${key}`;
-      const {
-        data: { id },
-      } = await axios.post(diaryRoute, {
-        headers: { Authorization: token },
-        data: { newEntry },
-      });
-      const diaryEntry = transformDateToString({ id, ...newEntry });
-
-      dispatch(createEntryActionCreator(diaryEntry));
+      await axios.post(diaryRoute, newEntry, authorization);
       notify({
         message: "Succesfully created well-being entry",
         type: "success",

@@ -37,9 +37,7 @@ const CreateForm = (): JSX.Element => {
     resetForm();
   };
 
-  const navigateToHome = (): void => {
-    console.log("Hola");
-  };
+  const navigateToHome = (): void => {};
   return (
     <CreateFormContainer>
       <Form autoComplete="off" onSubmit={createEntry} noValidate>

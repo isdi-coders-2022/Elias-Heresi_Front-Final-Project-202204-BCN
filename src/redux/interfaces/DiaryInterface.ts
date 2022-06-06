@@ -29,7 +29,7 @@ export interface FinalCreatedEntryForm extends TransformedEntryForm {
 }
 
 export interface EntryObtainedFromApi {
-  date: string;
+  date: Date;
   vitality: number;
   positiveEmotion: number;
   engagement: number;
@@ -40,7 +40,6 @@ export interface EntryObtainedFromApi {
   image: string;
   commentary: string;
 }
-
 export interface DiaryEntry extends EntryObtainedFromApi {
   id: string;
 }

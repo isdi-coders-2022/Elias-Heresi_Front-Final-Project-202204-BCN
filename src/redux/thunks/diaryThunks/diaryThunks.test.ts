@@ -1,14 +1,8 @@
-import { transformDateToString } from "../../../utils/dataTransformation";
 import {
   loadActionCreator,
   deleteEntryActionCreator,
-  createEntryActionCreator,
 } from "../../features/diarySlice";
-import {
-  mockApiGetResponse,
-  mockApiId,
-  mockCreatedEntry,
-} from "../../mocks/diaryMocks";
+import { mockApiGetResponse, mockCreatedEntry } from "../../mocks/diaryMocks";
 import {
   loadEntriesThunk,
   deleteEntryThunk,
@@ -71,21 +65,9 @@ describe("Given the createEntryThunk", () => {
     test("Then the dispatch function will be called 2 times", async () => {
       await thunk(dispatch);
 
-      const expectedCalls = 3;
+      const expectedCalls = 2;
 
       expect(dispatch).toHaveBeenCalledTimes(expectedCalls);
-    });
-    test("Then the createActionCreator will be called", async () => {
-      await thunk(dispatch);
-
-      const entryToBeInputted = transformDateToString({
-        id: mockApiId,
-        ...mockCreatedEntry,
-      });
-
-      const action = createEntryActionCreator(entryToBeInputted);
-
-      expect(dispatch).toHaveBeenCalledWith(action);
     });
   });
 });

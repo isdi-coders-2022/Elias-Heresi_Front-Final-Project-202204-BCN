@@ -1,7 +1,4 @@
-import {
-  InitialCreatedEntryForm,
-  FinalCreatedEntryForm,
-} from "../redux/interfaces/DiaryInterface";
+import { InitialCreatedEntryForm } from "../redux/interfaces/DiaryInterface";
 
 export const stringsToNumbers = (entry: InitialCreatedEntryForm) => {
   return {
@@ -13,11 +10,5 @@ export const stringsToNumbers = (entry: InitialCreatedEntryForm) => {
     accomplishment: parseInt(entry.accomplishment, 10),
     wellBeing: parseInt(entry.wellBeing, 10),
     vitality: parseInt(entry.vitality, 10),
-  };
-};
-export const transformDateToString = (entry: FinalCreatedEntryForm) => {
-  return {
-    ...entry,
-    date: entry.date.toISOString(),
   };
 };
