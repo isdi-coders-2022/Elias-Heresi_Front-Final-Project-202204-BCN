@@ -1,5 +1,6 @@
 import { ChangeEvent, useState, FormEvent } from "react";
 import { Button, Form } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import { InitialCreatedEntryForm } from "../../redux/interfaces/DiaryInterface";
 import { useAppDispatch } from "../../redux/store/hooks";
 import { createEntryThunk } from "../../redux/thunks/diaryThunks/diaryThunks";
@@ -37,7 +38,12 @@ const CreateForm = (): JSX.Element => {
     resetForm();
   };
 
-  const navigateToHome = (): void => {};
+  const navigate = useNavigate();
+
+  const navigateToHome = (): void => {
+    navigate("/historic");
+  };
+
   return (
     <CreateFormContainer>
       <Form autoComplete="off" onSubmit={createEntry} noValidate>

@@ -40,7 +40,7 @@ export const registerUserThunk =
       localStorage.setItem("token", token);
       const userInfo: UserData = jwtDecode(token);
       dispatch(loginActionCreator(userInfo));
-      dispatch(loadEntriesThunk(token));
+      dispatch(loadEntriesThunk());
     } catch (error) {
       dispatch(finishedLoadingActionCreator());
       notify({ message: "User registration failed.", type: "error" });
@@ -60,7 +60,7 @@ export const loginUserThunk =
       localStorage.setItem("token", token);
       const userInfo: UserData = jwtDecode(token);
       dispatch(loginActionCreator(userInfo));
-      dispatch(loadEntriesThunk(token));
+      dispatch(loadEntriesThunk());
     } catch (error) {
       notify({ message: "Incorrect username and/or password", type: "error" });
     } finally {

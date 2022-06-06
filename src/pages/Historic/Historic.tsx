@@ -1,6 +1,6 @@
 import jwtDecode from "jwt-decode";
 import { useEffect } from "react";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Container } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import EntrySummary from "../../components/EntrySummary/EntrySummary";
@@ -37,7 +37,7 @@ const Historic = (): JSX.Element => {
     if (token) {
       const userInfo: UserData = jwtDecode(token);
       dispatch(loginActionCreator(userInfo));
-      dispatch(loadEntriesThunk(token));
+      dispatch(loadEntriesThunk());
     } else {
       dispatch(logOutUserThunk());
     }
@@ -49,18 +49,20 @@ const Historic = (): JSX.Element => {
       {loading && <Loading />}
       <ToastContainer />
       <HistoricContainer>
-        <Row>
-          <h1>{name}'s well-being history</h1>
-          {collection.length > 0 ? (
-            collection.map((entry, index) => (
-              <Col key={index}>
-                <EntrySummary entry={entry} />
-              </Col>
-            ))
-          ) : (
-            <h2>@{username} hasn't created any entries!</h2>
-          )}
-        </Row>
+        <h1>{name}'s well-being history</h1>
+        <Container>
+          <Row>
+            {collection.length > 0 ? (
+              collection.map((entry, index) => (
+                <Col key={index}>
+                  <EntrySummary entry={entry} />
+                </Col>
+              ))
+            ) : (
+              <h2>@{username} hasn't created any entries!</h2>
+            )}
+          </Row>
+        </Container>
       </HistoricContainer>
     </>
   );
