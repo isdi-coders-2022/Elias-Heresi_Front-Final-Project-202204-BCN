@@ -20,8 +20,8 @@ jest.mock("react-redux", () => ({
 
 describe("Given the RegisterForm component", () => {
   describe("When instantiated", () => {
-    test("Then 2 buttons and 1 input boxes will be rendered", () => {
-      const expectedButtons = 2;
+    test("Then 1 button and 1 input boxes will be rendered", () => {
+      const expectedButtons = 1;
       const expectedInputBoxes = 1;
 
       render(
@@ -59,22 +59,6 @@ describe("Given the RegisterForm component", () => {
       userEvent.click(submitButton);
 
       expect(mockDispatch).toHaveBeenCalled();
-    });
-  });
-  describe("When the register button is clicked on", () => {
-    test("Then the user will be redirected to another page", () => {
-      render(
-        <Provider store={store}>
-          <BrowserRouter>
-            <LoginForm />
-          </BrowserRouter>
-        </Provider>
-      );
-
-      const registerButton = screen.getByRole("button", { name: "Register" });
-      userEvent.click(registerButton);
-
-      expect(mockUseNavigate).toHaveBeenCalled();
     });
   });
 });

@@ -2,7 +2,7 @@
 
 exports[`When invoked, and the submit button is enabled and clicked on Then it should always match this snapshot 1`] = `
 <div
-  className="sc-bczRLJ fUXCFd"
+  className="sc-bczRLJ gZKsll"
 >
   <form
     autoComplete="off"
