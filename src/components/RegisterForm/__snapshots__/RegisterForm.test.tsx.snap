@@ -113,14 +113,12 @@ exports[`When invoked, and the submit button is enabled and clicked on Then it s
       <p>
         Already a member?
       </p>
-      <button
-        className="btn btn-secondary"
-        disabled={false}
+      <a
+        href="/login"
         onClick={[Function]}
-        type="button"
       >
         Login
-      </button>
+      </a>
     </section>
   </form>
 </div>

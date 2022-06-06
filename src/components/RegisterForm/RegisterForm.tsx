@@ -7,7 +7,7 @@ import {
   registerUserThunk,
 } from "../../redux/thunks/userThunks/userThunks";
 import { useAppDispatch } from "../../redux/store/hooks";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { finishedLoadingActionCreator } from "../../redux/features/uiSlice";
 
 const RegisterForm = (): JSX.Element => {
@@ -123,9 +123,7 @@ const RegisterForm = (): JSX.Element => {
           </Button>
 
           <p>Already a member?</p>
-          <Button variant="secondary" type="button" onClick={navigateToLogin}>
-            Login
-          </Button>
+          <Link to="/login">Login</Link>
         </section>
       </Form>
     </RegisterFormContainer>

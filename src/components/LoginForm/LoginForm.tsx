@@ -9,7 +9,7 @@ import {
 import { useAppDispatch } from "../../redux/store/hooks";
 import { LoginUser } from "../../redux/interfaces/UserInterface";
 import { finishedLoadingActionCreator } from "../../redux/features/uiSlice";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const LoginForm = (): JSX.Element => {
   const formInitialState = {
@@ -81,14 +81,7 @@ const LoginForm = (): JSX.Element => {
           </Button>
 
           <p>Not a member yet?</p>
-
-          <Button
-            variant="secondary"
-            type="button"
-            onClick={navigateToRegister}
-          >
-            Register
-          </Button>
+          <Link to="/register">Register</Link>
         </section>
       </Form>
     </LoginFormContainer>

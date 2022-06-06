@@ -17,5 +17,9 @@ export const RegisterFormContainer = styled.div`
     section {
       font-size: 24px;
     }
+    p {
+      margin-bottom: 0;
+      margin-top: 20px;
+    }
   }
 `;
