@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { mockApiGetResponse } from "../../redux/mocks/diaryMocks";
+import { usedToken } from "../../redux/mocks/userMocks";
 import store from "../../redux/store/store";
 import Historic from "./Historic";
 
@@ -13,10 +14,21 @@ jest.mock("react-redux", () => ({
   useSelector: () => ({
     collection: mockApiGetResponse,
     loading: false,
-    username: "Pakito",
+    username: "marta",
     name: mockUsername,
   }),
 }));
+
+const localStorageMock = (() => {
+  return {
+    getItem() {
+      return usedToken;
+    },
+  };
+})();
+Object.defineProperty(window, "localStorage", {
+  value: localStorageMock,
+});
 
 jest.mock("react-chartjs-2", () => ({
   PolarArea: () => <canvas role="img" />,

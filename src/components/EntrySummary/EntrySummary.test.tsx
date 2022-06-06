@@ -1,7 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
-import { deleteEntryActionCreator } from "../../redux/features/diarySlice";
 import {
   feedbackOffActionCreator,
   feedbackOnActionCreator,
@@ -10,7 +9,6 @@ import {
 } from "../../redux/features/uiSlice";
 import { mockApiGetResponse, mockApiId } from "../../redux/mocks/diaryMocks";
 import store from "../../redux/store/store";
-import { deleteEntryThunk } from "../../redux/thunks/diaryThunks/diaryThunks";
 import EntrySummary from "./EntrySummary";
 
 jest.mock("react-chartjs-2", () => ({
