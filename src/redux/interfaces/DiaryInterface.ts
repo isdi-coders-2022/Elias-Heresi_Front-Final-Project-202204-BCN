@@ -11,6 +11,19 @@ export interface CreateEntryForm {
   commentary: string;
 }
 
+export interface CreateEntryNumbers {
+  date: string;
+  vitality: number;
+  positiveEmotion: number;
+  engagement: number;
+  relationships: number;
+  meaning: number;
+  accomplishment: number;
+  wellBeing: number;
+  image: string;
+  commentary: string;
+}
+
 export interface CreateEntry {
   date: string;
   vitality: number;

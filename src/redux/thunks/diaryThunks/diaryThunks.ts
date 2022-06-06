@@ -1,7 +1,11 @@
 import axios from "axios";
 import { AppDispatch } from "../../store/store";
-import { GetApiResponse } from "../../interfaces/DiaryInterface";
 import {
+  CreateEntryNumbers,
+  GetApiResponse,
+} from "../../interfaces/DiaryInterface";
+import {
+  createEntryActionCreator,
   deleteEntryActionCreator,
   loadActionCreator,
 } from "../../features/diarySlice";
@@ -49,6 +53,32 @@ export const deleteEntryThunk =
       });
     } catch (error) {
       notify({ message: "Failed to delete well-being entry", type: "error" });
+    } finally {
+      dispatch(finishedLoadingActionCreator());
+    }
+  };
+
+export const createEntryThunk =
+  (newEntry: CreateEntryNumbers) => async (dispatch: AppDispatch) => {
+    try {
+      dispatch(loadingActionCreator());
+      const diaryRoute: string = `${process.env.REACT_APP_API_URL}/`;
+      const key: Token = localStorage.getItem("token");
+      const token = `Bearer ${key}`;
+      const {
+        data: { id },
+      } = await axios.post(diaryRoute, {
+        headers: { Authorization: token },
+        data: { newEntry },
+      });
+      const diaryEntry = { id, ...newEntry };
+      dispatch(createEntryActionCreator(diaryEntry));
+      notify({
+        message: "Succesfully created well-being entry",
+        type: "success",
+      });
+    } catch (error) {
+      notify({ message: "Failed to create well-being entry", type: "error" });
     } finally {
       dispatch(finishedLoadingActionCreator());
     }
