@@ -1,7 +1,19 @@
+import { usedToken } from "../mocks/userMocks";
 import userReducer, {
   loginActionCreator,
   logoutActionCreator,
 } from "./userSlice";
+
+const localStorageMock = (() => {
+  return {
+    getItem() {
+      return usedToken;
+    },
+  };
+})();
+Object.defineProperty(window, "localStorage", {
+  value: localStorageMock,
+});
 
 describe("Given a userSlice reducer", () => {
   describe("When it receives a user and a login action", () => {

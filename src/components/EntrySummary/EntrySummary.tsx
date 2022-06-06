@@ -71,7 +71,7 @@ const EntrySummary = ({
                     {date.toString().slice(0, 10).replaceAll("-", "/")}
                   </Card.Title>
                 </Col>
-                <Col xs={{ span: 2, offset: 2 }}>
+                <Col xs={{ span: 2, offset: 1 }}>
                   <Button variant="link" onClick={deleteCard}>
                     <FaTimesCircle size={20} color={"red"} />
                   </Button>

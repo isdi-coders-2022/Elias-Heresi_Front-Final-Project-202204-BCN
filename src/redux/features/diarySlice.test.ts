@@ -1,6 +1,7 @@
 import { DiaryState } from "../interfaces/DiaryInterface";
-import { mockFirstEntry } from "../mocks/diaryMocks";
+import { mockFirstEntry, mockSecondEntry } from "../mocks/diaryMocks";
 import diaryReducer, {
+  createEntryActionCreator,
   deleteEntryActionCreator,
   loadActionCreator,
   nextPageActionCreator,
@@ -96,7 +97,7 @@ describe("Given the loadActionCreator", () => {
 
 describe("Given the deleteEntryActionCreator", () => {
   describe("When invoked with the objectId to be deleted", () => {
-    test("Then the collection will contain the new entries", () => {
+    test("Then the collection won't contain this entry", () => {
       let initialState = {
         page: 2,
         perPage: 6,
@@ -114,6 +115,31 @@ describe("Given the deleteEntryActionCreator", () => {
       const idToBeDeleted = "aa";
 
       const action = deleteEntryActionCreator(idToBeDeleted);
+      const loadedState = diaryReducer(initialState, action);
+
+      expect(loadedState).toEqual(expectedState);
+    });
+  });
+});
+
+describe("Given the createEntryActionCreator", () => {
+  describe("When invoked with the entry to be created", () => {
+    test("Then the collection will contain the new entries", () => {
+      let initialState = {
+        page: 2,
+        perPage: 6,
+        total: 100,
+        collection: [mockFirstEntry],
+      };
+
+      const expectedState = {
+        page: 2,
+        perPage: 6,
+        total: 100,
+        collection: [mockFirstEntry, mockSecondEntry],
+      };
+
+      const action = createEntryActionCreator(mockSecondEntry);
       const loadedState = diaryReducer(initialState, action);
 
       expect(loadedState).toEqual(expectedState);
