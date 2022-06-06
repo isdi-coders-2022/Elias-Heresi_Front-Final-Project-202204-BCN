@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { InitialCreatedEntryForm } from "../../redux/interfaces/DiaryInterface";
 import { useAppDispatch } from "../../redux/store/hooks";
 import { createEntryThunk } from "../../redux/thunks/diaryThunks/diaryThunks";
-import { stringsToNumbers } from "../../utils/dataTransformation";
+import { adaptToAcceptedDataTypes } from "../../utils/dataTransformation";
 import { CreateFormContainer } from "./CreateFormContainer";
 
 const CreateForm = (): JSX.Element => {
@@ -34,7 +34,7 @@ const CreateForm = (): JSX.Element => {
 
   const createEntry = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    dispatch(createEntryThunk(stringsToNumbers(formData)));
+    dispatch(createEntryThunk(adaptToAcceptedDataTypes(formData)));
     resetForm();
   };
 
