@@ -23,6 +23,14 @@ export const CreateFormContainer = styled.div`
     div {
       font-weight: bold;
       font-size: 24px;
+      input {
+        &#image {
+          margin-bottom: 40px;
+        }
+      }
+      textarea {
+        margin-bottom: 40px;
+      }
     }
     span {
       width: 90%;

@@ -50,6 +50,7 @@ const CreateForm = (): JSX.Element => {
             min={0}
             max={10}
           />
+          <p>{formData.vitality}</p>
         </Form.Group>
         <Form.Group className="mb-3 create-form__slider">
           <Form.Label htmlFor="positiveEmotion">Positive emotion</Form.Label>
@@ -64,6 +65,7 @@ const CreateForm = (): JSX.Element => {
             min={0}
             max={10}
           />
+          <p>{formData.positiveEmotion}</p>
         </Form.Group>
         <Form.Group className="mb-3 create-form__slider">
           <Form.Label htmlFor="engagement">Engagement</Form.Label>
@@ -78,6 +80,7 @@ const CreateForm = (): JSX.Element => {
             min={0}
             max={10}
           />
+          <p>{formData.engagement}</p>
         </Form.Group>
         <Form.Group className="mb-3 create-form__slider">
           <Form.Label htmlFor="relationships">Relationships</Form.Label>
@@ -92,6 +95,7 @@ const CreateForm = (): JSX.Element => {
             min={0}
             max={10}
           />
+          <p>{formData.relationships}</p>
         </Form.Group>{" "}
         <Form.Group className="mb-3 create-form__slider">
           <Form.Label htmlFor="meaning">Meaning</Form.Label>
@@ -106,6 +110,7 @@ const CreateForm = (): JSX.Element => {
             min={0}
             max={10}
           />
+          <p>{formData.meaning}</p>
         </Form.Group>
         <Form.Group className="mb-3 create-form__slider">
           <Form.Label htmlFor="accomplishment">Accomplishment</Form.Label>
@@ -120,6 +125,7 @@ const CreateForm = (): JSX.Element => {
             min={0}
             max={10}
           />
+          <p>{formData.accomplishment}</p>
         </Form.Group>
         <Form.Group className="mb-3 create-form__file">
           <Form.Label>Add an image summarizing today</Form.Label>
