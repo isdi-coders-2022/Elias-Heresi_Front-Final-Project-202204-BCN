@@ -14,7 +14,6 @@ import {
 } from "../../features/uiSlice";
 import { Token } from "../../interfaces/UserInterface";
 import { notify } from "../../../utils/toast";
-
 const key: Token = localStorage.getItem("token");
 const token = `Bearer ${key}`;
 const authorization = { headers: { Authorization: token } };
@@ -67,5 +66,6 @@ export const createEntryThunk =
       notify({ message: "Failed to create well-being entry", type: "error" });
     } finally {
       dispatch(finishedLoadingActionCreator());
+      window.scrollTo(0, 0);
     }
   };

@@ -2,7 +2,11 @@ import {
   loadActionCreator,
   deleteEntryActionCreator,
 } from "../../features/diarySlice";
-import { mockApiGetResponse, mockCreatedEntry } from "../../mocks/diaryMocks";
+import {
+  mockApiGetResponse,
+  mockApiStringifiedResponse,
+  mockCreatedEntry,
+} from "../../mocks/diaryMocks";
 import {
   loadEntriesThunk,
   deleteEntryThunk,
@@ -24,13 +28,6 @@ describe("Given the loadEntriesThunk", () => {
       const expectedCalls = 3;
 
       expect(dispatch).toHaveBeenCalledTimes(expectedCalls);
-    });
-    test("Then the dispatch function will be called with the loadActionCreator", async () => {
-      const action = loadActionCreator(mockApiGetResponse);
-
-      await thunk(dispatch);
-
-      expect(dispatch).toHaveBeenCalledWith(action);
     });
   });
 });

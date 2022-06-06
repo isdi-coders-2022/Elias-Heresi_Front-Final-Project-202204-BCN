@@ -68,3 +68,20 @@ export const mockApiGetResponse = [
     id: mockApiId,
   },
 ];
+
+export const mockApiStringifiedResponse = [
+  {
+    date: new Date("December 17, 1995 03:24:00").toISOString(),
+    vitality: 4,
+    positiveEmotion: 10,
+    engagement: 4,
+    relationships: 7,
+    meaning: 4,
+    accomplishment: 6,
+    wellBeing: 6,
+    image:
+      "https://thumbs.dreamstime.com/b/cierra-los-empresarios-d%C3%A1ndole-la-mano-durante-una-reuni%C3%B3n-empresa-de-negocios-transacciones-apret%C3%B3n-manos-165281340.jpg",
+    commentary: "Had a good day at the office. Excited on what is coming",
+    id: mockApiId,
+  },
+];
