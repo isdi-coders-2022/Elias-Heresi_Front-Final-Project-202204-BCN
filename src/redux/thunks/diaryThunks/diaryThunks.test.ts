@@ -21,7 +21,7 @@ afterAll(() => server.close());
 describe("Given the loadEntriesThunk", () => {
   describe("When invoked", () => {
     const dispatch = jest.fn();
-    const thunk = loadEntriesThunk("xx");
+    const thunk = loadEntriesThunk();
     test("Then the dispatch function will be called 3 times", async () => {
       await thunk(dispatch);
 

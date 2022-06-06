@@ -49,7 +49,7 @@ const EntrySummary = ({
           dispatch(feedbackOffActionCreator());
         }}
       />
-      <Card style={{ width: "30rem" }}>
+      <Card style={{ width: "30rem", height: "260px" }}>
         <Row className="no-gutters">
           <Col xs={{ span: 6 }}>
             <PermaChart
@@ -71,9 +71,13 @@ const EntrySummary = ({
                     {date.toString().slice(0, 10).replaceAll("-", "/")}
                   </Card.Title>
                 </Col>
-                <Col xs={{ span: 2, offset: 1 }}>
-                  <Button variant="link" onClick={deleteCard}>
-                    <FaTimesCircle size={20} color={"red"} />
+                <Col xs={{ span: 2 }}>
+                  <Button
+                    variant="link"
+                    onClick={deleteCard}
+                    style={{ border: 0, marginTop: "6px" }}
+                  >
+                    <FaTimesCircle size={30} color={"red"} />
                   </Button>
                 </Col>
               </Row>
@@ -81,7 +85,7 @@ const EntrySummary = ({
               <Card.Text style={{ fontSize: 24, fontWeight: "bold" }}>
                 Well being: {wellBeing}
               </Card.Text>
-              <Card.Text>{`${commentary.slice(0, 90)}...`}</Card.Text>
+              <Card.Text>{`${commentary.slice(0, 74)}...`}</Card.Text>
               <Row>
                 <Col xs={{ offset: 2 }}>
                   <Button

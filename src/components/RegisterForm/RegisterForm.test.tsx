@@ -13,17 +13,10 @@ jest.mock("react-redux", () => ({
   useDispatch: () => mockDispatch,
 }));
 
-const mockUseNavigate = jest.fn();
-
-jest.mock("react-router-dom", () => ({
-  ...jest.requireActual("react-router-dom"),
-  useNavigate: () => mockUseNavigate,
-}));
-
 describe("Given the RegisterForm component", () => {
   describe("When invoked", () => {
-    test("Then 2 buttons and 4 input boxes will be rendered", () => {
-      const expectedButtons = 2;
+    test("Then 1 buttons and 4 input boxes will be rendered", () => {
+      const expectedButtons = 1;
       const expectedInputBoxes = 4;
 
       render(
@@ -39,22 +32,6 @@ describe("Given the RegisterForm component", () => {
 
       expect(searchedButtons).toHaveLength(expectedButtons);
       expect(searchedInputBoxes).toHaveLength(expectedInputBoxes);
-    });
-  });
-  describe("When the register button is clicked on", () => {
-    test("Then the user will be redirected to another page", () => {
-      render(
-        <Provider store={store}>
-          <BrowserRouter>
-            <RegisterForm />
-          </BrowserRouter>
-        </Provider>
-      );
-
-      const registerButton = screen.getByRole("button", { name: "Login" });
-      userEvent.click(registerButton);
-
-      expect(mockUseNavigate).toHaveBeenCalled();
     });
   });
 });
@@ -80,7 +57,7 @@ describe("When invoked, and the submit button is enabled and clicked on", () => 
     userEvent.type(usernameInputText, "text");
     userEvent.type(passwordInputText, "text");
 
-    const submitButton = screen.getByRole("button", { name: "Submit" });
+    const submitButton = screen.getByRole("button");
     userEvent.click(submitButton);
 
     expect(mockDispatch).toHaveBeenCalled();

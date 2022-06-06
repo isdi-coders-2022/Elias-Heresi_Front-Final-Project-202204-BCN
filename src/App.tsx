@@ -14,17 +14,17 @@ import Create from "./pages/Create/Create";
 
 const App = (): JSX.Element => {
   const dispatch = useAppDispatch();
+  const token: Token = localStorage.getItem("token");
 
   useEffect(() => {
-    const token: Token = localStorage.getItem("token");
-
     if (token) {
       const userInfo: UserData = jwtDecode(token);
+      console.log(userInfo);
       dispatch(loginActionCreator(userInfo));
     } else {
       dispatch(logOutUserThunk());
     }
-  }, [dispatch]);
+  }, [dispatch, token]);
 
   return (
     <Routes>

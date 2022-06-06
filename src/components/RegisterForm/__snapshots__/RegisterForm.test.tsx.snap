@@ -2,7 +2,7 @@
 
 exports[`When invoked, and the submit button is enabled and clicked on Then it should always match this snapshot 1`] = `
 <div
-  className="sc-bczRLJ fUXCFd"
+  className="sc-bczRLJ gZKsll"
 >
   <form
     autoComplete="off"
@@ -113,14 +113,12 @@ exports[`When invoked, and the submit button is enabled and clicked on Then it s
       <p>
         Already a member?
       </p>
-      <button
-        className="btn btn-secondary"
-        disabled={false}
+      <a
+        href="/login"
         onClick={[Function]}
-        type="button"
       >
         Login
-      </button>
+      </a>
     </section>
   </form>
 </div>
