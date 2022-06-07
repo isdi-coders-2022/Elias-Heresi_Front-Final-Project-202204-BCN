@@ -75,7 +75,7 @@ const EntrySummary = ({
                   <Button
                     variant="link"
                     onClick={deleteCard}
-                    style={{ border: 0, marginTop: "6px" }}
+                    style={{ border: 0, marginTop: "-10px" }}
                   >
                     <FaTimesCircle size={30} color={"red"} />
                   </Button>
@@ -85,14 +85,25 @@ const EntrySummary = ({
               <Card.Text style={{ fontSize: 24, fontWeight: "bold" }}>
                 Well being: {wellBeing}
               </Card.Text>
-              <Card.Text>{`${commentary.slice(0, 74)}...`}</Card.Text>
+              <Card.Text style={{ height: "85px" }}>{`${commentary.slice(
+                0,
+                74
+              )}...`}</Card.Text>
               <Row>
-                <Col xs={{ offset: 2 }}>
+                <Col>
+                  <Button
+                    variant="secondary"
+                    className="d-flex align-items-center justify-content-center"
+                  >
+                    Edit
+                  </Button>
+                </Col>
+                <Col>
                   <Button
                     variant="primary"
                     className="d-flex align-items-center justify-content-center"
                   >
-                    See details
+                    Details
                   </Button>
                 </Col>
               </Row>
