@@ -19,7 +19,6 @@ const App = (): JSX.Element => {
   useEffect(() => {
     if (token) {
       const userInfo: UserData = jwtDecode(token);
-      console.log(userInfo);
       dispatch(loginActionCreator(userInfo));
     } else {
       dispatch(logOutUserThunk());
