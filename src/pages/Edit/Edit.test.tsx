@@ -1,16 +1,30 @@
 import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
+import { mockFirstEntry } from "../../redux/mocks/diaryMocks";
 import store from "../../redux/store/store";
-import Create from "./Create";
+import Edit from "./Edit";
 
-describe("Given the Create page", () => {
+const mockDispatch = jest.fn();
+
+jest.mock("react-redux", () => ({
+  ...jest.requireActual("react-redux"),
+  useDispatch: () => mockDispatch,
+  useSelector: () => ({ collection: [mockFirstEntry] }),
+}));
+
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  useParams: () => ({ id: "pakito-chocolate" }),
+}));
+
+describe("Given the Edit page", () => {
   describe("When invoked", () => {
     test("Then a header, along with the form's 7 sliders will be renderized", () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
-            <Create />
+            <Edit />
           </Provider>
         </BrowserRouter>
       );

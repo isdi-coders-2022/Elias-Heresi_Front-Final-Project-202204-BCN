@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
 import {
   feedbackOffActionCreator,
   feedbackOnActionCreator,
@@ -29,9 +30,11 @@ describe("Given the EntrySummary component", () => {
     test("Then a canvas element and 2 buttons will be renderized", () => {
       const expectedButtons = 3;
       render(
-        <Provider store={store}>
-          <EntrySummary entry={mockApiGetResponse[0]} />
-        </Provider>
+        <BrowserRouter>
+          <Provider store={store}>
+            <EntrySummary entry={mockApiGetResponse[0]} />
+          </Provider>
+        </BrowserRouter>
       );
 
       const searchedCanvas = screen.getByRole("img");
@@ -45,9 +48,11 @@ describe("Given the EntrySummary component", () => {
   describe("When the top right corner is clicked", () => {
     test("Then the dispatch will be called with the feedbackOn and saveEntry actions", () => {
       render(
-        <Provider store={store}>
-          <EntrySummary entry={mockApiGetResponse[0]} />
-        </Provider>
+        <BrowserRouter>
+          <Provider store={store}>
+            <EntrySummary entry={mockApiGetResponse[0]} />
+          </Provider>
+        </BrowserRouter>
       );
 
       const deleteCardButton = screen.getAllByRole("button")[0];
@@ -65,9 +70,11 @@ describe("Given the EntrySummary component", () => {
       const expectedNumberOfCalls = 5;
 
       render(
-        <Provider store={store}>
-          <EntrySummary entry={mockApiGetResponse[0]} />
-        </Provider>
+        <BrowserRouter>
+          <Provider store={store}>
+            <EntrySummary entry={mockApiGetResponse[0]} />
+          </Provider>
+        </BrowserRouter>
       );
 
       const deleteCardButton = screen.getAllByRole("button")[0];

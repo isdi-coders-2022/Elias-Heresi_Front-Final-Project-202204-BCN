@@ -11,6 +11,8 @@ import {
   loadEntriesThunk,
   deleteEntryThunk,
   createEntryThunk,
+  loadEntryThunk,
+  editEntryThunk,
 } from "./diaryThunks";
 import { server } from "./mocks/server";
 
@@ -22,6 +24,21 @@ describe("Given the loadEntriesThunk", () => {
   describe("When invoked", () => {
     const dispatch = jest.fn();
     const thunk = loadEntriesThunk();
+    test("Then the dispatch function will be called 3 times", async () => {
+      await thunk(dispatch);
+
+      const expectedCalls = 3;
+
+      expect(dispatch).toHaveBeenCalledTimes(expectedCalls);
+    });
+  });
+});
+
+describe("Given the loadEntryThunk", () => {
+  describe("When invoked", () => {
+    const dispatch = jest.fn();
+    const thunk = loadEntryThunk("testedId");
+
     test("Then the dispatch function will be called 3 times", async () => {
       await thunk(dispatch);
 
@@ -58,6 +75,21 @@ describe("Given the createEntryThunk", () => {
   describe("When invoked", () => {
     const dispatch = jest.fn();
     const thunk = createEntryThunk(mockCreatedEntry);
+
+    test("Then the dispatch function will be called 2 times", async () => {
+      await thunk(dispatch);
+
+      const expectedCalls = 2;
+
+      expect(dispatch).toHaveBeenCalledTimes(expectedCalls);
+    });
+  });
+});
+
+describe("Given the editEntryThunk", () => {
+  describe("When invoked", () => {
+    const dispatch = jest.fn();
+    const thunk = editEntryThunk(mockCreatedEntry, "testedId");
 
     test("Then the dispatch function will be called 2 times", async () => {
       await thunk(dispatch);

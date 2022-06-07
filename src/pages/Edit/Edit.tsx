@@ -15,7 +15,7 @@ import { CreateContainer } from "../Create/CreateContainer";
 
 const Edit = (): JSX.Element => {
   const { loading }: Ui = useSelector((state: RootState) => state.ui);
-  const { id } = useParams();
+  let { id } = useParams();
   const dispatch = useAppDispatch();
 
   const { collection }: DiaryState = useSelector(

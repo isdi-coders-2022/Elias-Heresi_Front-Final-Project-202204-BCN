@@ -34,9 +34,6 @@ const EntrySummary = ({
 }): JSX.Element => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const navigateTo = (route: string): void => {
-    navigate(`/${route}`);
-  };
 
   const { entryId }: Ui = useSelector((state: RootState) => state.ui);
   const deleteCard = () => {
@@ -99,7 +96,7 @@ const EntrySummary = ({
                   <Button
                     variant="secondary"
                     className="d-flex align-items-center justify-content-center"
-                    onClick={() => navigateTo(`edit/${id}`)}
+                    onClick={() => navigate(`/edit/${id}`)}
                   >
                     Edit
                   </Button>
