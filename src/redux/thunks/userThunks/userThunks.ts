@@ -16,7 +16,6 @@ import {
   finishedLoadingActionCreator,
   loadingActionCreator,
 } from "../../features/uiSlice";
-import { loadEntriesThunk } from "../diaryThunks/diaryThunks";
 import { resetCollectionActionCreator } from "../../features/diarySlice";
 import { notify } from "../../../utils/toast";
 
@@ -40,7 +39,6 @@ export const registerUserThunk =
       localStorage.setItem("token", token);
       const userInfo: UserData = jwtDecode(token);
       dispatch(loginActionCreator(userInfo));
-      dispatch(loadEntriesThunk());
     } catch (error) {
       dispatch(finishedLoadingActionCreator());
       notify({ message: "User registration failed.", type: "error" });
@@ -60,7 +58,6 @@ export const loginUserThunk =
       localStorage.setItem("token", token);
       const userInfo: UserData = jwtDecode(token);
       dispatch(loginActionCreator(userInfo));
-      dispatch(loadEntriesThunk());
     } catch (error) {
       notify({ message: "Incorrect username and/or password", type: "error" });
     } finally {

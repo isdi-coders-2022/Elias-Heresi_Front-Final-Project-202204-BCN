@@ -12,12 +12,8 @@ import {
   finishedLoadingActionCreator,
   loadingActionCreator,
 } from "../../features/uiSlice";
-import { Token } from "../../interfaces/UserInterface";
 import { notify } from "../../../utils/toast";
-
-const key: Token = localStorage.getItem("token");
-const token = `Bearer ${key}`;
-const authorization = { headers: { Authorization: token } };
+import { passToken } from "../../../utils/authorization";
 
 export const loadEntriesThunk = () => async (dispatch: AppDispatch) => {
   try {
@@ -25,7 +21,7 @@ export const loadEntriesThunk = () => async (dispatch: AppDispatch) => {
     const diaryRoute: string = `${process.env.REACT_APP_API_URL}diary/all`;
     const {
       data: { entries },
-    }: GetApiResponse = await axios.get(diaryRoute, authorization);
+    }: GetApiResponse = await axios.get(diaryRoute, passToken());
     dispatch(loadActionCreator(entries));
   } catch (error) {
     notify({ message: "Failed to load user's entries", type: "error" });
@@ -39,7 +35,7 @@ export const deleteEntryThunk =
     try {
       dispatch(loadingActionCreator());
       const diaryRoute: string = `${process.env.REACT_APP_API_URL}diary/delete`;
-      await axios.delete(diaryRoute, { ...authorization, data: { entryId } });
+      await axios.delete(diaryRoute, { ...passToken(), data: { entryId } });
       dispatch(deleteEntryActionCreator(entryId));
       notify({
         message: "Succesfully deleted well-being entry",
@@ -57,7 +53,7 @@ export const createEntryThunk =
     try {
       dispatch(loadingActionCreator());
       const diaryRoute: string = `${process.env.REACT_APP_API_URL}diary`;
-      await axios.post(diaryRoute, newEntry, authorization);
+      await axios.post(diaryRoute, newEntry, passToken());
       notify({
         message: "Succesfully created well-being entry",
         type: "success",

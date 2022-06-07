@@ -19,8 +19,8 @@ describe("Given the loginUserThunk", () => {
     const dispatch = jest.fn();
     const loginInformation = { username: "Daddy", password: "yankee" };
     const thunk = loginUserThunk(loginInformation);
-    test("Then the dispatch function will be called 4 times", async () => {
-      const expectedNumberOfCalls = 4;
+    test("Then the dispatch function will be called 3 times", async () => {
+      const expectedNumberOfCalls = 3;
 
       await thunk(dispatch);
 
@@ -45,7 +45,7 @@ describe("Given the loginUserThunk", () => {
     });
     test("Then the dispatch function will be called 4 times", async () => {
       await thunk(dispatch);
-      const expectedNumberOfCalls = 4;
+      const expectedNumberOfCalls = 3;
 
       expect(dispatch).toHaveBeenCalledTimes(expectedNumberOfCalls);
     });
