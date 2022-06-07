@@ -14,7 +14,7 @@ jest.mock("react-redux", () => ({
 
 describe("Given the CreateForm component", () => {
   describe("When invoked", () => {
-    test("Then 6 sliders, 1 textbox and 2 buttons will be renderized", () => {
+    test("Then 7 sliders, 1 textbox and 2 buttons will be renderized", () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
@@ -23,7 +23,7 @@ describe("Given the CreateForm component", () => {
         </BrowserRouter>
       );
 
-      const expectedSliders = 6;
+      const expectedSliders = 7;
       const expectedTextboxes = 1;
       const expectedButtons = 2;
 

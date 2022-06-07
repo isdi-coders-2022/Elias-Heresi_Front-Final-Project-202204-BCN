@@ -161,6 +161,21 @@ const CreateForm = (): JSX.Element => {
             onChange={changeData}
           />
         </Form.Group>
+        <Form.Group className="mb-3 create-form__slider">
+          <Form.Label htmlFor="wellBeing">Well being</Form.Label>
+          <Form.Label className="create-form__sublabel">
+            Considering everything, how would you rate your general wellness?
+          </Form.Label>
+          <Form.Range
+            id="wellBeing"
+            value={formData.wellBeing}
+            onChange={changeData}
+            placeholder="Well being"
+            min={0}
+            max={10}
+          />
+          <p>{formData.wellBeing}</p>
+        </Form.Group>
         <section className="container text-center">
           <Button variant="primary" type="submit">
             Create
