@@ -27,7 +27,7 @@ jest.mock("react-redux", () => ({
 describe("Given the EntrySummary component", () => {
   describe("When invoked", () => {
     test("Then a canvas element and 2 buttons will be renderized", () => {
-      const expectedButtons = 2;
+      const expectedButtons = 3;
       render(
         <Provider store={store}>
           <EntrySummary entry={mockApiGetResponse[0]} />

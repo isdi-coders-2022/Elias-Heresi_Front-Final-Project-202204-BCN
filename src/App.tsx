@@ -11,6 +11,7 @@ import { useAppDispatch } from "./redux/store/hooks";
 import { logOutUserThunk } from "./redux/thunks/userThunks/userThunks";
 import "react-toastify/dist/ReactToastify.css";
 import Create from "./pages/Create/Create";
+import Edit from "./pages/Edit/Edit";
 
 const App = (): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -43,6 +44,14 @@ const App = (): JSX.Element => {
         element={
           <CheckLogged>
             <Create />
+          </CheckLogged>
+        }
+      />
+      <Route
+        path="/edit"
+        element={
+          <CheckLogged>
+            <Edit />
           </CheckLogged>
         }
       />
