@@ -49,6 +49,11 @@ export type Collection = DiaryEntry[] | never[];
 export interface GetApiResponse {
   data: { entries: Collection };
 }
+
+export interface EntryApiResponse {
+  data: { entry: DiaryEntry };
+}
+
 export interface Diary {
   username: string;
   diary: Collection;

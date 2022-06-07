@@ -3,6 +3,7 @@ import { AppDispatch } from "../../store/store";
 import {
   TransformedEntryForm,
   GetApiResponse,
+  EntryApiResponse,
 } from "../../interfaces/DiaryInterface";
 import {
   deleteEntryActionCreator,
@@ -29,6 +30,40 @@ export const loadEntriesThunk = () => async (dispatch: AppDispatch) => {
     dispatch(finishedLoadingActionCreator());
   }
 };
+
+export const loadEntryThunk = (id: string) => async (dispatch: AppDispatch) => {
+  try {
+    dispatch(loadingActionCreator());
+    const diaryRoute: string = `${process.env.REACT_APP_API_URL}diary/byId/${id}`;
+    const {
+      data: { entry },
+    }: EntryApiResponse = await axios.get(diaryRoute, passToken());
+    dispatch(loadActionCreator([entry]));
+  } catch (error) {
+    notify({ message: "Failed to load entry", type: "error" });
+  } finally {
+    dispatch(finishedLoadingActionCreator());
+  }
+};
+
+export const editEntryThunk =
+  (newEntry: TransformedEntryForm, id: string) =>
+  async (dispatch: AppDispatch) => {
+    try {
+      dispatch(loadingActionCreator());
+      const diaryRoute: string = `${process.env.REACT_APP_API_URL}diary/edit/${id}`;
+      await axios.patch(diaryRoute, newEntry, passToken());
+      notify({
+        message: "Succesfully edited well-being entry",
+        type: "success",
+      });
+    } catch (error) {
+      notify({ message: "Failed to edit well-being entry", type: "error" });
+    } finally {
+      dispatch(finishedLoadingActionCreator());
+      window.scrollTo(0, 0);
+    }
+  };
 
 export const deleteEntryThunk =
   (entryId: string) => async (dispatch: AppDispatch) => {
