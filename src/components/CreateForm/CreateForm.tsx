@@ -32,16 +32,13 @@ const CreateForm = (): JSX.Element => {
     setFormData(formInitialState);
   };
 
+  const navigate = useNavigate();
+
   const createEntry = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
     dispatch(createEntryThunk(adaptToAcceptedDataTypes(formData)));
     resetForm();
-  };
-
-  const navigate = useNavigate();
-
-  const navigateToHome = (): void => {
-    navigate("/historic");
+    navigate("historic");
   };
 
   return (
@@ -180,7 +177,11 @@ const CreateForm = (): JSX.Element => {
           <Button variant="primary" type="submit">
             Create
           </Button>
-          <Button variant="secondary" type="button" onClick={navigateToHome}>
+          <Button
+            variant="secondary"
+            type="button"
+            onClick={() => navigate("/home")}
+          >
             Cancel
           </Button>
         </section>

@@ -3,6 +3,7 @@ import { AppDispatch } from "../../store/store";
 import {
   TransformedEntryForm,
   GetApiResponse,
+  EntryApiResponse,
 } from "../../interfaces/DiaryInterface";
 import {
   deleteEntryActionCreator,
@@ -25,6 +26,21 @@ export const loadEntriesThunk = () => async (dispatch: AppDispatch) => {
     dispatch(loadActionCreator(entries));
   } catch (error) {
     notify({ message: "Failed to load user's entries", type: "error" });
+  } finally {
+    dispatch(finishedLoadingActionCreator());
+  }
+};
+
+export const loadEntryThunk = (id: string) => async (dispatch: AppDispatch) => {
+  try {
+    dispatch(loadingActionCreator());
+    const diaryRoute: string = `${process.env.REACT_APP_API_URL}diary/byId/${id}`;
+    const {
+      data: { entry },
+    }: EntryApiResponse = await axios.get(diaryRoute, passToken());
+    dispatch(loadActionCreator([entry]));
+  } catch (error) {
+    notify({ message: "Failed to load entry", type: "error" });
   } finally {
     dispatch(finishedLoadingActionCreator());
   }

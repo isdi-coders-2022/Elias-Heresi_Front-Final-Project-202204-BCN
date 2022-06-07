@@ -1,6 +1,7 @@
 import { Button, Card, Row, Col } from "react-bootstrap";
 import { FaTimesCircle } from "react-icons/fa";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import {
   feedbackOffActionCreator,
   feedbackOnActionCreator,
@@ -32,6 +33,10 @@ const EntrySummary = ({
   entry: DiaryEntry;
 }): JSX.Element => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const navigateTo = (route: string): void => {
+    navigate(`/${route}`);
+  };
 
   const { entryId }: Ui = useSelector((state: RootState) => state.ui);
   const deleteCard = () => {
@@ -94,6 +99,7 @@ const EntrySummary = ({
                   <Button
                     variant="secondary"
                     className="d-flex align-items-center justify-content-center"
+                    onClick={() => navigateTo(`edit/${id}`)}
                   >
                     Edit
                   </Button>

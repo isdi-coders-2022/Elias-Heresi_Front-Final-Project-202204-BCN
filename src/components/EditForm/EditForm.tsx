@@ -1,28 +1,43 @@
 import { ChangeEvent, useState, FormEvent } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { InitialCreatedEntryForm } from "../../redux/interfaces/DiaryInterface";
-import { useAppDispatch } from "../../redux/store/hooks";
-import { createEntryThunk } from "../../redux/thunks/diaryThunks/diaryThunks";
+import {
+  InitialCreatedEntryForm,
+  DiaryEntry,
+} from "../../redux/interfaces/DiaryInterface";
 import { adaptToAcceptedDataTypes } from "../../utils/dataTransformation";
 import { CreateFormContainer } from "../CreateForm/CreateFormContainer";
 
-const EditForm = (): JSX.Element => {
+const EditForm = ({
+  entry: {
+    positiveEmotion,
+    engagement,
+    relationships,
+    meaning,
+    accomplishment,
+    vitality,
+    commentary,
+    wellBeing,
+    image,
+    date,
+  },
+}: {
+  entry: DiaryEntry;
+}): JSX.Element => {
   const formInitialState = {
     date: new Date(),
-    vitality: "5",
-    positiveEmotion: "5",
-    engagement: "5",
-    relationships: "5",
-    meaning: "5",
-    accomplishment: "5",
-    wellBeing: "5",
-    commentary: "",
+    vitality: vitality.toString(),
+    positiveEmotion: positiveEmotion.toString(),
+    engagement: engagement.toString(),
+    relationships: relationships.toString(),
+    meaning: meaning.toString(),
+    accomplishment: accomplishment.toString(),
+    wellBeing: wellBeing.toString(),
+    commentary,
     image: "",
   } as InitialCreatedEntryForm;
 
   const [formData, setFormData] = useState(formInitialState);
-  const dispatch = useAppDispatch();
 
   const changeData = (event: ChangeEvent<HTMLInputElement>): void => {
     setFormData({ ...formData, [event.target.id]: event.target.value });
@@ -34,7 +49,7 @@ const EditForm = (): JSX.Element => {
 
   const createEntry = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    dispatch(createEntryThunk(adaptToAcceptedDataTypes(formData)));
+    console.log(adaptToAcceptedDataTypes(formData));
     resetForm();
   };
 
@@ -178,7 +193,7 @@ const EditForm = (): JSX.Element => {
         </Form.Group>
         <section className="container text-center">
           <Button variant="primary" type="submit">
-            Create
+            Edit
           </Button>
           <Button variant="secondary" type="button" onClick={navigateToHome}>
             Cancel

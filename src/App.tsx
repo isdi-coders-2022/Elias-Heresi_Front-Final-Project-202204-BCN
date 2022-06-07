@@ -48,7 +48,7 @@ const App = (): JSX.Element => {
         }
       />
       <Route
-        path="/edit"
+        path="/edit/:id"
         element={
           <CheckLogged>
             <Edit />
