@@ -7,7 +7,7 @@ import Loading from "../../components/Loading/Loading";
 import NavBar from "../../components/NavBar/NavBar";
 import { DiaryState } from "../../redux/interfaces/DiaryInterface";
 import { Ui } from "../../redux/interfaces/UiInterface";
-import { Token, UserState } from "../../redux/interfaces/UserInterface";
+import { UserState } from "../../redux/interfaces/UserInterface";
 import { useAppDispatch } from "../../redux/store/hooks";
 import { RootState } from "../../redux/store/store";
 import { loadEntriesThunk } from "../../redux/thunks/diaryThunks/diaryThunks";

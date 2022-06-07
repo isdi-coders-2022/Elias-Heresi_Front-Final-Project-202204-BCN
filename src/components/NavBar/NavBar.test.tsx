@@ -48,4 +48,24 @@ describe("Given the navbar component", () => {
       expect(mockDispatch).toHaveBeenCalled();
     });
   });
+  describe("When the brand, Create and Historic buttons are clicked", () => {
+    test("Then a navigation action will be dispatched 3 times", () => {
+      render(
+        <Provider store={store}>
+          <NavBar />
+        </Provider>
+      );
+      const expectedNumberOfCalls = 3;
+
+      const searchedBrandButton = screen.getByText("Bonanza");
+      const searchedCreateButton = screen.getByText("Create");
+      const searchedHistoricButton = screen.getByText("Historic");
+
+      userEvent.click(searchedBrandButton);
+      userEvent.click(searchedCreateButton);
+      userEvent.click(searchedHistoricButton);
+
+      expect(mockUseNavigate).toHaveBeenCalledTimes(expectedNumberOfCalls);
+    });
+  });
 });
