@@ -1,10 +1,12 @@
 import { ChangeEvent, useState, FormEvent } from "react";
 import { Button, Form } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {
   InitialCreatedEntryForm,
   DiaryEntry,
 } from "../../redux/interfaces/DiaryInterface";
+import { useAppDispatch } from "../../redux/store/hooks";
+import { editEntryThunk } from "../../redux/thunks/diaryThunks/diaryThunks";
 import { adaptToAcceptedDataTypes } from "../../utils/dataTransformation";
 import { CreateFormContainer } from "../CreateForm/CreateFormContainer";
 
@@ -25,7 +27,7 @@ const EditForm = ({
   entry: DiaryEntry;
 }): JSX.Element => {
   const formInitialState = {
-    date: new Date(),
+    date,
     vitality: vitality.toString(),
     positiveEmotion: positiveEmotion.toString(),
     engagement: engagement.toString(),
@@ -38,6 +40,8 @@ const EditForm = ({
   } as InitialCreatedEntryForm;
 
   const [formData, setFormData] = useState(formInitialState);
+  const dispatch = useAppDispatch();
+  const { id } = useParams();
 
   const changeData = (event: ChangeEvent<HTMLInputElement>): void => {
     setFormData({ ...formData, [event.target.id]: event.target.value });
@@ -49,8 +53,11 @@ const EditForm = ({
 
   const createEntry = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    console.log(adaptToAcceptedDataTypes(formData));
+    if (id) {
+      dispatch(editEntryThunk(adaptToAcceptedDataTypes(formData), id));
+    }
     resetForm();
+    navigate("/historic");
   };
 
   const navigate = useNavigate();

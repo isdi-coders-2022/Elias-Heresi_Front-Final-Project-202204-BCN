@@ -46,6 +46,25 @@ export const loadEntryThunk = (id: string) => async (dispatch: AppDispatch) => {
   }
 };
 
+export const editEntryThunk =
+  (newEntry: TransformedEntryForm, id: string) =>
+  async (dispatch: AppDispatch) => {
+    try {
+      dispatch(loadingActionCreator());
+      const diaryRoute: string = `${process.env.REACT_APP_API_URL}diary/edit/${id}`;
+      await axios.patch(diaryRoute, newEntry, passToken());
+      notify({
+        message: "Succesfully edited well-being entry",
+        type: "success",
+      });
+    } catch (error) {
+      notify({ message: "Failed to edit well-being entry", type: "error" });
+    } finally {
+      dispatch(finishedLoadingActionCreator());
+      window.scrollTo(0, 0);
+    }
+  };
+
 export const deleteEntryThunk =
   (entryId: string) => async (dispatch: AppDispatch) => {
     try {
