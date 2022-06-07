@@ -15,7 +15,7 @@ describe("Given the Create page", () => {
         </BrowserRouter>
       );
 
-      const expectedSliders = 6;
+      const expectedSliders = 7;
 
       const searchedHeader = screen.getByRole("heading");
       const searchedSliders = screen.getAllByRole("slider");
