@@ -18,11 +18,17 @@ jest.mock("react-chartjs-2", () => ({
 
 const mockDispatch = jest.fn();
 let mockSelector = false;
+const mockUseNavigate = jest.fn();
 
 jest.mock("react-redux", () => ({
   ...jest.requireActual("react-redux"),
   useDispatch: () => mockDispatch,
   useSelector: () => ({ feedback: mockSelector }),
+}));
+
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  useNavigate: () => mockUseNavigate,
 }));
 
 describe("Given the EntrySummary component", () => {
@@ -86,6 +92,25 @@ describe("Given the EntrySummary component", () => {
       expect(mockDispatch).toHaveBeenCalledTimes(expectedNumberOfCalls);
       expect(mockDispatch).toHaveBeenCalledWith(resetEntryIdActionCreator());
       expect(mockDispatch).toHaveBeenCalledWith(feedbackOffActionCreator());
+    });
+  });
+  describe("When the edit button is clicked", () => {
+    test("Then navigation will have been called once", () => {
+      window.scrollTo = jest.fn();
+      const expectedNumberOfCalls = 1;
+
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <EntrySummary entry={mockApiGetResponse[0]} />
+          </Provider>
+        </BrowserRouter>
+      );
+
+      const editButton = screen.getByRole("button", { name: "Edit" });
+      userEvent.click(editButton);
+
+      expect(mockUseNavigate).toHaveBeenCalledTimes(expectedNumberOfCalls);
     });
   });
 });

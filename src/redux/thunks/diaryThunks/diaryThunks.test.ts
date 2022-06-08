@@ -1,12 +1,5 @@
-import {
-  loadActionCreator,
-  deleteEntryActionCreator,
-} from "../../features/diarySlice";
-import {
-  mockApiGetResponse,
-  mockApiStringifiedResponse,
-  mockCreatedEntry,
-} from "../../mocks/diaryMocks";
+import { deleteEntryActionCreator } from "../../features/diarySlice";
+import { mockCreatedEntry } from "../../mocks/diaryMocks";
 import {
   loadEntriesThunk,
   deleteEntryThunk,
@@ -19,6 +12,8 @@ import { server } from "./mocks/server";
 beforeEach(() => server.listen());
 afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
+
+window.scrollTo = jest.fn();
 
 describe("Given the loadEntriesThunk", () => {
   describe("When invoked", () => {

@@ -41,8 +41,8 @@ describe("Given the Register page component", () => {
   });
 
   describe("When invoked and the user is already logged in", () => {
-    mockLogged = true;
     test("Then the user will be redirected to another page", () => {
+      mockLogged = true;
       render(
         <BrowserRouter>
           <Provider store={store}>
