@@ -12,3 +12,8 @@ export interface PermaChartData {
 export interface PermavValues {
   values: number[];
 }
+
+export interface PolarChartProps {
+  values: number[];
+  legend?: boolean;
+}
