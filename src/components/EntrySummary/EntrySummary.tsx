@@ -17,8 +17,11 @@ import { deleteEntryThunk } from "../../redux/thunks/diaryThunks/diaryThunks";
 import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
 import PermaChart from "../PermaChart/PermaChart";
 
-const EntrySummary = ({
-  entry: {
+const EntrySummary = ({ entry }: { entry: DiaryEntry }): JSX.Element => {
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
+  const {
     positiveEmotion,
     engagement,
     relationships,
@@ -29,12 +32,7 @@ const EntrySummary = ({
     wellBeing,
     date,
     id,
-  },
-}: {
-  entry: DiaryEntry;
-}): JSX.Element => {
-  const dispatch = useAppDispatch();
-  const navigate = useNavigate();
+  } = entry;
 
   const { entryId }: Ui = useSelector((state: RootState) => state.ui);
   const deleteCard = () => {
@@ -110,6 +108,11 @@ const EntrySummary = ({
                   <Button
                     variant="primary"
                     className="d-flex align-items-center justify-content-center"
+                    onClick={() => {
+                      dispatch(resetCollectionActionCreator());
+                      navigate(`/detail/${id}`);
+                      window.scrollTo(0, 0);
+                    }}
                   >
                     Details
                   </Button>
