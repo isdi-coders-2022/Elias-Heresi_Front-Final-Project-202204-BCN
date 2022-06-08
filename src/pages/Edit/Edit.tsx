@@ -15,7 +15,7 @@ import { CreateContainer } from "../Create/CreateContainer";
 
 const Edit = (): JSX.Element => {
   const { loading }: Ui = useSelector((state: RootState) => state.ui);
-  let { id } = useParams();
+  const { id } = useParams();
   const dispatch = useAppDispatch();
 
   const { collection }: DiaryState = useSelector(
@@ -24,6 +24,7 @@ const Edit = (): JSX.Element => {
 
   useEffect(() => {
     if (id) {
+      console.log(id);
       dispatch(loadEntryThunk(id));
     }
   }, [dispatch, id]);
@@ -37,7 +38,7 @@ const Edit = (): JSX.Element => {
         <Row>
           <h1>Edit your well-being entry:</h1>
 
-          {collection.length > 0 ? (
+          {collection[0].id === id ? (
             <EditForm entry={collection[0]} />
           ) : (
             <h2>Entry doesn't exist</h2>

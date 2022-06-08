@@ -44,7 +44,10 @@ const EditForm = ({
   const { id } = useParams();
 
   const changeData = (event: ChangeEvent<HTMLInputElement>): void => {
-    setFormData({ ...formData, [event.target.id]: event.target.value });
+    setFormData({
+      ...formData,
+      [event.target.id]: event.target.value,
+    });
   };
 
   const resetForm = (): void => {
