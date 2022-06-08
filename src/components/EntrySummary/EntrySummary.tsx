@@ -2,6 +2,7 @@ import { Button, Card, Row, Col } from "react-bootstrap";
 import { FaTimesCircle } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { resetCollectionActionCreator } from "../../redux/features/diarySlice";
 import {
   feedbackOffActionCreator,
   feedbackOnActionCreator,
@@ -97,6 +98,7 @@ const EntrySummary = ({
                     variant="secondary"
                     className="d-flex align-items-center justify-content-center"
                     onClick={() => {
+                      dispatch(resetCollectionActionCreator());
                       navigate(`/edit/${id}`);
                       window.scrollTo(0, 0);
                     }}

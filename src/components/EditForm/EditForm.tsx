@@ -1,6 +1,7 @@
 import { ChangeEvent, useState, FormEvent } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
+import { resetCollectionActionCreator } from "../../redux/features/diarySlice";
 import {
   defaultProps,
   InitialCreatedEntryForm,
@@ -47,10 +48,6 @@ const EditForm = ({ entry }: OptionalEntry): JSX.Element => {
       dispatch(createEntryThunk(adaptToAcceptedDataTypes(formData)));
     }
     resetForm();
-    navigate("/historic");
-  };
-
-  const navigateToHome = (): void => {
     navigate("/historic");
   };
 
@@ -190,7 +187,14 @@ const EditForm = ({ entry }: OptionalEntry): JSX.Element => {
           <Button variant="primary" type="submit">
             {id ? "Edit" : "Create"}
           </Button>
-          <Button variant="secondary" type="button" onClick={navigateToHome}>
+          <Button
+            variant="secondary"
+            type="button"
+            onClick={() => {
+              navigate("/historic");
+              dispatch(resetCollectionActionCreator());
+            }}
+          >
             Cancel
           </Button>
         </section>
