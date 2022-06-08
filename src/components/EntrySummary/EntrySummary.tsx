@@ -96,7 +96,10 @@ const EntrySummary = ({
                   <Button
                     variant="secondary"
                     className="d-flex align-items-center justify-content-center"
-                    onClick={() => navigate(`/edit/${id}`)}
+                    onClick={() => {
+                      navigate(`/edit/${id}`);
+                      window.scrollTo(0, 0);
+                    }}
                   >
                     Edit
                   </Button>
