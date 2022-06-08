@@ -13,9 +13,12 @@ jest.mock("react-redux", () => ({
   useDispatch: () => mockDispatch,
 }));
 
+const mockNavigate = jest.fn();
+
 jest.mock("react-router-dom", () => ({
   ...jest.requireActual("react-router-dom"),
   useParams: () => ({ id: "pakito-chocolate" }),
+  useNavigate: () => mockNavigate,
 }));
 
 describe("Given the CreateForm component", () => {
@@ -65,6 +68,29 @@ describe("Given the CreateForm component", () => {
       userEvent.click(searchedCreateButton);
 
       expect(mockDispatch).toHaveBeenCalledTimes(expectedNumberOfCalls);
+    });
+  });
+  describe("When 'Cancel' is clicked'", () => {
+    test("Then the dispatch fucntion will be invoked once", () => {
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <EditForm entry={mockApiGetResponse[0]} />
+          </Provider>
+        </BrowserRouter>
+      );
+
+      const expectedNumberOfCalls = 1;
+
+      const searchedCancelButton = screen.getByRole("button", {
+        name: "Cancel",
+      });
+
+      window.scrollTo = jest.fn();
+
+      userEvent.click(searchedCancelButton);
+
+      expect(mockNavigate).toHaveBeenCalledTimes(expectedNumberOfCalls);
     });
   });
 });

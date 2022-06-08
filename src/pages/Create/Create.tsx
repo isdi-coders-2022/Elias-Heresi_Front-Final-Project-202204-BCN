@@ -1,7 +1,7 @@
 import { Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
-import CreateForm from "../../components/CreateForm/CreateForm";
+import EditForm from "../../components/EditForm/EditForm";
 import Loading from "../../components/Loading/Loading";
 import NavBar from "../../components/NavBar/NavBar";
 import { Ui } from "../../redux/interfaces/UiInterface";
@@ -19,7 +19,7 @@ const Create = (): JSX.Element => {
       <CreateContainer>
         <Row>
           <h1>Create a new well-being entry:</h1>
-          <CreateForm />
+          <EditForm />
         </Row>
       </CreateContainer>
     </>

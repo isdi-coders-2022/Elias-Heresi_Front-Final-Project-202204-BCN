@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CreateFormContainer = styled.div`
+export const EditFormContainer = styled.div`
   border: 2px grey solid;
   padding: 20px 30px;
   border-radius: 25px;

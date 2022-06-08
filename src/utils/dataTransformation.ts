@@ -1,4 +1,7 @@
-import { InitialCreatedEntryForm } from "../redux/interfaces/DiaryInterface";
+import {
+  EntryObtainedFromApi,
+  InitialCreatedEntryForm,
+} from "../redux/interfaces/DiaryInterface";
 
 export const adaptToAcceptedDataTypes = (entry: InitialCreatedEntryForm) => {
   const image = entry.image === "" ? "No image submitted" : entry.image;
@@ -16,5 +19,21 @@ export const adaptToAcceptedDataTypes = (entry: InitialCreatedEntryForm) => {
     vitality: parseInt(entry.vitality, 10),
     image,
     commentary,
+  };
+};
+
+export const adaptToString = (
+  entry: EntryObtainedFromApi
+): InitialCreatedEntryForm => {
+  return {
+    ...entry,
+    positiveEmotion: entry.positiveEmotion.toString(),
+    engagement: entry.engagement.toString(),
+    relationships: entry.relationships.toString(),
+    meaning: entry.meaning.toString(),
+    accomplishment: entry.accomplishment.toString(),
+    wellBeing: entry.wellBeing.toString(),
+    vitality: entry.vitality.toString(),
+    image: "",
   };
 };

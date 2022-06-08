@@ -4,7 +4,7 @@ import CheckLogged from "./CheckLogged";
 const mockUseNavigate = jest.fn();
 
 jest.mock("react-router-dom", () => ({
-  ...jest.requireActual("react-redux"),
+  ...jest.requireActual("react-router-dom"),
   useNavigate: () => mockUseNavigate,
 }));
 

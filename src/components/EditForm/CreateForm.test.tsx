@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import store from "../../redux/store/store";
-import CreateForm from "./CreateForm";
+import EditForm from "./EditForm";
 
 const mockDispatch = jest.fn();
 
@@ -18,7 +18,7 @@ describe("Given the CreateForm component", () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
-            <CreateForm />
+            <EditForm />
           </Provider>
         </BrowserRouter>
       );
@@ -41,7 +41,7 @@ describe("Given the CreateForm component", () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
-            <CreateForm />
+            <EditForm />
           </Provider>
         </BrowserRouter>
       );
