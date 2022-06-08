@@ -15,7 +15,7 @@ jest.mock("react-redux", () => ({
 
 jest.mock("react-router-dom", () => ({
   ...jest.requireActual("react-router-dom"),
-  useParams: () => ({ id: "pakito-chocolate" }),
+  useParams: () => ({ id: "aa" }),
 }));
 
 describe("Given the Edit page", () => {

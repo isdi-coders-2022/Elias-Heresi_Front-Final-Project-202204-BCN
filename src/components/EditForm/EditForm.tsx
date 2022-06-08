@@ -20,7 +20,6 @@ const EditForm = ({
     vitality,
     commentary,
     wellBeing,
-    image,
     date,
   },
 }: {
