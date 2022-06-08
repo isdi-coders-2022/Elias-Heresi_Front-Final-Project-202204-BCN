@@ -11,33 +11,14 @@ import {
   createEntryThunk,
   editEntryThunk,
 } from "../../redux/thunks/diaryThunks/diaryThunks";
-import { adaptToAcceptedDataTypes } from "../../utils/dataTransformation";
+import {
+  adaptToAcceptedDataTypes,
+  adaptToString,
+} from "../../utils/dataTransformation";
 import { EditFormContainer } from "./EditFormContainer";
 
 const EditForm = ({ entry }: OptionalEntry): JSX.Element => {
-  const {
-    date,
-    vitality,
-    positiveEmotion,
-    engagement,
-    relationships,
-    meaning,
-    accomplishment,
-    wellBeing,
-    commentary,
-  } = entry;
-  const formInitialState = {
-    date,
-    vitality: vitality.toString(),
-    positiveEmotion: positiveEmotion.toString(),
-    engagement: engagement.toString(),
-    relationships: relationships.toString(),
-    meaning: meaning.toString(),
-    accomplishment: accomplishment.toString(),
-    wellBeing: wellBeing.toString(),
-    commentary,
-    image: "",
-  } as InitialCreatedEntryForm;
+  const formInitialState = adaptToString(entry) as InitialCreatedEntryForm;
 
   const [formData, setFormData] = useState(formInitialState);
   const dispatch = useAppDispatch();
