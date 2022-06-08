@@ -12,6 +12,7 @@ import { RootState } from "../../redux/store/store";
 import { deleteEntryThunk } from "../../redux/thunks/diaryThunks/diaryThunks";
 import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
 import PermaChart from "../PermaChart/PermaChart";
+import Calendar from "react-calendar";
 
 const EntryDetail = ({ entry }: { entry: DiaryEntry }): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -23,7 +24,7 @@ const EntryDetail = ({ entry }: { entry: DiaryEntry }): JSX.Element => {
     meaning,
     accomplishment,
     vitality,
-    // commentary,
+    commentary,
     wellBeing,
     date,
     // id,
@@ -41,7 +42,10 @@ const EntryDetail = ({ entry }: { entry: DiaryEntry }): JSX.Element => {
           dispatch(feedbackOffActionCreator());
         }}
       />
-      <h2>Date: </h2>
+      <h2>Date: {date.toString().slice(0, 10).replaceAll("-", "/")}</h2>
+      <h2>General well-being:</h2>
+      <ProgressBar animated now={wellBeing * 10} style={{ height: "32px" }} />
+      <h3>Commentary: {commentary}</h3>
       <h2>PERMAV status:</h2>
       <PermaChart
         values={[
@@ -54,37 +58,42 @@ const EntryDetail = ({ entry }: { entry: DiaryEntry }): JSX.Element => {
         ]}
         legend={true}
       />
-      <h2>General well-being:</h2>
-      <ProgressBar animated now={wellBeing * 10} style={{ height: "32px" }} />
       <h2>Summary:</h2>
       <Table striped bordered hover size="sm">
         <thead>
           <tr>
-            <th>#</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Username</th>
+            <th>Variable</th>
+            <th>Value</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+            <td>Positive emotions</td>
+            <td>{positiveEmotion}</td>
           </tr>
           <tr>
-            <td>2</td>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
+            <td>Engagagement</td>
+            <td>{engagement}</td>
           </tr>
           <tr>
-            <td>3</td>
-            <td colSpan={2}>Larry the Bird</td>
-            <td>@twitter</td>
+            <td>Relationships</td>
+            <td>{relationships}</td>
+          </tr>
+          <tr>
+            <td>Meaning</td>
+            <td>{meaning}</td>
+          </tr>
+          <tr>
+            <td>Accomplishment</td>
+            <td>{accomplishment}</td>
           </tr>
         </tbody>
+        <tfoot>
+          <tr>
+            <td>Well-being</td>
+            <td>{wellBeing}</td>
+          </tr>
+        </tfoot>
       </Table>
     </>
   );
