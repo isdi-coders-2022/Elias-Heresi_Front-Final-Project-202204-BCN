@@ -42,8 +42,10 @@ const EntryDetail = ({ entry }: { entry: DiaryEntry }): JSX.Element => {
           dispatch(feedbackOffActionCreator());
         }}
       />
-      <h2>Date: {date.toString()}</h2>
-      <h3>{commentary}</h3>
+      <h2>Date: {date.toString().slice(0, 10).replaceAll("-", "/")}</h2>
+      <h2>General well-being:</h2>
+      <ProgressBar animated now={wellBeing * 10} style={{ height: "32px" }} />
+      <h3>Commentary: {commentary}</h3>
       <h2>PERMAV status:</h2>
       <PermaChart
         values={[
@@ -56,8 +58,6 @@ const EntryDetail = ({ entry }: { entry: DiaryEntry }): JSX.Element => {
         ]}
         legend={true}
       />
-      <h2>General well-being:</h2>
-      <ProgressBar animated now={wellBeing * 10} style={{ height: "32px" }} />
       <h2>Summary:</h2>
       <Table striped bordered hover size="sm">
         <thead>
