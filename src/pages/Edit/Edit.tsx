@@ -24,7 +24,6 @@ const Edit = (): JSX.Element => {
 
   useEffect(() => {
     if (id) {
-      console.log(id);
       dispatch(loadEntryThunk(id));
     }
   }, [dispatch, id]);
@@ -38,7 +37,7 @@ const Edit = (): JSX.Element => {
         <Row>
           <h1>Edit your well-being entry:</h1>
 
-          {collection[0].id === id ? (
+          {collection.length > 0 && collection[0].id === id ? (
             <EditForm entry={collection[0]} />
           ) : (
             <h2>Entry doesn't exist</h2>
