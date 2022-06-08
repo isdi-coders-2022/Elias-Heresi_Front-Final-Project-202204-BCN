@@ -2,29 +2,30 @@ import { ChangeEvent, useState, FormEvent } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import {
+  defaultProps,
   InitialCreatedEntryForm,
-  DiaryEntry,
+  OptionalEntry,
 } from "../../redux/interfaces/DiaryInterface";
 import { useAppDispatch } from "../../redux/store/hooks";
-import { editEntryThunk } from "../../redux/thunks/diaryThunks/diaryThunks";
+import {
+  createEntryThunk,
+  editEntryThunk,
+} from "../../redux/thunks/diaryThunks/diaryThunks";
 import { adaptToAcceptedDataTypes } from "../../utils/dataTransformation";
-import { CreateFormContainer } from "../CreateForm/CreateFormContainer";
+import { EditFormContainer } from "./EditFormContainer";
 
-const EditForm = ({
-  entry: {
+const EditForm = ({ entry }: OptionalEntry): JSX.Element => {
+  const {
+    date,
+    vitality,
     positiveEmotion,
     engagement,
     relationships,
     meaning,
     accomplishment,
-    vitality,
-    commentary,
     wellBeing,
-    date,
-  },
-}: {
-  entry: DiaryEntry;
-}): JSX.Element => {
+    commentary,
+  } = entry;
   const formInitialState = {
     date,
     vitality: vitality.toString(),
@@ -40,6 +41,7 @@ const EditForm = ({
 
   const [formData, setFormData] = useState(formInitialState);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const { id } = useParams();
 
   const changeData = (event: ChangeEvent<HTMLInputElement>): void => {
@@ -57,19 +59,19 @@ const EditForm = ({
     event.preventDefault();
     if (id) {
       dispatch(editEntryThunk(adaptToAcceptedDataTypes(formData), id));
+    } else {
+      dispatch(createEntryThunk(adaptToAcceptedDataTypes(formData)));
     }
     resetForm();
     navigate("/historic");
   };
-
-  const navigate = useNavigate();
 
   const navigateToHome = (): void => {
     navigate("/historic");
   };
 
   return (
-    <CreateFormContainer>
+    <EditFormContainer>
       <Form autoComplete="off" onSubmit={createEntry} noValidate>
         <Form.Group className="mb-3 create-form__slider">
           <Form.Label htmlFor="vitality">Vitality</Form.Label>
@@ -202,15 +204,17 @@ const EditForm = ({
         </Form.Group>
         <section className="container text-center">
           <Button variant="primary" type="submit">
-            Edit
+            {id ? "Edit" : "Create"}
           </Button>
           <Button variant="secondary" type="button" onClick={navigateToHome}>
             Cancel
           </Button>
         </section>
       </Form>
-    </CreateFormContainer>
+    </EditFormContainer>
   );
 };
+
+EditForm.defaultProps = defaultProps;
 
 export default EditForm;

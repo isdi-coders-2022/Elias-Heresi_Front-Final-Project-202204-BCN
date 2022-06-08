@@ -38,7 +38,7 @@ const CreateForm = (): JSX.Element => {
     event.preventDefault();
     dispatch(createEntryThunk(adaptToAcceptedDataTypes(formData)));
     resetForm();
-    navigate("historic");
+    navigate("/historic");
   };
 
   return (

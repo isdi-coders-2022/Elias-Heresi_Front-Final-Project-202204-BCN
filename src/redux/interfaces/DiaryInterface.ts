@@ -40,6 +40,27 @@ export interface EntryObtainedFromApi {
   image: string;
   commentary: string;
 }
+
+export interface Entry {
+  entry: EntryObtainedFromApi;
+}
+
+export interface OptionalEntry extends Entry {}
+
+export const defaultProps: OptionalEntry = {
+  entry: {
+    date: new Date(),
+    vitality: 5,
+    positiveEmotion: 5,
+    engagement: 5,
+    relationships: 5,
+    meaning: 5,
+    accomplishment: 5,
+    wellBeing: 5,
+    image: "",
+    commentary: "",
+  },
+};
 export interface DiaryEntry extends EntryObtainedFromApi {
   id: string;
 }
