@@ -1,6 +1,7 @@
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import { FaUser } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { resetCollectionActionCreator } from "../../redux/features/diarySlice";
 import { useAppDispatch } from "../../redux/store/hooks";
 import { logOutUserThunk } from "../../redux/thunks/userThunks/userThunks";
 import NavBarContainer from "./NavBarContainer";
