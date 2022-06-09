@@ -68,5 +68,6 @@ export const loginUserThunk =
 export const logOutUserThunk = () => (dispatch: AppDispatch) => {
   localStorage.removeItem("token");
   dispatch(logoutActionCreator());
+  dispatch(finishedLoadingActionCreator());
   dispatch(resetCollectionActionCreator());
 };

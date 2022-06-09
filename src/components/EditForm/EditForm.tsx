@@ -1,9 +1,9 @@
 import { ChangeEvent, useState, FormEvent } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
+import { resetCollectionActionCreator } from "../../redux/features/diarySlice";
 import {
   defaultProps,
-  InitialCreatedEntryForm,
   OptionalEntry,
 } from "../../redux/interfaces/DiaryInterface";
 import { useAppDispatch } from "../../redux/store/hooks";
@@ -15,7 +15,7 @@ import { adaptToString } from "../../utils/dataTransformation";
 import { EditFormContainer } from "./EditFormContainer";
 
 const EditForm = ({ entry }: OptionalEntry): JSX.Element => {
-  const formInitialState = adaptToString(entry) as InitialCreatedEntryForm;
+  const formInitialState = adaptToString(entry);
 
   const [formData, setFormData] = useState(formInitialState);
   const dispatch = useAppDispatch();
@@ -60,6 +60,7 @@ const EditForm = ({ entry }: OptionalEntry): JSX.Element => {
   };
 
   const navigateToHome = (): void => {
+    dispatch(resetCollectionActionCreator());
     navigate("/historic");
   };
 

@@ -60,12 +60,12 @@ describe("Given the loginUserThunk", () => {
     });
   });
   describe("When logOutUserThunk is called", () => {
-    test("Then the dispatch function will be called two times", async () => {
+    test("Then the dispatch function will be called 3 times", async () => {
       const dispatch = jest.fn();
       const thunk = logOutUserThunk();
       await thunk(dispatch);
 
-      const expectedNumberOfCalls = 2;
+      const expectedNumberOfCalls = 3;
 
       expect(dispatch).toHaveBeenCalledTimes(expectedNumberOfCalls);
     });

@@ -18,9 +18,9 @@ jest.mock("react-router-dom", () => ({
   useParams: () => ({ id: "aa" }),
 }));
 
-describe("Given the Edit page", () => {
+describe("Given the Detail page", () => {
   describe("When invoked", () => {
-    test("Then a header, along with the form's 7 sliders will be renderized", () => {
+    test("Then 1 chart and 2 tables will be renderized", () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
@@ -30,7 +30,7 @@ describe("Given the Edit page", () => {
       );
 
       const expectedCharts = 1;
-      const expectedTables = 1;
+      const expectedTables = 2;
 
       const searchedChart = screen.getAllByRole("img");
       const searchedTables = screen.getAllByRole("table");

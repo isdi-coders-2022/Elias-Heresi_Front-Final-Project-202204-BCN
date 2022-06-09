@@ -25,7 +25,7 @@ jest.mock("react-router-dom", () => ({
 
 describe("Given the EntryDetail component", () => {
   describe("When invoked", () => {
-    test("Then a table and a chart will be renderized", () => {
+    test("Then 2 tables and a chart will be renderized", () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
@@ -35,7 +35,7 @@ describe("Given the EntryDetail component", () => {
       );
 
       const expectedCharts = 1;
-      const expectedTables = 1;
+      const expectedTables = 2;
 
       const searchedChart = screen.getAllByRole("img");
       const searchedTables = screen.getAllByRole("table");
