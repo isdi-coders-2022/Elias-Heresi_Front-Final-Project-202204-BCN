@@ -2,7 +2,14 @@ import { PermaChartData } from "../redux/interfaces/ChartInterfaces";
 
 export const definePermaValues = (values: number[]) => {
   const data: PermaChartData = {
-    labels: ["P", "E", "R", "M", "A", "V"],
+    labels: [
+      "Positive emotions",
+      "Engagement",
+      "Relationships",
+      "Meaning",
+      "Accomplishment",
+      "Vitality",
+    ],
     datasets: [
       {
         label: "PERMA chart",

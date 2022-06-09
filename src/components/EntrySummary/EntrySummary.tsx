@@ -54,6 +54,7 @@ const EntrySummary = ({ entry }: { entry: DiaryEntry }): JSX.Element => {
         <Row className="no-gutters">
           <Col xs={{ span: 6 }}>
             <PermaChart
+              legend={false}
               values={[
                 positiveEmotion,
                 engagement,

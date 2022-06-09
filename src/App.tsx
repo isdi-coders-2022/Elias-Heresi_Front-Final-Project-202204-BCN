@@ -12,7 +12,6 @@ import { logOutUserThunk } from "./redux/thunks/userThunks/userThunks";
 import "react-toastify/dist/ReactToastify.css";
 import Create from "./pages/Create/Create";
 import Edit from "./pages/Edit/Edit";
-import EntryDetail from "./components/EntryDetail/EntryDetail";
 import Detail from "./pages/Detail/Detail";
 
 const App = (): JSX.Element => {
