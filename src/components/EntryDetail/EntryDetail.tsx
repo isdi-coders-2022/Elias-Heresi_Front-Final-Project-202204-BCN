@@ -49,11 +49,7 @@ const EntryDetail = ({ entry }: { entry: DiaryEntry }): JSX.Element => {
             <Table striped bordered hover size="sm">
               <tbody>
                 <tr>
-                  <td>Date</td>
                   <td>{date.toString().slice(0, 10).replaceAll("-", "/")}</td>
-                </tr>
-                <tr>
-                  <td>Commentary</td>
                   <td>{commentary}</td>
                 </tr>
               </tbody>
