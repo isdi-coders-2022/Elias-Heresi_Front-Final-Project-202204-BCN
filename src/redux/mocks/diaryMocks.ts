@@ -1,9 +1,4 @@
-import EntrySummary from "../../components/EntrySummary/EntrySummary";
-import {
-  DiaryEntry,
-  Diary,
-  TransformedEntryForm,
-} from "../interfaces/DiaryInterface";
+import { DiaryEntry, Diary } from "../interfaces/DiaryInterface";
 
 export const mockFirstEntry = {
   date: new Date("December 17, 2021 03:24:00"),
