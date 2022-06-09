@@ -9,6 +9,7 @@ export interface InitialCreatedEntryForm {
   wellBeing: string;
   image: string;
   commentary: string;
+  backup: string;
 }
 
 export interface TransformedEntryForm {
@@ -22,6 +23,7 @@ export interface TransformedEntryForm {
   wellBeing: number;
   image: string;
   commentary: string;
+  backup: string;
 }
 
 export interface FinalCreatedEntryForm extends TransformedEntryForm {
@@ -39,6 +41,7 @@ export interface EntryObtainedFromApi {
   wellBeing: number;
   image: string;
   commentary: string;
+  backup: string;
 }
 
 export interface Entry {
@@ -59,6 +62,7 @@ export const defaultProps: OptionalEntry = {
     wellBeing: 5,
     image: "",
     commentary: "",
+    backup: "",
   },
 };
 export interface DiaryEntry extends EntryObtainedFromApi {

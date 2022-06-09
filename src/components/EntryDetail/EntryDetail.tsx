@@ -26,6 +26,7 @@ const EntryDetail = ({ entry }: { entry: DiaryEntry }): JSX.Element => {
     commentary,
     wellBeing,
     date,
+    backup,
     // id,
   } = entry;
 
@@ -57,6 +58,7 @@ const EntryDetail = ({ entry }: { entry: DiaryEntry }): JSX.Element => {
         ]}
         legend={true}
       />
+      {backup && <img src={backup} alt="PERMA" />}
       <h2>Summary:</h2>
       <Table striped bordered hover size="sm">
         <thead>
