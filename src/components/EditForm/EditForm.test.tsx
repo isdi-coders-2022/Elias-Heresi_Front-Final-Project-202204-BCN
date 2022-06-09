@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
@@ -69,7 +69,15 @@ describe("Given the CreateForm component", () => {
       );
 
       userEvent.type(searchedTextBox, "Inputted text for test");
-      userEvent.type(fileUploadBox, "Inputted text for test");
+
+      const event = {
+        type: "file",
+        target: {
+          files: ["/not/sure/what/goes/in/here"],
+        },
+      };
+      fireEvent.change(fileUploadBox, event);
+
       userEvent.click(searchedCreateButton);
 
       expect(mockDispatch).toHaveBeenCalledTimes(expectedNumberOfCalls);
