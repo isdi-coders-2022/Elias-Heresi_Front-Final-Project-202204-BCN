@@ -11,10 +11,7 @@ import {
   createEntryThunk,
   editEntryThunk,
 } from "../../redux/thunks/diaryThunks/diaryThunks";
-import {
-  adaptToAcceptedDataTypes,
-  adaptToString,
-} from "../../utils/dataTransformation";
+import { adaptToString } from "../../utils/dataTransformation";
 import { EditFormContainer } from "./EditFormContainer";
 
 const EditForm = ({ entry }: OptionalEntry): JSX.Element => {
@@ -26,6 +23,7 @@ const EditForm = ({ entry }: OptionalEntry): JSX.Element => {
   const { id } = useParams();
 
   const changeData = (event: ChangeEvent<HTMLInputElement>): void => {
+    event.preventDefault();
     setFormData({
       ...formData,
       [event.target.id]:
@@ -41,13 +39,23 @@ const EditForm = ({ entry }: OptionalEntry): JSX.Element => {
 
   const createEntry = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
+    const entryToBeUploaded = new FormData();
+    entryToBeUploaded.append("date", formData.date.toISOString());
+    entryToBeUploaded.append("vitality", formData.vitality);
+    entryToBeUploaded.append("positiveEmotion", formData.positiveEmotion);
+    entryToBeUploaded.append("engagement", formData.engagement);
+    entryToBeUploaded.append("relationships", formData.relationships);
+    entryToBeUploaded.append("meaning", formData.meaning);
+    entryToBeUploaded.append("accomplishment", formData.accomplishment);
+    entryToBeUploaded.append("wellBeing", formData.wellBeing);
+    entryToBeUploaded.append("image", formData.image);
+    entryToBeUploaded.append("commentary", formData.commentary);
     if (id) {
-      dispatch(editEntryThunk(adaptToAcceptedDataTypes(formData), id));
+      dispatch(editEntryThunk(entryToBeUploaded, id));
     } else {
-      dispatch(createEntryThunk(adaptToAcceptedDataTypes(formData)));
+      dispatch(createEntryThunk(entryToBeUploaded));
     }
     resetForm();
-    navigate("/historic");
   };
 
   const navigateToHome = (): void => {
@@ -152,7 +160,6 @@ const EditForm = ({ entry }: OptionalEntry): JSX.Element => {
           <Form.Control
             type="file"
             id="image"
-            value={formData.image}
             onChange={changeData}
             placeholder="File selection"
           />

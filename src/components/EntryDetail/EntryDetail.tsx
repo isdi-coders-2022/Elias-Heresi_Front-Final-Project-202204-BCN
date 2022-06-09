@@ -12,7 +12,6 @@ import { RootState } from "../../redux/store/store";
 import { deleteEntryThunk } from "../../redux/thunks/diaryThunks/diaryThunks";
 import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
 import PermaChart from "../PermaChart/PermaChart";
-import Calendar from "react-calendar";
 
 const EntryDetail = ({ entry }: { entry: DiaryEntry }): JSX.Element => {
   const dispatch = useAppDispatch();
