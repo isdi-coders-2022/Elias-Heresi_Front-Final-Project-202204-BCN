@@ -66,7 +66,7 @@ const EntryDetail = ({ entry }: { entry: DiaryEntry }): JSX.Element => {
             />
           </Col>
         </Row>
-        <Row>
+        <Row className="detail__center">
           <Col sm={{ span: 12 }} md={{ span: 6 }}>
             <h2>PERMAV status:</h2>
             <PermaChart
@@ -87,7 +87,6 @@ const EntryDetail = ({ entry }: { entry: DiaryEntry }): JSX.Element => {
         </Row>
         <Row>
           <Col>
-            <h2>PERMAV status:</h2>
             <Table striped bordered hover size="sm">
               <thead>
                 <tr>

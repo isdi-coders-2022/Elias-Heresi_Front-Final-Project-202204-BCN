@@ -3,7 +3,7 @@ import styled from "styled-components";
 const EntryDetailContainer = styled.section`
   img {
     width: 80%;
-    height: 400px;
+    height: 80%;
     object-fit: cover;
     border: 2px solid grey;
     border-radius: 10%;
@@ -13,15 +13,18 @@ const EntryDetailContainer = styled.section`
   }
   .container {
     .row {
+      margin: 30px 0;
+      align-items: center;
       .col {
-        margin-bottom: 30px;
-      }
-      .col-md-6 {
-        margin-bottom: 30px;
       }
       table {
         font-size: 24px;
       }
+    }
+  }
+  .detail {
+    &.__center {
+      align-items: center;
     }
   }
 `;
