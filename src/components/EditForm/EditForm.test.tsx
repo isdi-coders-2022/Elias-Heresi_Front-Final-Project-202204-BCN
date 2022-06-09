@@ -6,6 +6,7 @@ import { mockApiGetResponse } from "../../redux/mocks/diaryMocks";
 import store from "../../redux/store/store";
 import EditForm from "./EditForm";
 
+let mockedParams = { id: true };
 const mockDispatch = jest.fn();
 
 jest.mock("react-redux", () => ({
@@ -17,7 +18,7 @@ const mockNavigate = jest.fn();
 
 jest.mock("react-router-dom", () => ({
   ...jest.requireActual("react-router-dom"),
-  useParams: () => ({ id: "pakito-chocolate" }),
+  useParams: () => mockedParams,
   useNavigate: () => mockNavigate,
 }));
 
@@ -63,8 +64,42 @@ describe("Given the CreateForm component", () => {
 
       window.scrollTo = jest.fn();
       const searchedTextBox = screen.getByRole("textbox");
+      const fileUploadBox = screen.getByLabelText(
+        "Add an image summarizing today"
+      );
 
       userEvent.type(searchedTextBox, "Inputted text for test");
+      userEvent.type(fileUploadBox, "Inputted text for test");
+      userEvent.click(searchedCreateButton);
+
+      expect(mockDispatch).toHaveBeenCalledTimes(expectedNumberOfCalls);
+    });
+  });
+  describe("When submitted when no id was passed on its params", () => {
+    test("Then the dispatch fucntion will be invoked once", () => {
+      mockedParams = { id: false };
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <EditForm entry={mockApiGetResponse[0]} />
+          </Provider>
+        </BrowserRouter>
+      );
+
+      const expectedNumberOfCalls = 1;
+
+      const searchedCreateButton = screen.getByRole("button", {
+        name: "Create",
+      });
+
+      window.scrollTo = jest.fn();
+      const searchedTextBox = screen.getByRole("textbox");
+      const fileUploadBox = screen.getByLabelText(
+        "Add an image summarizing today"
+      );
+
+      userEvent.type(searchedTextBox, "Inputted text for test");
+      userEvent.type(fileUploadBox, "Inputted text for test");
       userEvent.click(searchedCreateButton);
 
       expect(mockDispatch).toHaveBeenCalledTimes(expectedNumberOfCalls);

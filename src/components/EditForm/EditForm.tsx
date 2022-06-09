@@ -157,7 +157,9 @@ const EditForm = ({ entry }: OptionalEntry): JSX.Element => {
           <p>{formData.accomplishment}</p>
         </Form.Group>
         <Form.Group className="mb-3 create-form__file">
-          <Form.Label>Add an image summarizing today</Form.Label>
+          <Form.Label htmlFor="image">
+            Add an image summarizing today
+          </Form.Label>
           <Form.Control
             type="file"
             id="image"
