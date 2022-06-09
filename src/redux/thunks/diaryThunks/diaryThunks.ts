@@ -37,7 +37,6 @@ export const loadEntryThunk = (id: string) => async (dispatch: AppDispatch) => {
     let {
       data: { entry },
     }: EntryApiResponse = await axios.get(diaryRoute, passToken());
-    entry = { ...entry, date: new Date(entry.date) };
     dispatch(loadActionCreator([entry]));
   } catch (error) {
     notify({ message: "Failed to load entry", type: "error" });
@@ -49,6 +48,7 @@ export const loadEntryThunk = (id: string) => async (dispatch: AppDispatch) => {
 export const editEntryThunk =
   (newEntry: FormData, id: string) => async (dispatch: AppDispatch) => {
     try {
+      window.scrollTo(0, 0);
       dispatch(loadingActionCreator());
       const diaryRoute: string = `${process.env.REACT_APP_API_URL}diary/edit/${id}`;
       await axios.patch(diaryRoute, newEntry, passToken());
@@ -60,7 +60,6 @@ export const editEntryThunk =
       notify({ message: "Failed to edit well-being entry", type: "error" });
     } finally {
       dispatch(finishedLoadingActionCreator());
-      window.scrollTo(0, 0);
     }
   };
 

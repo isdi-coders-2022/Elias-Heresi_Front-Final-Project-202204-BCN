@@ -113,4 +113,29 @@ describe("Given the EntrySummary component", () => {
       expect(mockUseNavigate).toHaveBeenCalledTimes(expectedNumberOfCalls);
     });
   });
+  describe("When the Details button is clicked", () => {
+    test("Then navigation and dispatch will have been called once", () => {
+      window.scrollTo = jest.fn();
+      const expectedNumberOfDispatchCalls = 1;
+      const expectedNumberOfNavigationCalls = 1;
+
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <EntrySummary entry={mockApiGetResponse[0]} />
+          </Provider>
+        </BrowserRouter>
+      );
+
+      const detailsButton = screen.getByRole("button", { name: "Details" });
+      userEvent.click(detailsButton);
+
+      expect(mockUseNavigate).toHaveBeenCalledTimes(
+        expectedNumberOfDispatchCalls
+      );
+      expect(mockUseNavigate).toHaveBeenCalledTimes(
+        expectedNumberOfNavigationCalls
+      );
+    });
+  });
 });

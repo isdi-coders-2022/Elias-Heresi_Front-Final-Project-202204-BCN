@@ -40,7 +40,7 @@ const EditForm = ({ entry }: OptionalEntry): JSX.Element => {
   const createEntry = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
     const entryToBeUploaded = new FormData();
-    entryToBeUploaded.append("date", formData.date.toISOString());
+    entryToBeUploaded.append("date", new Date(formData.date).toISOString());
     entryToBeUploaded.append("vitality", formData.vitality);
     entryToBeUploaded.append("positiveEmotion", formData.positiveEmotion);
     entryToBeUploaded.append("engagement", formData.engagement);
@@ -55,6 +55,7 @@ const EditForm = ({ entry }: OptionalEntry): JSX.Element => {
     } else {
       dispatch(createEntryThunk(entryToBeUploaded));
     }
+    navigate("/historic");
     resetForm();
   };
 
@@ -156,7 +157,9 @@ const EditForm = ({ entry }: OptionalEntry): JSX.Element => {
           <p>{formData.accomplishment}</p>
         </Form.Group>
         <Form.Group className="mb-3 create-form__file">
-          <Form.Label>Add an image summarizing today</Form.Label>
+          <Form.Label htmlFor="image">
+            Add an image summarizing today
+          </Form.Label>
           <Form.Control
             type="file"
             id="image"
