@@ -1,3 +1,4 @@
+import EntrySummary from "../../components/EntrySummary/EntrySummary";
 import {
   DiaryEntry,
   Diary,
@@ -32,18 +33,19 @@ export const mockSecondEntry = {
   id: "aa",
 } as DiaryEntry;
 
-export const mockCreatedEntry = {
-  date: new Date("December 17, 2021 03:24:00"),
-  vitality: 7,
-  positiveEmotion: 5,
-  engagement: 9,
-  relationships: 2,
-  meaning: 4,
-  accomplishment: 6,
-  wellBeing: 5,
-  image: "url",
-  commentary: "Today was OK",
-} as TransformedEntryForm;
+export const mockCreatedEntry = () => {
+  const entry = new FormData();
+  entry.append("date", new Date("December 17, 2021 03:24:00").toISOString());
+  entry.append("vitality", "7");
+  entry.append("positiveEmotion", "7");
+  entry.append("engagement", "7");
+  entry.append("relationships", "7");
+  entry.append("meaning", "7");
+  entry.append("accomplishment", "7");
+  entry.append("image", "url");
+  entry.append("commentary", "Today was OK");
+  return entry;
+};
 
 export const mockDiary = {
   username: "champagne_papi",

@@ -4,20 +4,18 @@ import {
 } from "../redux/interfaces/DiaryInterface";
 
 export const adaptToAcceptedDataTypes = (entry: InitialCreatedEntryForm) => {
-  const image = entry.image === "" ? "No image submitted" : entry.image;
   const commentary =
     entry.commentary === "" ? "No commentary submitted" : entry.commentary;
 
   return {
     ...entry,
-    positiveEmotion: parseInt(entry.positiveEmotion, 10),
-    engagement: parseInt(entry.engagement, 10),
-    relationships: parseInt(entry.relationships, 10),
-    meaning: parseInt(entry.meaning, 10),
-    accomplishment: parseInt(entry.accomplishment, 10),
-    wellBeing: parseInt(entry.wellBeing, 10),
-    vitality: parseInt(entry.vitality, 10),
-    image,
+    positiveEmotion: Number(entry.positiveEmotion),
+    engagement: Number(entry.engagement),
+    relationships: Number(entry.relationships),
+    meaning: Number(entry.meaning),
+    accomplishment: Number(entry.accomplishment),
+    wellBeing: Number(entry.wellBeing),
+    vitality: Number(entry.vitality),
     commentary,
   };
 };

@@ -69,7 +69,7 @@ describe("Given the deleteEntryThunk", () => {
 describe("Given the createEntryThunk", () => {
   describe("When invoked", () => {
     const dispatch = jest.fn();
-    const thunk = createEntryThunk(mockCreatedEntry);
+    const thunk = createEntryThunk(mockCreatedEntry());
 
     test("Then the dispatch function will be called 2 times", async () => {
       await thunk(dispatch);
@@ -84,7 +84,7 @@ describe("Given the createEntryThunk", () => {
 describe("Given the editEntryThunk", () => {
   describe("When invoked", () => {
     const dispatch = jest.fn();
-    const thunk = editEntryThunk(mockCreatedEntry, "testedId");
+    const thunk = editEntryThunk(mockCreatedEntry(), "testedId");
 
     test("Then the dispatch function will be called 2 times", async () => {
       await thunk(dispatch);
