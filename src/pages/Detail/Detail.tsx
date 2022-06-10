@@ -31,9 +31,10 @@ const Detail = (): JSX.Element => {
   return (
     <>
       <NavBar />
-      {loading && <Loading />}
+
       <ToastContainer />
       <DetailContainer>
+        {loading && <Loading />}
         <Container>
           <Row>
             <h1>Entry details:</h1>

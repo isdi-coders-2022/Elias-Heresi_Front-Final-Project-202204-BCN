@@ -1,7 +1,9 @@
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import { FaUser } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { resetCollectionActionCreator } from "../../redux/features/diarySlice";
 import { useAppDispatch } from "../../redux/store/hooks";
+import { loadEntriesThunk } from "../../redux/thunks/diaryThunks/diaryThunks";
 import { logOutUserThunk } from "../../redux/thunks/userThunks/userThunks";
 import NavBarContainer from "./NavBarContainer";
 
@@ -14,19 +16,16 @@ const NavBar = (): JSX.Element => {
   };
 
   const navigateToPage = (page: string): void => {
+    dispatch(resetCollectionActionCreator());
     navigate(`/${page}`);
+    dispatch(loadEntriesThunk());
   };
 
   return (
     <NavBarContainer>
       <Navbar expand="lg">
         <Container>
-          <Navbar.Brand
-            onClick={() => navigateToPage("historic")}
-            className="ml-auto"
-          >
-            Bonanza
-          </Navbar.Brand>
+          <Navbar.Brand className="ml-auto">Bonanza</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav" className="ml-auto">
             <Nav.Link onClick={() => navigateToPage("historic")}>
