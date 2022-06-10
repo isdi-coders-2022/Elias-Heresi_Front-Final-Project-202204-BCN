@@ -23,7 +23,6 @@ const Login = (): JSX.Element => {
   return (
     <>
       {loading && <Loading />}
-
       <ToastContainer />
       <RegisterContainer>
         <img

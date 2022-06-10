@@ -31,8 +31,8 @@ const Historic = (): JSX.Element => {
   return (
     <>
       <NavBar />
-      {loading && <Loading />}
       <ToastContainer />
+      {loading && <Loading />}
       <HistoricContainer>
         <h1>{name}'s well-being history</h1>
         <Container>

@@ -1,9 +1,14 @@
 import styled from "styled-components";
 
 const LoadingContainer = styled.section`
+  z-index: 0;
+  background-color: rgb(111, 219, 135, 0.4);
+  height: 100vw;
+  width: 100vw;
+  position: absolute;
   div {
     position: absolute;
-    top: 50%;
+    top: 25%;
     left: 50%;
     transform: translate(-50%, -50%);
     &.loader__text {

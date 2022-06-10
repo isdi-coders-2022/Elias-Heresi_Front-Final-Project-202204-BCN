@@ -14,9 +14,9 @@ const Create = (): JSX.Element => {
   return (
     <>
       <NavBar />
-      {loading && <Loading />}
       <ToastContainer />
       <CreateContainer>
+        {loading && <Loading />}
         <Row>
           <h1>Create a new well-being entry:</h1>
           <EditForm />
