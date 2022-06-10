@@ -16,4 +16,7 @@ export const HistoricContainer = styled.div`
     margin-left: auto;
     margin-right: auto;
   }
+  .pagination {
+    justify-content: center;
+  }
 `;
