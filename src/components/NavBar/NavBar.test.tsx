@@ -55,7 +55,7 @@ describe("Given the navbar component", () => {
           <NavBar />
         </Provider>
       );
-      const expectedNumberOfCalls = 3;
+      const expectedNumberOfCalls = 2;
 
       const searchedBrandButton = screen.getByText("Bonanza");
       const searchedCreateButton = screen.getByText("Create");
