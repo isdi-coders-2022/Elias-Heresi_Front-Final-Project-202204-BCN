@@ -8,6 +8,9 @@ import diaryReducer, {
 } from "./diarySlice";
 
 let initialState = {
+  page: 2,
+  perPage: 6,
+  total: 100,
   collection: [],
 };
 
@@ -15,10 +18,16 @@ describe("Given the resetCollectionActionCreator", () => {
   describe("When invoked", () => {
     test("Then the collection will be empty", () => {
       const stateContainingEntries = {
+        page: 2,
+        perPage: 6,
+        total: 100,
         collection: [mockFirstEntry],
       } as DiaryState;
 
       const expectedStatus = {
+        page: 2,
+        perPage: 6,
+        total: 100,
         collection: [],
       } as DiaryState;
 
@@ -34,6 +43,9 @@ describe("Given the loadActionCreator", () => {
   describe("When invoked", () => {
     test("Then the collection will contain the new entries", () => {
       const expectedState = {
+        page: 2,
+        perPage: 6,
+        total: 100,
         collection: [mockFirstEntry],
       };
 
@@ -49,10 +61,16 @@ describe("Given the deleteEntryActionCreator", () => {
   describe("When invoked with the objectId to be deleted", () => {
     test("Then the collection won't contain this entry", () => {
       let initialState = {
+        page: 2,
+        perPage: 6,
+        total: 100,
         collection: [mockFirstEntry],
       };
 
       const expectedState = {
+        page: 2,
+        perPage: 6,
+        total: 100,
         collection: [],
       };
 
@@ -70,10 +88,16 @@ describe("Given the createEntryActionCreator", () => {
   describe("When invoked with the entry to be created", () => {
     test("Then the collection will contain the new entries", () => {
       let initialState = {
+        page: 2,
+        perPage: 6,
+        total: 100,
         collection: [mockFirstEntry],
       };
 
       const expectedState = {
+        page: 2,
+        perPage: 6,
+        total: 100,
         collection: [mockFirstEntry, mockSecondEntry],
       };
 
