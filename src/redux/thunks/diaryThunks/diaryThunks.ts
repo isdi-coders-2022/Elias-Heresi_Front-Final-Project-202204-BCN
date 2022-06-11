@@ -7,6 +7,7 @@ import {
 import {
   deleteEntryActionCreator,
   loadActionCreator,
+  resetCollectionActionCreator,
 } from "../../features/diarySlice";
 import {
   finishedLoadingActionCreator,
@@ -33,6 +34,7 @@ export const loadPaginatedEntriesThunk =
   (pagination: PaginationState) => async (dispatch: AppDispatch) => {
     const { perPage, page } = pagination;
     try {
+      dispatch(resetCollectionActionCreator());
       dispatch(loadingActionCreator());
       const diaryRoute: string = `${
         process.env.REACT_APP_API_URL

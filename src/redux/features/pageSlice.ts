@@ -3,8 +3,8 @@ import { PaginationState } from "../interfaces/PageInterfaces";
 
 const initialState = {
   page: 1,
-  perPage: 10,
-  total: 100,
+  perPage: 2,
+  total: 4,
 } as PaginationState;
 
 const pageSlice = createSlice({
