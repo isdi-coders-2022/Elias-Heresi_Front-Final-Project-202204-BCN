@@ -96,3 +96,19 @@ describe("Given the editEntryThunk", () => {
     });
   });
 });
+
+describe("Given the loadPaginatedEntryThunks", () => {
+  describe("When invoked", () => {
+    const dispatch = jest.fn();
+    const mockPagination = { page: 1, perPage: 1, total: 6 };
+    const thunk = loadPaginatedEntriesThunk(mockPagination);
+
+    test("Then the dispatch function will be called 4 times", async () => {
+      await thunk(dispatch);
+
+      const expectedCalls = 4;
+
+      expect(dispatch).toHaveBeenCalledTimes(expectedCalls);
+    });
+  });
+});

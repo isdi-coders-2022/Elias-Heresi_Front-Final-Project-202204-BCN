@@ -6,6 +6,11 @@ export const handlers = [
     res(ctx.status(201), ctx.json({ entries: mockApiGetResponse }))
   ),
   rest.get(
+    `${process.env.REACT_APP_API_URL}diary/all?perPage=1&page=1`,
+    (req, res, ctx) =>
+      res(ctx.status(201), ctx.json({ entries: mockApiGetResponse }))
+  ),
+  rest.get(
     `${process.env.REACT_APP_API_URL}diary/byId/testedId`,
     (req, res, ctx) =>
       res(ctx.status(201), ctx.json({ entry: mockApiGetResponse[0] }))
