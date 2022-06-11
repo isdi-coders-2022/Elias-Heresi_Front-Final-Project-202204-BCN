@@ -3,6 +3,7 @@ import { AppDispatch } from "../../store/store";
 import {
   GetApiResponse,
   EntryApiResponse,
+  FilterDates,
 } from "../../interfaces/DiaryInterface";
 import {
   deleteEntryActionCreator,
@@ -116,5 +117,23 @@ export const createEntryThunk =
     } finally {
       dispatch(finishedLoadingActionCreator());
       window.scrollTo(0, 0);
+    }
+  };
+
+export const loadFilteredEntriesThunk =
+  (dates: FilterDates) => async (dispatch: AppDispatch) => {
+    const { startDate, endDate } = dates;
+    try {
+      dispatch(resetCollectionActionCreator());
+      dispatch(loadingActionCreator());
+      const diaryRoute: string = `${process.env.REACT_APP_API_URL}diary/date?startDate=${startDate}&endDate=${endDate}`;
+      const {
+        data: { entries },
+      }: GetApiResponse = await axios.get(diaryRoute, passToken());
+      dispatch(loadActionCreator(entries));
+    } catch (error) {
+      notify({ message: "Failed to load user's entries", type: "error" });
+    } finally {
+      dispatch(finishedLoadingActionCreator());
     }
   };

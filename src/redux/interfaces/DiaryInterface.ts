@@ -87,3 +87,7 @@ export interface Diary {
 export interface DiaryState {
   collection: Collection;
 }
+export interface FilterDates {
+  startDate: number;
+  endDate: number;
+}

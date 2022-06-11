@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
+import DateFilter from "../../components/DateFilter/DateFilter";
 import EntrySummary from "../../components/EntrySummary/EntrySummary";
 import Loading from "../../components/Loading/Loading";
 import NavBar from "../../components/NavBar/NavBar";
@@ -39,9 +40,15 @@ const Historic = (): JSX.Element => {
       {loading && <Loading />}
       <HistoricContainer>
         <h1>{name}'s well-being history</h1>
+
         <Container>
-          {collection.length > 0 ? (
+          {!loading ? (
             <>
+              <Row>
+                <Col>
+                  <DateFilter />
+                </Col>
+              </Row>
               <Row>
                 {collection.map((entry, index) => (
                   <Col key={index}>

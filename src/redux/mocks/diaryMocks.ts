@@ -86,3 +86,12 @@ export const mockApiStringifiedResponse = [
     id: mockApiId,
   },
 ];
+
+export const mockedFile = {
+  lastModified: 1654865480296,
+  lastModifiedDate: new Date(),
+  name: "1654860763859-88B018C3-515F-4F71-BE70-FED3A8680808.jpeg",
+  size: 545880,
+  type: "image/jpeg",
+  webkitRelativePath: "",
+};
