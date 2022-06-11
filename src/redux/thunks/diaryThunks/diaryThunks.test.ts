@@ -1,7 +1,7 @@
 import { deleteEntryActionCreator } from "../../features/diarySlice";
 import { mockCreatedEntry } from "../../mocks/diaryMocks";
 import {
-  loadEntriesThunk,
+  numberOfEntriesThunk,
   deleteEntryThunk,
   createEntryThunk,
   loadEntryThunk,
@@ -18,7 +18,7 @@ window.scrollTo = jest.fn();
 describe("Given the loadEntriesThunk", () => {
   describe("When invoked", () => {
     const dispatch = jest.fn();
-    const thunk = loadEntriesThunk();
+    const thunk = numberOfEntriesThunk();
     test("Then the dispatch function will be called 3 times", async () => {
       await thunk(dispatch);
 

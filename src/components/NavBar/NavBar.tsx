@@ -6,10 +6,7 @@ import { resetCollectionActionCreator } from "../../redux/features/diarySlice";
 import { PaginationState } from "../../redux/interfaces/PageInterfaces";
 import { useAppDispatch } from "../../redux/store/hooks";
 import { RootState } from "../../redux/store/store";
-import {
-  loadEntriesThunk,
-  loadPaginatedEntriesThunk,
-} from "../../redux/thunks/diaryThunks/diaryThunks";
+import { loadPaginatedEntriesThunk } from "../../redux/thunks/diaryThunks/diaryThunks";
 import { logOutUserThunk } from "../../redux/thunks/userThunks/userThunks";
 import NavBarContainer from "./NavBarContainer";
 

@@ -18,7 +18,7 @@ import { passToken } from "../../../utils/authorization";
 import { totalPagesActionCreator } from "../../features/pageSlice";
 import { PaginationState } from "../../interfaces/PageInterfaces";
 
-export const loadEntriesThunk = () => async (dispatch: AppDispatch) => {
+export const numberOfEntriesThunk = () => async (dispatch: AppDispatch) => {
   try {
     const diaryRoute: string = `${process.env.REACT_APP_API_URL}diary/all`;
     const {
@@ -26,7 +26,7 @@ export const loadEntriesThunk = () => async (dispatch: AppDispatch) => {
     }: GetApiResponse = await axios.get(diaryRoute, passToken());
     dispatch(totalPagesActionCreator(entries.length));
   } catch (error) {
-    notify({ message: "Failed to load user's entries", type: "error" });
+    notify({ message: "Failed to load number of entries", type: "error" });
   }
 };
 
