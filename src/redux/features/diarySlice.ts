@@ -4,7 +4,7 @@ import { DiaryState, DiaryEntry } from "../interfaces/DiaryInterface";
 const initialState = {
   page: 1,
   perPage: 6,
-  total: 0,
+  total: 30,
   collection: [],
 } as DiaryState;
 
@@ -34,21 +34,11 @@ const diarySlice = createSlice({
       ...diary,
       collection: [...diary.collection, action.payload],
     }),
-    nextPage: (diary: DiaryState) => ({
-      ...diary,
-      page: diary.page + 1,
-    }),
-    previousPage: (diary: DiaryState) => ({
-      ...diary,
-      page: diary.page - 1,
-    }),
   },
 });
 
 export const {
   load: loadActionCreator,
-  nextPage: nextPageActionCreator,
-  previousPage: previousPageActionCreator,
   resetCollection: resetCollectionActionCreator,
   deleteEntry: deleteEntryActionCreator,
   createEntry: createEntryActionCreator,
