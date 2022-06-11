@@ -6,6 +6,7 @@ import {
   createEntryThunk,
   loadEntryThunk,
   editEntryThunk,
+  loadPaginatedEntriesThunk,
 } from "./diaryThunks";
 import { server } from "./mocks/server";
 
@@ -15,14 +16,14 @@ afterAll(() => server.close());
 
 window.scrollTo = jest.fn();
 
-describe("Given the loadEntriesThunk", () => {
+describe("Given the numberOfEntriesThunk", () => {
   describe("When invoked", () => {
     const dispatch = jest.fn();
     const thunk = numberOfEntriesThunk();
     test("Then the dispatch function will be called 3 times", async () => {
       await thunk(dispatch);
 
-      const expectedCalls = 3;
+      const expectedCalls = 1;
 
       expect(dispatch).toHaveBeenCalledTimes(expectedCalls);
     });
