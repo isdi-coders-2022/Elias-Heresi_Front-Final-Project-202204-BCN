@@ -24,10 +24,6 @@ const DateFilter = (): JSX.Element => {
     });
   };
 
-  const resetDates = (): void => {
-    setFormData(formInitialState);
-  };
-
   const filterEntries = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
     dispatch(loadFilteredEntriesThunk(formData));
@@ -38,10 +34,20 @@ const DateFilter = (): JSX.Element => {
       <Form autoComplete="off" onSubmit={filterEntries} noValidate>
         <Row>
           <Col>
-            <Form.Control type="date" id="startDate" onChange={changeData} />
+            <Form.Control
+              placeholder="startDate"
+              type="date"
+              id="startDate"
+              onChange={changeData}
+            />
           </Col>
           <Col>
-            <Form.Control type="date" id="endDate" onChange={changeData} />
+            <Form.Control
+              placeholder="endDate"
+              type="date"
+              id="endDate"
+              onChange={changeData}
+            />
           </Col>
           <Col>
             <Button variant="primary" type="submit">
