@@ -2,7 +2,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-import { mockApiGetResponse } from "../../redux/mocks/diaryMocks";
+import { mockApiGetResponse, mockedFile } from "../../redux/mocks/diaryMocks";
 import store from "../../redux/store/store";
 import EditForm from "./EditForm";
 
@@ -71,9 +71,9 @@ describe("Given the CreateForm component", () => {
       userEvent.type(searchedTextBox, "Inputted text for test");
 
       const event = {
-        type: "file",
         target: {
-          files: ["/not/sure/what/goes/in/here"],
+          type: "file",
+          files: [mockedFile],
         },
       };
       fireEvent.change(fileUploadBox, event);
