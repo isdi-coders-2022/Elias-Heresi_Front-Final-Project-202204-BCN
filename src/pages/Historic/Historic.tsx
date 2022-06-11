@@ -7,11 +7,12 @@ import Loading from "../../components/Loading/Loading";
 import NavBar from "../../components/NavBar/NavBar";
 import Paginator from "../../components/Paginator/Paginator";
 import { DiaryState } from "../../redux/interfaces/DiaryInterface";
+import { PaginationState } from "../../redux/interfaces/PageInterfaces";
 import { Ui } from "../../redux/interfaces/UiInterface";
 import { UserState } from "../../redux/interfaces/UserInterface";
 import { useAppDispatch } from "../../redux/store/hooks";
 import { RootState } from "../../redux/store/store";
-import { loadEntriesThunk } from "../../redux/thunks/diaryThunks/diaryThunks";
+import { loadPaginatedEntriesThunk } from "../../redux/thunks/diaryThunks/diaryThunks";
 import { HistoricContainer } from "./HistoricContainer";
 
 const Historic = (): JSX.Element => {
@@ -23,10 +24,13 @@ const Historic = (): JSX.Element => {
   const { username, name }: UserState = useSelector(
     (state: RootState) => state.user
   );
+  const pagination: PaginationState = useSelector(
+    (state: RootState) => state.page
+  );
 
   useEffect(() => {
-    dispatch(loadEntriesThunk());
-  }, [dispatch]);
+    dispatch(loadPaginatedEntriesThunk(pagination));
+  }, [dispatch, pagination]);
 
   return (
     <>
@@ -46,7 +50,7 @@ const Historic = (): JSX.Element => {
                 ))}
               </Row>
               <Row>
-                <Paginator />
+                <Paginator pagination={pagination} />
               </Row>
             </>
           ) : (

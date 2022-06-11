@@ -1,15 +1,24 @@
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import { FaUser } from "react-icons/fa";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { resetCollectionActionCreator } from "../../redux/features/diarySlice";
+import { PaginationState } from "../../redux/interfaces/PageInterfaces";
 import { useAppDispatch } from "../../redux/store/hooks";
-import { loadEntriesThunk } from "../../redux/thunks/diaryThunks/diaryThunks";
+import { RootState } from "../../redux/store/store";
+import {
+  loadEntriesThunk,
+  loadPaginatedEntriesThunk,
+} from "../../redux/thunks/diaryThunks/diaryThunks";
 import { logOutUserThunk } from "../../redux/thunks/userThunks/userThunks";
 import NavBarContainer from "./NavBarContainer";
 
 const NavBar = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const pagination: PaginationState = useSelector(
+    (state: RootState) => state.page
+  );
 
   const logout = () => {
     dispatch(logOutUserThunk());
@@ -18,7 +27,7 @@ const NavBar = (): JSX.Element => {
   const navigateToPage = (page: string): void => {
     dispatch(resetCollectionActionCreator());
     navigate(`/${page}`);
-    dispatch(loadEntriesThunk());
+    dispatch(loadPaginatedEntriesThunk(pagination));
   };
 
   return (

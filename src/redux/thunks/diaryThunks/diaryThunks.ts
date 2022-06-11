@@ -14,21 +14,39 @@ import {
 } from "../../features/uiSlice";
 import { notify } from "../../../utils/toast";
 import { passToken } from "../../../utils/authorization";
+import { totalPagesActionCreator } from "../../features/pageSlice";
+import { PaginationState } from "../../interfaces/PageInterfaces";
 
 export const loadEntriesThunk = () => async (dispatch: AppDispatch) => {
   try {
-    dispatch(loadingActionCreator());
     const diaryRoute: string = `${process.env.REACT_APP_API_URL}diary/all`;
     const {
       data: { entries },
     }: GetApiResponse = await axios.get(diaryRoute, passToken());
-    dispatch(loadActionCreator(entries));
+    dispatch(totalPagesActionCreator(entries.length));
   } catch (error) {
     notify({ message: "Failed to load user's entries", type: "error" });
-  } finally {
-    dispatch(finishedLoadingActionCreator());
   }
 };
+
+export const loadPaginatedEntriesThunk =
+  (pagination: PaginationState) => async (dispatch: AppDispatch) => {
+    const { perPage, page } = pagination;
+    try {
+      dispatch(loadingActionCreator());
+      const diaryRoute: string = `${
+        process.env.REACT_APP_API_URL
+      }diary/all?perPage=${perPage}&page=${page - 1}`;
+      const {
+        data: { entries },
+      }: GetApiResponse = await axios.get(diaryRoute, passToken());
+      dispatch(loadActionCreator(entries));
+    } catch (error) {
+      notify({ message: "Failed to load user's entries", type: "error" });
+    } finally {
+      dispatch(finishedLoadingActionCreator());
+    }
+  };
 
 export const loadEntryThunk = (id: string) => async (dispatch: AppDispatch) => {
   try {

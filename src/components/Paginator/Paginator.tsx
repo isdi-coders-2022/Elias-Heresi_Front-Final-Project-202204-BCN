@@ -1,18 +1,14 @@
 import { Pagination } from "react-bootstrap";
-import { useSelector } from "react-redux";
 import {
   changePageActionCreator,
   nextPageActionCreator,
   previousPageActionCreator,
 } from "../../redux/features/pageSlice";
-import { DiaryState } from "../../redux/interfaces/DiaryInterface";
+import { PaginatorProps } from "../../redux/interfaces/PageInterfaces";
 import { useAppDispatch } from "../../redux/store/hooks";
-import { RootState } from "../../redux/store/store";
 
-const Paginator = (): JSX.Element => {
-  const { page, perPage, total }: DiaryState = useSelector(
-    (state: RootState) => state.diary
-  );
+const Paginator = ({ pagination }: PaginatorProps): JSX.Element => {
+  const { page, perPage, total } = pagination;
 
   const lastPage = Math.ceil(total / perPage);
   const dispatch = useAppDispatch();
