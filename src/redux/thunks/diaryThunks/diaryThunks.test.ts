@@ -97,7 +97,7 @@ describe("Given the editEntryThunk", () => {
   });
 });
 
-describe("Given the loadPaginatedEntryThunks", () => {
+describe("Given the loadPaginatedEntriesThunk", () => {
   describe("When invoked", () => {
     const dispatch = jest.fn();
     const mockPagination = { page: 1, perPage: 1, total: 6 };

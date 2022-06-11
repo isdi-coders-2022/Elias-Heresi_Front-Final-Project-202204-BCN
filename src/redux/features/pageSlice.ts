@@ -11,7 +11,7 @@ const pageSlice = createSlice({
   name: "pagination",
   initialState,
   reducers: {
-    totalPages: (
+    totalEntries: (
       pagination: PaginationState,
       action: PayloadAction<number>
     ) => ({
@@ -37,7 +37,7 @@ const pageSlice = createSlice({
 });
 
 export const {
-  totalPages: totalPagesActionCreator,
+  totalEntries: totalPagesActionCreator,
   nextPage: nextPageActionCreator,
   previousPage: previousPageActionCreator,
   changePage: changePageActionCreator,
