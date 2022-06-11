@@ -32,4 +32,10 @@ export const handlers = [
       })
     )
   ),
+
+  rest.get(
+    `${process.env.REACT_APP_API_URL}diary/date?startDate=20200101&endDate=20220101`,
+    (req, res, ctx) =>
+      res(ctx.status(201), ctx.json({ entries: mockApiGetResponse }))
+  ),
 ];

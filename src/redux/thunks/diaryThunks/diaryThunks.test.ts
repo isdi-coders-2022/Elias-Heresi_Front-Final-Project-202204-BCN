@@ -7,6 +7,7 @@ import {
   loadEntryThunk,
   editEntryThunk,
   loadPaginatedEntriesThunk,
+  loadFilteredEntriesThunk,
 } from "./diaryThunks";
 import { server } from "./mocks/server";
 
@@ -102,6 +103,22 @@ describe("Given the loadPaginatedEntriesThunk", () => {
     const dispatch = jest.fn();
     const mockPagination = { page: 1, perPage: 1, total: 6 };
     const thunk = loadPaginatedEntriesThunk(mockPagination);
+
+    test("Then the dispatch function will be called 4 times", async () => {
+      await thunk(dispatch);
+
+      const expectedCalls = 4;
+
+      expect(dispatch).toHaveBeenCalledTimes(expectedCalls);
+    });
+  });
+});
+
+describe("Given the loadFilteredEntriesThunk", () => {
+  describe("When invoked", () => {
+    const dispatch = jest.fn();
+    const mockFilter = { startDate: 20200101, endDate: 20220101 };
+    const thunk = loadFilteredEntriesThunk(mockFilter);
 
     test("Then the dispatch function will be called 4 times", async () => {
       await thunk(dispatch);
