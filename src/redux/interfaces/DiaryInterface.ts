@@ -85,8 +85,5 @@ export interface Diary {
 }
 
 export interface DiaryState {
-  page: number;
-  perPage: number;
-  total: number;
   collection: Collection;
 }

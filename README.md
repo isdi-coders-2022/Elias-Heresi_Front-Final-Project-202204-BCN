@@ -19,7 +19,7 @@
 
 ### V3: Entry modification
 
-### V4: Pagination
+### V4: Pagination (current version)
 
 ## **Nice to have versions**
 
@@ -40,19 +40,14 @@
 
 - LoginForm
 
-### Landing page
-
-- Landing
-- Navigation cards
-
-### Entry list page
+### Historic
 
 - Filter
 - EntryList
   - Entry
 - Paginator
 
-### Detailed entry
+### Detail
 
 - DetailedEntry
   - PERMA chart
@@ -67,47 +62,62 @@
   - Text box
   - Input image
 
+### Edit entry
+
+- EntryForm
+  - Sliders
+  - Text box
+  - Input image
+
 ### 404 page
 
 ### About
-
-### Well being analysis
-
-- EntryCharts
 
 ## **Data layer**
 
 ### User
 
-- register
 - login
-- triggers
+- logout
 
 ### Diary
 
-- newEntry
-- collection
-- perPage
-- currentPage
+- loadCollection
+- resetCollection
+- deleteEntry
+- createEntry
 
 ### UI
 
-- loading
-- modal
+- loadingOn
+- loadingOff
+- feedbackOn
+- feedbackOff
+- resetEntryId
+- saveEntryId
+
+### Pagination
+
+- nextPage
+- previousPage
+- pageNumber
+- total number of pages
 
 ## **Components**
 
-### RegisterForm
+### CheckLogged
 
-- Render input form and button
-- Receive information to register status
-- Submit register form
+- Check token and serve as a guardian
 
-### LoginForm
+### ConfirmationModal
 
-- Render input form and button
-- Receive information to change user status
-- Submit login form
+- Renderize pop-up
+
+### Edit/Create form
+
+- Renderize required fields
+- Submit form
+- Modify formData state on changes
 
 ### EntryForm
 
@@ -115,46 +125,49 @@
 - Receive information to change entry status
 - Submit new entry
 
-### Entry
+### EntryDetail
+
+- Render detailed entry information, as well as delete and edit button
+- Pass delete action to button
+- Pass edit action to button
+
+### EntrySummary
 
 - Render PERMA, well being, safety and commentary status on card
 - Render delete and edit button
 - Delete entry when click on delete
-
-### EntryList
-
-- Render all entries in collection
 
 ### Filter
 
 - Render filters
 - Modify collection status
 
+### Loading
+
+- Renderize loading modal
+
+### LoginForm
+
+- Render input form and button
+- Receive information to change user status
+- Submit login form
+
+### NavBar
+
+- Render basic information
+- Render links to pages
+
 ### Paginator
 
 - Render paginator
 - Modify collection status depending on total per page and current page
 
-### Landing
+### PERMA chart
 
-- Render landing infromation
+- Renderize 6 variables depending on passed on props
 
-### DetailedEntry
+### RegisterForm
 
-- Render detailed entry information, as well as delete and edit button
-- Pass delete action to button
-- Pass edit action to button
-
-### Header
-
-- Render basic information
-- Render links to pages
-
-### Footer
-
-- Render basic information
-- Render links to pages
-
-### EntryCharts
-
-- Render charts depending on user insights
+- Render input form and button
+- Receive information to register status
+- Submit register form
