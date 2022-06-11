@@ -31,7 +31,6 @@ const DateFilter = (): JSX.Element => {
   const filterEntries = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
     dispatch(loadFilteredEntriesThunk(formData));
-    resetDates();
   };
 
   return (

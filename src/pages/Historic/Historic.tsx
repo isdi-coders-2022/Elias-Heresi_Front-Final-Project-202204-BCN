@@ -42,7 +42,7 @@ const Historic = (): JSX.Element => {
         <h1>{name}'s well-being history</h1>
 
         <Container>
-          {collection.length > 0 ? (
+          {!loading ? (
             <>
               <Row>
                 <Col>
