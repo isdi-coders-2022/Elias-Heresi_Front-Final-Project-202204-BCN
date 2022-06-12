@@ -8,7 +8,7 @@ const LoadingContainer = styled.section`
   position: absolute;
   div {
     position: absolute;
-    top: 25%;
+    top: 300px;
     left: 50%;
     transform: translate(-50%, -50%);
     &.loader__text {

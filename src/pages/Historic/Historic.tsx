@@ -13,7 +13,7 @@ import { Ui } from "../../redux/interfaces/UiInterface";
 import { UserState } from "../../redux/interfaces/UserInterface";
 import { useAppDispatch } from "../../redux/store/hooks";
 import { RootState } from "../../redux/store/store";
-import { loadPaginatedEntriesThunk } from "../../redux/thunks/diaryThunks/diaryThunks";
+import { loadEntriesThunk } from "../../redux/thunks/diaryThunks/diaryThunks";
 import { HistoricContainer } from "./HistoricContainer";
 
 const Historic = (): JSX.Element => {
@@ -30,7 +30,7 @@ const Historic = (): JSX.Element => {
   );
 
   useEffect(() => {
-    dispatch(loadPaginatedEntriesThunk(pagination));
+    dispatch(loadEntriesThunk({ pagination }));
   }, [dispatch, pagination]);
 
   return (

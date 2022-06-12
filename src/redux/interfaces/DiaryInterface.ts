@@ -72,7 +72,11 @@ export interface DiaryEntry extends EntryObtainedFromApi {
 export type Collection = DiaryEntry[] | never[];
 
 export interface GetApiResponse {
-  data: { entries: Collection };
+  data: {
+    numberOfEntries: number;
+    entries: Collection;
+    pagination: { previous: string; next: string };
+  };
 }
 
 export interface EntryApiResponse {
@@ -90,4 +94,15 @@ export interface DiaryState {
 export interface FilterDates {
   startDate: number;
   endDate: number;
+}
+
+export interface PaginationState {
+  page: number;
+  perPage: number;
+  total: number;
+}
+
+export interface GetEntriesProps {
+  pagination: PaginationState;
+  dates?: FilterDates;
 }

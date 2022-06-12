@@ -6,7 +6,7 @@ import { resetCollectionActionCreator } from "../../redux/features/diarySlice";
 import { PaginationState } from "../../redux/interfaces/PageInterfaces";
 import { useAppDispatch } from "../../redux/store/hooks";
 import { RootState } from "../../redux/store/store";
-import { loadPaginatedEntriesThunk } from "../../redux/thunks/diaryThunks/diaryThunks";
+import { loadEntriesThunk } from "../../redux/thunks/diaryThunks/diaryThunks";
 import { logOutUserThunk } from "../../redux/thunks/userThunks/userThunks";
 import NavBarContainer from "./NavBarContainer";
 
@@ -24,7 +24,7 @@ const NavBar = (): JSX.Element => {
   const navigateToPage = (page: string): void => {
     dispatch(resetCollectionActionCreator());
     navigate(`/${page}`);
-    dispatch(loadPaginatedEntriesThunk(pagination));
+    dispatch(loadEntriesThunk({ pagination }));
   };
 
   return (

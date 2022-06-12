@@ -6,7 +6,7 @@ import {
   createEntryThunk,
   loadEntryThunk,
   editEntryThunk,
-  loadPaginatedEntriesThunk,
+  loadEntriesThunk,
 } from "./diaryThunks";
 
 jest.mock("axios");
@@ -31,11 +31,11 @@ describe("Given the the numberOfEntriesThunks", () => {
   });
 });
 
-describe("Given the the loadPaginatedEntriesThunks", () => {
+describe("Given the the loadEntriesThunks", () => {
   describe("When invoked with an error", () => {
     const dispatch = jest.fn();
-    const mockPagination = { page: 1, perPage: 1, total: 6 };
-    const thunk = loadPaginatedEntriesThunk(mockPagination);
+    const mockPagination = { pagination: { page: 1, perPage: 1, total: 6 } };
+    const thunk = loadEntriesThunk(mockPagination);
 
     test("Then the dispatch function will be called 3 times", async () => {
       axios.get = jest.fn().mockImplementation(() => {
