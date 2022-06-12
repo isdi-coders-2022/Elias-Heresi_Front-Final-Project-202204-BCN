@@ -26,7 +26,7 @@ const Login = (): JSX.Element => {
       <ToastContainer />
       <RegisterContainer>
         <img
-          src="https://pbs.twimg.com/media/EnTgFNJWEAA7fGQ.jpg"
+          src="https://images.pexels.com/photos/708392/pexels-photo-708392.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
           alt="Placeholder"
           className="form__image"
         />

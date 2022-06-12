@@ -62,6 +62,7 @@ const EditForm = ({ entry }: OptionalEntry): JSX.Element => {
   const navigateToHome = (): void => {
     dispatch(resetCollectionActionCreator());
     navigate("/historic");
+    window.scrollTo(0, 0);
   };
 
   return (
