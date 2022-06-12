@@ -2,11 +2,11 @@ import { rest } from "msw";
 import { mockApiGetResponse, mockApiId } from "../../../mocks/diaryMocks";
 
 export const handlers = [
-  rest.get(`${process.env.REACT_APP_API_URL}diary/all`, (req, res, ctx) =>
+  rest.get(`${process.env.REACT_APP_API_URL}diary/entries`, (req, res, ctx) =>
     res(ctx.status(201), ctx.json({ entries: mockApiGetResponse }))
   ),
   rest.get(
-    `${process.env.REACT_APP_API_URL}diary/all?perPage=1&page=1`,
+    `${process.env.REACT_APP_API_URL}diary/entries?perPage=1&page=1`,
     (req, res, ctx) =>
       res(ctx.status(201), ctx.json({ entries: mockApiGetResponse }))
   ),
@@ -34,7 +34,7 @@ export const handlers = [
   ),
 
   rest.get(
-    `${process.env.REACT_APP_API_URL}diary/date?startDate=20200101&endDate=20220101`,
+    `${process.env.REACT_APP_API_URL}diary/entries?startDate=20200101&endDate=20220101`,
     (req, res, ctx) =>
       res(ctx.status(201), ctx.json({ entries: mockApiGetResponse }))
   ),

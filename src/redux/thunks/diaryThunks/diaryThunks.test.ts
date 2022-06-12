@@ -6,8 +6,8 @@ import {
   createEntryThunk,
   loadEntryThunk,
   editEntryThunk,
-  loadPaginatedEntriesThunk,
   loadFilteredEntriesThunk,
+  loadEntriesThunk,
 } from "./diaryThunks";
 import { server } from "./mocks/server";
 
@@ -98,11 +98,11 @@ describe("Given the editEntryThunk", () => {
   });
 });
 
-describe("Given the loadPaginatedEntriesThunk", () => {
+describe("Given the loadEntriesThunk", () => {
   describe("When invoked", () => {
     const dispatch = jest.fn();
-    const mockPagination = { page: 1, perPage: 1, total: 6 };
-    const thunk = loadPaginatedEntriesThunk(mockPagination);
+    const mockPagination = { pagination: { page: 1, perPage: 1, total: 6 } };
+    const thunk = loadEntriesThunk(mockPagination);
 
     test("Then the dispatch function will be called 4 times", async () => {
       await thunk(dispatch);
