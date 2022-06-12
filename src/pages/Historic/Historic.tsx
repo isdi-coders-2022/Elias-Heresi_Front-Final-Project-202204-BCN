@@ -45,10 +45,9 @@ const Historic = (): JSX.Element => {
           {!loading ? (
             <>
               <Row>
-                <Col>
-                  <DateFilter />
-                </Col>
+                <DateFilter />
               </Row>
+
               <Row>
                 {collection.map((entry, index) => (
                   <Col key={index}>

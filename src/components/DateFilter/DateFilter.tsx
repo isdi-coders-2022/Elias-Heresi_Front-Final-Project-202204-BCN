@@ -1,5 +1,5 @@
 import { ChangeEvent, FormEvent, useState } from "react";
-import { Button, Form, Row, Col } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import { FilterDates } from "../../redux/interfaces/DiaryInterface";
 import { useAppDispatch } from "../../redux/store/hooks";
 import { loadFilteredEntriesThunk } from "../../redux/thunks/diaryThunks/diaryThunks";
@@ -46,36 +46,28 @@ const DateFilter = (): JSX.Element => {
   return (
     <DateFilterContainer>
       <Form autoComplete="off" onSubmit={filterEntries} noValidate>
-        <Row>
-          <Col>
-            <Form.Control
-              placeholder="startDate"
-              type="date"
-              id="startDate"
-              defaultValue={previousDate.toISOString().slice(0, 10)}
-              onChange={changeData}
-            />
-          </Col>
-          <Col>
-            <Form.Control
-              placeholder="endDate"
-              type="date"
-              id="endDate"
-              defaultValue={todaysDate.toISOString().slice(0, 10)}
-              onChange={changeData}
-            />
-          </Col>
-          <Col>
-            <Button variant="primary" type="submit">
-              Filter
-            </Button>
-          </Col>
-          <Col>
-            <Button variant="secondary" type="button" onClick={showAll}>
-              Show all
-            </Button>
-          </Col>
-        </Row>
+        <Form.Control
+          placeholder="startDate"
+          type="date"
+          id="startDate"
+          defaultValue={previousDate.toISOString().slice(0, 10)}
+          onChange={changeData}
+        />
+        <Form.Control
+          placeholder="endDate"
+          type="date"
+          id="endDate"
+          defaultValue={todaysDate.toISOString().slice(0, 10)}
+          onChange={changeData}
+        />
+        <div>
+          <Button variant="primary" type="submit">
+            Filter
+          </Button>
+          <Button variant="secondary" type="button" onClick={showAll}>
+            Show all
+          </Button>
+        </div>
       </Form>
     </DateFilterContainer>
   );
