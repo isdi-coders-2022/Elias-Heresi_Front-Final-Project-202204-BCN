@@ -9,7 +9,16 @@ import { DateFilterContainer } from "./DateFilterContainer";
 const DateFilter = (): JSX.Element => {
   const dispatch = useAppDispatch();
 
+  const todaysDate = new Date();
+  let previousDate = new Date();
+  previousDate.setMonth(todaysDate.getMonth() - 3);
+
   const formInitialState = {
+    startDate: dateToNumber(previousDate),
+    endDate: dateToNumber(todaysDate),
+  } as FilterDates;
+
+  const unfilteredDates = {
     startDate: dateToNumber(new Date(1900, 1, 1)),
     endDate: dateToNumber(new Date(2100, 1, 1)),
   } as FilterDates;
@@ -30,13 +39,9 @@ const DateFilter = (): JSX.Element => {
   };
 
   const showAll = (): void => {
-    dispatch(loadFilteredEntriesThunk(formInitialState));
+    dispatch(loadFilteredEntriesThunk(unfilteredDates));
     setFormData(formInitialState);
   };
-
-  const todaysDate = new Date();
-  let previousDate = new Date();
-  previousDate.setMonth(todaysDate.getMonth() - 3);
 
   return (
     <DateFilterContainer>
