@@ -10,8 +10,8 @@ const DateFilter = (): JSX.Element => {
   const dispatch = useAppDispatch();
 
   const formInitialState = {
-    startDate: dateToNumber(new Date(2100, 1, 1)),
-    endDate: dateToNumber(new Date(1900, 1, 1)),
+    startDate: dateToNumber(new Date(1900, 1, 1)),
+    endDate: dateToNumber(new Date(2100, 1, 1)),
   } as FilterDates;
 
   const [formData, setFormData] = useState(formInitialState);
@@ -27,6 +27,11 @@ const DateFilter = (): JSX.Element => {
   const filterEntries = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
     dispatch(loadFilteredEntriesThunk(formData));
+  };
+
+  const showAll = (): void => {
+    dispatch(loadFilteredEntriesThunk(formInitialState));
+    setFormData(formInitialState);
   };
 
   const todaysDate = new Date();
@@ -58,6 +63,11 @@ const DateFilter = (): JSX.Element => {
           <Col>
             <Button variant="primary" type="submit">
               Filter
+            </Button>
+          </Col>
+          <Col>
+            <Button variant="secondary" type="button" onClick={showAll}>
+              Show all
             </Button>
           </Col>
         </Row>

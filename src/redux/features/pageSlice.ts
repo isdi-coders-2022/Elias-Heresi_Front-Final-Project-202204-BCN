@@ -3,7 +3,7 @@ import { PaginationState } from "../interfaces/PageInterfaces";
 
 const initialState = {
   page: 1,
-  perPage: 2,
+  perPage: 4,
   total: 0,
 } as PaginationState;
 
