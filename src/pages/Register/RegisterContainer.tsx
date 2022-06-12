@@ -31,13 +31,13 @@ export const RegisterContainer = styled.div`
     }
   }
   img {
-    width: 400px;
-    height: 300px;
+    width: 500px;
+    height: 400px;
     object-fit: cover;
     border: 2px solid grey;
     border-radius: 20%;
   }
-  @media (max-width: 800px) {
+  @media (max-width: 850px) {
     .form__image {
       display: none;
     }

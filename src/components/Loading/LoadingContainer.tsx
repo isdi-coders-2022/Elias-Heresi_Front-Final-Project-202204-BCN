@@ -3,7 +3,7 @@ import styled from "styled-components";
 const LoadingContainer = styled.section`
   z-index: 0;
   background-color: rgb(111, 219, 135, 0.4);
-  height: 100vw;
+  height: 100vh;
   width: 100vw;
   position: absolute;
   div {

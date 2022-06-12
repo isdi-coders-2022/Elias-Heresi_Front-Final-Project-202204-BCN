@@ -1,5 +1,5 @@
 import { ChangeEvent, FormEvent, useState } from "react";
-import { Button, Form, Row, Col } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import { FilterDates } from "../../redux/interfaces/DiaryInterface";
 import { useAppDispatch } from "../../redux/store/hooks";
 import { loadFilteredEntriesThunk } from "../../redux/thunks/diaryThunks/diaryThunks";
@@ -9,9 +9,18 @@ import { DateFilterContainer } from "./DateFilterContainer";
 const DateFilter = (): JSX.Element => {
   const dispatch = useAppDispatch();
 
+  const todaysDate = new Date();
+  let previousDate = new Date();
+  previousDate.setMonth(todaysDate.getMonth() - 3);
+
   const formInitialState = {
-    startDate: dateToNumber(new Date(2100, 1, 1)),
-    endDate: dateToNumber(new Date(1900, 1, 1)),
+    startDate: dateToNumber(previousDate),
+    endDate: dateToNumber(todaysDate),
+  } as FilterDates;
+
+  const unfilteredDates = {
+    startDate: dateToNumber(new Date(1900, 1, 1)),
+    endDate: dateToNumber(new Date(2100, 1, 1)),
   } as FilterDates;
 
   const [formData, setFormData] = useState(formInitialState);
@@ -29,32 +38,36 @@ const DateFilter = (): JSX.Element => {
     dispatch(loadFilteredEntriesThunk(formData));
   };
 
+  const showAll = (): void => {
+    dispatch(loadFilteredEntriesThunk(unfilteredDates));
+    setFormData(formInitialState);
+  };
+
   return (
     <DateFilterContainer>
       <Form autoComplete="off" onSubmit={filterEntries} noValidate>
-        <Row>
-          <Col>
-            <Form.Control
-              placeholder="startDate"
-              type="date"
-              id="startDate"
-              onChange={changeData}
-            />
-          </Col>
-          <Col>
-            <Form.Control
-              placeholder="endDate"
-              type="date"
-              id="endDate"
-              onChange={changeData}
-            />
-          </Col>
-          <Col>
-            <Button variant="primary" type="submit">
-              Filter
-            </Button>
-          </Col>
-        </Row>
+        <Form.Control
+          placeholder="startDate"
+          type="date"
+          id="startDate"
+          defaultValue={previousDate.toISOString().slice(0, 10)}
+          onChange={changeData}
+        />
+        <Form.Control
+          placeholder="endDate"
+          type="date"
+          id="endDate"
+          defaultValue={todaysDate.toISOString().slice(0, 10)}
+          onChange={changeData}
+        />
+        <div>
+          <Button variant="primary" type="submit">
+            Filter
+          </Button>
+          <Button variant="secondary" type="button" onClick={showAll}>
+            Show all
+          </Button>
+        </div>
       </Form>
     </DateFilterContainer>
   );
