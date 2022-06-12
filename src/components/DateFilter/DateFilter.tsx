@@ -29,6 +29,10 @@ const DateFilter = (): JSX.Element => {
     dispatch(loadFilteredEntriesThunk(formData));
   };
 
+  const todaysDate = new Date();
+  let previousDate = new Date();
+  previousDate.setMonth(todaysDate.getMonth() - 3);
+
   return (
     <DateFilterContainer>
       <Form autoComplete="off" onSubmit={filterEntries} noValidate>
@@ -38,6 +42,7 @@ const DateFilter = (): JSX.Element => {
               placeholder="startDate"
               type="date"
               id="startDate"
+              defaultValue={previousDate.toISOString().slice(0, 10)}
               onChange={changeData}
             />
           </Col>
@@ -46,6 +51,7 @@ const DateFilter = (): JSX.Element => {
               placeholder="endDate"
               type="date"
               id="endDate"
+              defaultValue={todaysDate.toISOString().slice(0, 10)}
               onChange={changeData}
             />
           </Col>
