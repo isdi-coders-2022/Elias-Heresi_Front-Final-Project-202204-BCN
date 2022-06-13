@@ -3,7 +3,6 @@ import { AppDispatch } from "../../store/store";
 import {
   GetApiResponse,
   EntryApiResponse,
-  FilterDates,
   GetEntriesProps,
 } from "../../interfaces/DiaryInterface";
 import {

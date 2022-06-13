@@ -32,7 +32,12 @@ const NavBar = (): JSX.Element => {
     <NavBarContainer>
       <Navbar expand="lg">
         <Container>
-          <Navbar.Brand className="ml-auto">Bonanza</Navbar.Brand>
+          <Navbar.Brand
+            className="ml-auto"
+            onClick={() => navigateToPage("home")}
+          >
+            Bonanza
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav" className="ml-auto">
             <Nav.Link onClick={() => navigateToPage("historic")}>
