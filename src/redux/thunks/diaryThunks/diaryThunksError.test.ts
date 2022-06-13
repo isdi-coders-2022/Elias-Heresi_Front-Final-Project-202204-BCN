@@ -10,6 +10,7 @@ import {
 } from "./diaryThunks";
 
 jest.mock("axios");
+window.scrollTo = jest.fn();
 
 const mockId = "pakito chocolates";
 

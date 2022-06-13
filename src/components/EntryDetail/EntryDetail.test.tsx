@@ -23,6 +23,10 @@ jest.mock("react-router-dom", () => ({
   useNavigate: () => mockNavigate,
 }));
 
+jest.mock("react-chartjs-2", () => ({
+  PolarArea: () => <canvas role="img" />,
+}));
+
 describe("Given the EntryDetail component", () => {
   describe("When invoked", () => {
     test("Then 2 tables and a chart will be renderized", () => {
