@@ -16,7 +16,7 @@ const Login = (): JSX.Element => {
 
   useEffect(() => {
     if (logged) {
-      navigate("/historic");
+      navigate("/home");
     }
   }, [navigate, logged]);
 

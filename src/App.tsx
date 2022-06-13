@@ -13,6 +13,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Create from "./pages/Create/Create";
 import Edit from "./pages/Edit/Edit";
 import Detail from "./pages/Detail/Detail";
+import Home from "./pages/Home/Home";
 
 const App = (): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -32,6 +33,15 @@ const App = (): JSX.Element => {
       <Route path="/" element={<Navigate to="/login" />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route
+        path="/home"
+        element={
+          <CheckLogged>
+            <Home />
+          </CheckLogged>
+        }
+      />
+
       <Route
         path="/historic"
         element={
