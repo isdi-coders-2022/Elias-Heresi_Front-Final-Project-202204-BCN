@@ -57,9 +57,10 @@ const Historic = (): JSX.Element => {
                   </Col>
                 ))}
               </Row>
-              {/* <Row>
+
+              <Row>
                 <Paginator pagination={pagination} />
-              </Row> */}
+              </Row>
             </>
           ) : (
             <h2>@{username} hasn't created any entries!</h2>

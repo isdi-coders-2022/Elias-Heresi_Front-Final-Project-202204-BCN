@@ -2,7 +2,7 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { FilterDates } from "../../redux/interfaces/DiaryInterface";
 import { useAppDispatch } from "../../redux/store/hooks";
-import { loadFilteredEntriesThunk } from "../../redux/thunks/diaryThunks/diaryThunks";
+import { loadEntriesThunk } from "../../redux/thunks/diaryThunks/diaryThunks";
 import { dateToNumber } from "../../utils/todaysDate";
 import { DateFilterContainer } from "./DateFilterContainer";
 
@@ -35,11 +35,11 @@ const DateFilter = (): JSX.Element => {
 
   const filterEntries = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    dispatch(loadFilteredEntriesThunk(formData));
+    dispatch(loadEntriesThunk({ dates: formData, page: 1, perPage: 4 }));
   };
 
   const showAll = (): void => {
-    dispatch(loadFilteredEntriesThunk(unfilteredDates));
+    dispatch(loadEntriesThunk({ dates: unfilteredDates, page: 1, perPage: 4 }));
     setFormData(formInitialState);
   };
 
