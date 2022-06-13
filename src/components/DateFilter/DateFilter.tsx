@@ -3,7 +3,7 @@ import { Button, Form } from "react-bootstrap";
 import { FilterDates } from "../../redux/interfaces/DiaryInterface";
 import { useAppDispatch } from "../../redux/store/hooks";
 import { loadEntriesThunk } from "../../redux/thunks/diaryThunks/diaryThunks";
-import { dateToNumber } from "../../utils/todaysDate";
+import { dateToNumber, numberToDate } from "../../utils/todaysDate";
 import { DateFilterContainer } from "./DateFilterContainer";
 
 const DateFilter = (): JSX.Element => {
@@ -50,14 +50,14 @@ const DateFilter = (): JSX.Element => {
           placeholder="startDate"
           type="date"
           id="startDate"
-          defaultValue={previousDate.toISOString().slice(0, 10)}
+          defaultValue={numberToDate(formData.startDate)}
           onChange={changeData}
         />
         <Form.Control
           placeholder="endDate"
           type="date"
           id="endDate"
-          defaultValue={todaysDate.toISOString().slice(0, 10)}
+          defaultValue={numberToDate(formData.endDate)}
           onChange={changeData}
         />
         <div>

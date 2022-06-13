@@ -17,7 +17,10 @@ import {
 } from "../../features/uiSlice";
 import { notify } from "../../../utils/toast";
 import { passToken } from "../../../utils/authorization";
-import { totalPagesActionCreator } from "../../features/pageSlice";
+import {
+  changePageActionCreator,
+  totalPagesActionCreator,
+} from "../../features/pageSlice";
 
 const defaultDate = { startDate: 20000101, endDate: 20400101 };
 
@@ -37,6 +40,7 @@ export const loadEntriesThunk =
       const {
         data: { entries, numberOfEntries },
       }: GetApiResponse = await axios.get(diaryRoute, passToken());
+      dispatch(changePageActionCreator(page));
       dispatch(totalPagesActionCreator(numberOfEntries));
       dispatch(loadActionCreator(entries));
     } catch (error) {
