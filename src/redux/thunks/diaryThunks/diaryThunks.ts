@@ -22,17 +22,22 @@ import { totalPagesActionCreator } from "../../features/pageSlice";
 const defaultDate = { startDate: 20000101, endDate: 20400101 };
 
 export const loadEntriesThunk =
-  ({ dates = defaultDate, pagination }: GetEntriesProps) =>
+  ({ dates = defaultDate, page, perPage }: GetEntriesProps) =>
   async (dispatch: AppDispatch) => {
     const { startDate, endDate } = dates;
-    const { perPage, page } = pagination;
     try {
       dispatch(resetCollectionActionCreator());
       dispatch(loadingActionCreator());
-      const diaryRoute: string = `${process.env.REACT_APP_API_URL}diary/entries?page=${page}&perPage=${perPage}startDate=${startDate}&endDate=${endDate}`;
+
+      const diaryRoute: string = `${
+        process.env.REACT_APP_API_URL
+      }diary/entries?startDate=${startDate}&endDate=${endDate}&perPage=${perPage}&page=${
+        page - 1
+      }`;
       const {
-        data: { entries },
+        data: { entries, numberOfEntries },
       }: GetApiResponse = await axios.get(diaryRoute, passToken());
+      dispatch(totalPagesActionCreator(numberOfEntries));
       dispatch(loadActionCreator(entries));
     } catch (error) {
       notify({ message: "Failed to load user's entries", type: "error" });

@@ -29,9 +29,11 @@ const Historic = (): JSX.Element => {
     (state: RootState) => state.page
   );
 
+  const { page, perPage } = pagination;
+
   useEffect(() => {
-    dispatch(loadEntriesThunk({ pagination }));
-  }, [dispatch, pagination]);
+    dispatch(loadEntriesThunk({ page, perPage }));
+  }, [dispatch, page, perPage]);
 
   return (
     <>
@@ -55,9 +57,9 @@ const Historic = (): JSX.Element => {
                   </Col>
                 ))}
               </Row>
-              <Row>
+              {/* <Row>
                 <Paginator pagination={pagination} />
-              </Row>
+              </Row> */}
             </>
           ) : (
             <h2>@{username} hasn't created any entries!</h2>

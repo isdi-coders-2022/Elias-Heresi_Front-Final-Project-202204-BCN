@@ -7,3 +7,4 @@ export interface PaginationState {
 export interface PaginatorProps {
   pagination: { page: number; perPage: number; total: number };
 }
+

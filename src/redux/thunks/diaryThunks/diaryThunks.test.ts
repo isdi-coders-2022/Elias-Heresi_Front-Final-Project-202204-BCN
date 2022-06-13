@@ -101,13 +101,13 @@ describe("Given the editEntryThunk", () => {
 describe("Given the loadEntriesThunk", () => {
   describe("When invoked", () => {
     const dispatch = jest.fn();
-    const mockPagination = { pagination: { page: 1, perPage: 1, total: 6 } };
+    const mockPagination = { page: 1, perPage: 1 };
     const thunk = loadEntriesThunk(mockPagination);
 
     test("Then the dispatch function will be called 4 times", async () => {
       await thunk(dispatch);
 
-      const expectedCalls = 4;
+      const expectedCalls = 5;
 
       expect(dispatch).toHaveBeenCalledTimes(expectedCalls);
     });

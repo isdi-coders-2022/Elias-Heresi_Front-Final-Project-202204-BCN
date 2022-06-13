@@ -103,6 +103,7 @@ export interface PaginationState {
 }
 
 export interface GetEntriesProps {
-  pagination: PaginationState;
+  page: number;
+  perPage: number;
   dates?: FilterDates;
 }
