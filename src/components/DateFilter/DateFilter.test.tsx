@@ -63,4 +63,34 @@ describe("Given the DateFilter component", () => {
       expect(mockDispatch).toHaveBeenCalledTimes(expectedNumberOfCalls);
     });
   });
+  describe("When the 'Show all' button is clicked", () => {
+    test("Then the dispatch function will be called once", () => {
+      const expectedNumberOfCalls = 1;
+
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <DateFilter />
+          </Provider>
+        </BrowserRouter>
+      );
+
+      const startDateForm = screen.getByPlaceholderText("startDate");
+      const endDateForm = screen.getByPlaceholderText("endDate");
+      const resetButton = screen.getByRole("button", { name: "Show all" });
+
+      const event = {
+        type: "file",
+        target: {
+          value: "2020-01-01",
+        },
+      };
+      fireEvent.change(startDateForm, event);
+      fireEvent.change(endDateForm, event);
+
+      userEvent.click(resetButton);
+
+      expect(mockDispatch).toHaveBeenCalledTimes(expectedNumberOfCalls);
+    });
+  });
 });

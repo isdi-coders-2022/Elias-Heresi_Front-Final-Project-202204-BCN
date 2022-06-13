@@ -68,6 +68,16 @@ const EditForm = ({ entry }: OptionalEntry): JSX.Element => {
   return (
     <EditFormContainer>
       <Form autoComplete="off" onSubmit={createEntry} noValidate>
+        <Form.Group className="mb-3 create-form__date">
+          <Form.Label htmlFor="date">Date</Form.Label>
+          <Form.Control
+            placeholder="date"
+            type="date"
+            id="date"
+            defaultValue={new Date().toISOString().slice(0, 10)}
+            onChange={changeData}
+          />
+        </Form.Group>
         <Form.Group className="mb-3 create-form__slider">
           <Form.Label htmlFor="vitality">Vitality</Form.Label>
           <Form.Label className="create-form__sublabel">
