@@ -63,11 +63,11 @@ describe("Given the Paginator component", () => {
         name: "Next",
       });
 
+      userEvent.click(searchedPreviousPageButton);
+      userEvent.click(searchedNextPageButton);
       userEvent.click(searchedFirstPageButton);
       userEvent.click(searchedLastPageButton);
       userEvent.click(searchedSecondPageButton);
-      userEvent.click(searchedPreviousPageButton);
-      userEvent.click(searchedNextPageButton);
 
       expect(mockDispatch).toHaveBeenCalledTimes(expectedNumberOfCalls);
     });

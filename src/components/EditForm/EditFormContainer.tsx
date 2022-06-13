@@ -15,6 +15,10 @@ export const EditFormContainer = styled.div`
         margin-bottom: 0px;
       }
 
+      &__date {
+        margin-bottom: 20px;
+      }
+
       &__sublabel {
         font-weight: 400;
         font-size: 20px;

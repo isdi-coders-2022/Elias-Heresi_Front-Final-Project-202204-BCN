@@ -12,7 +12,6 @@ import {
   editEntryThunk,
 } from "../../redux/thunks/diaryThunks/diaryThunks";
 import { adaptToString } from "../../utils/dataTransformation";
-import { numberToDate } from "../../utils/todaysDate";
 import { EditFormContainer } from "./EditFormContainer";
 
 const EditForm = ({ entry }: OptionalEntry): JSX.Element => {
