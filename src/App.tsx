@@ -13,7 +13,6 @@ import "react-toastify/dist/ReactToastify.css";
 import Create from "./pages/Create/Create";
 import Edit from "./pages/Edit/Edit";
 import Detail from "./pages/Detail/Detail";
-import { numberOfEntriesThunk } from "./redux/thunks/diaryThunks/diaryThunks";
 
 const App = (): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -23,7 +22,6 @@ const App = (): JSX.Element => {
     if (token) {
       const userInfo: UserData = jwtDecode(token);
       dispatch(loginActionCreator(userInfo));
-      dispatch(numberOfEntriesThunk());
     } else {
       dispatch(logOutUserThunk());
     }

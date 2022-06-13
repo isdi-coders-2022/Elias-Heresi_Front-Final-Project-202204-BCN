@@ -10,6 +10,7 @@ import {
 } from "./diaryThunks";
 
 jest.mock("axios");
+window.scrollTo = jest.fn();
 
 const mockId = "pakito chocolates";
 
@@ -34,7 +35,7 @@ describe("Given the the numberOfEntriesThunks", () => {
 describe("Given the the loadEntriesThunks", () => {
   describe("When invoked with an error", () => {
     const dispatch = jest.fn();
-    const mockPagination = { pagination: { page: 1, perPage: 1, total: 6 } };
+    const mockPagination = { page: 1, perPage: 1 };
     const thunk = loadEntriesThunk(mockPagination);
 
     test("Then the dispatch function will be called 3 times", async () => {

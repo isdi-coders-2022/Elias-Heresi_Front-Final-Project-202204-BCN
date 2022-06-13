@@ -16,15 +16,16 @@ const NavBar = (): JSX.Element => {
   const pagination: PaginationState = useSelector(
     (state: RootState) => state.page
   );
+  const { page, perPage } = pagination;
 
   const logout = () => {
     dispatch(logOutUserThunk());
   };
 
-  const navigateToPage = (page: string): void => {
+  const navigateToPage = (route: string): void => {
     dispatch(resetCollectionActionCreator());
-    navigate(`/${page}`);
-    dispatch(loadEntriesThunk({ pagination }));
+    navigate(`/${route}`);
+    dispatch(loadEntriesThunk({ page, perPage }));
   };
 
   return (

@@ -12,7 +12,7 @@ const diarySlice = createSlice({
     load: (diary: DiaryState, action: PayloadAction<DiaryEntry[]>) => ({
       collection: action.payload,
     }),
-    resetCollection: (diary: DiaryState) => ({
+    resetCollection: () => ({
       collection: [],
     }),
     deleteEntry: (diary: DiaryState, action: PayloadAction<string>) => {

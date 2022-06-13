@@ -6,11 +6,6 @@ export const handlers = [
     res(ctx.status(201), ctx.json({ entries: mockApiGetResponse }))
   ),
   rest.get(
-    `${process.env.REACT_APP_API_URL}diary/entries?perPage=1&page=1`,
-    (req, res, ctx) =>
-      res(ctx.status(201), ctx.json({ entries: mockApiGetResponse }))
-  ),
-  rest.get(
     `${process.env.REACT_APP_API_URL}diary/byId/testedId`,
     (req, res, ctx) =>
       res(ctx.status(201), ctx.json({ entry: mockApiGetResponse[0] }))
@@ -31,11 +26,5 @@ export const handlers = [
         msg: "The entry was successfully created in marta's diary",
       })
     )
-  ),
-
-  rest.get(
-    `${process.env.REACT_APP_API_URL}diary/entries?startDate=20200101&endDate=20220101`,
-    (req, res, ctx) =>
-      res(ctx.status(201), ctx.json({ entries: mockApiGetResponse }))
   ),
 ];

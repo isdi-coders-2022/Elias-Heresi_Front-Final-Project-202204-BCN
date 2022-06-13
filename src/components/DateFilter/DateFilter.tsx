@@ -2,8 +2,8 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { FilterDates } from "../../redux/interfaces/DiaryInterface";
 import { useAppDispatch } from "../../redux/store/hooks";
-import { loadFilteredEntriesThunk } from "../../redux/thunks/diaryThunks/diaryThunks";
-import { dateToNumber } from "../../utils/todaysDate";
+import { loadEntriesThunk } from "../../redux/thunks/diaryThunks/diaryThunks";
+import { dateToNumber, numberToDate } from "../../utils/todaysDate";
 import { DateFilterContainer } from "./DateFilterContainer";
 
 const DateFilter = (): JSX.Element => {
@@ -35,11 +35,11 @@ const DateFilter = (): JSX.Element => {
 
   const filterEntries = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    dispatch(loadFilteredEntriesThunk(formData));
+    dispatch(loadEntriesThunk({ dates: formData, page: 1, perPage: 4 }));
   };
 
   const showAll = (): void => {
-    dispatch(loadFilteredEntriesThunk(unfilteredDates));
+    dispatch(loadEntriesThunk({ dates: unfilteredDates, page: 1, perPage: 4 }));
     setFormData(formInitialState);
   };
 
@@ -50,14 +50,14 @@ const DateFilter = (): JSX.Element => {
           placeholder="startDate"
           type="date"
           id="startDate"
-          defaultValue={previousDate.toISOString().slice(0, 10)}
+          defaultValue={numberToDate(formData.startDate)}
           onChange={changeData}
         />
         <Form.Control
           placeholder="endDate"
           type="date"
           id="endDate"
-          defaultValue={todaysDate.toISOString().slice(0, 10)}
+          defaultValue={numberToDate(formData.endDate)}
           onChange={changeData}
         />
         <div>

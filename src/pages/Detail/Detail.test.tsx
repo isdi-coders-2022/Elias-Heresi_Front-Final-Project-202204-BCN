@@ -18,6 +18,10 @@ jest.mock("react-router-dom", () => ({
   useParams: () => ({ id: "aa" }),
 }));
 
+jest.mock("react-chartjs-2", () => ({
+  PolarArea: () => <canvas role="img" />,
+}));
+
 describe("Given the Detail page", () => {
   describe("When invoked", () => {
     test("Then 1 chart and 2 tables will be renderized", () => {
