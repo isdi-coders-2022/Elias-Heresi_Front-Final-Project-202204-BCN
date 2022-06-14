@@ -4,10 +4,8 @@ import { ToastContainer } from "react-toastify";
 import DateFilter from "../../components/DateFilter/DateFilter";
 import Loading from "../../components/Loading/Loading";
 import NavBar from "../../components/NavBar/NavBar";
-import Paginator from "../../components/Paginator/Paginator";
 import SummaryChart from "../../components/SummaryChart/SummaryChart";
 import { DiaryState } from "../../redux/interfaces/DiaryInterface";
-import { PaginationState } from "../../redux/interfaces/PageInterfaces";
 import { Ui } from "../../redux/interfaces/UiInterface";
 import { UserState } from "../../redux/interfaces/UserInterface";
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
@@ -21,15 +19,11 @@ const Insights = (): JSX.Element => {
   const { loading }: Ui = useAppSelector((state) => state.ui);
   const { collection }: DiaryState = useAppSelector((state) => state.diary);
   const { username, name }: UserState = useAppSelector((state) => state.user);
-  const { page, perPage, total }: PaginationState = useAppSelector(
-    (state) => state.page
-  );
-
-  const paginatorProps = { page, perPage, total };
 
   useEffect(() => {
-    dispatch(loadEntriesThunk({ page, perPage }));
-  }, [dispatch, page, perPage]);
+    const paginatorProps = { page: 1, perPage: 100 };
+    dispatch(loadEntriesThunk(paginatorProps));
+  }, [dispatch]);
 
   return (
     <>
@@ -48,9 +42,6 @@ const Insights = (): JSX.Element => {
                 </Row>
                 <Row>
                   <SummaryChart props={createLineChartElements(collection)} />
-                </Row>
-                <Row>
-                  <Paginator pagination={paginatorProps} />
                 </Row>
               </>
             ) : (

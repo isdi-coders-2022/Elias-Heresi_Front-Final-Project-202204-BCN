@@ -33,6 +33,13 @@ const pageSlice = createSlice({
       ...pagination,
       page: action.payload,
     }),
+    changePerPage: (
+      pagination: PaginationState,
+      action: PayloadAction<number>
+    ) => ({
+      ...pagination,
+      perPage: action.payload,
+    }),
   },
 });
 
@@ -41,5 +48,6 @@ export const {
   nextPage: nextPageActionCreator,
   previousPage: previousPageActionCreator,
   changePage: changePageActionCreator,
+  changePerPage: changePerPageActionCreator,
 } = pageSlice.actions;
 export default pageSlice.reducer;

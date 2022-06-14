@@ -31,7 +31,6 @@ const DateFilter = (): JSX.Element => {
       ...formData,
       [event.target.id]: +event.target.value.replaceAll("-", ""),
     });
-    console.log(event.target.value);
   };
 
   const filterEntries = (event: FormEvent<HTMLFormElement>): void => {
