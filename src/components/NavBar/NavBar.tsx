@@ -54,7 +54,9 @@ const NavBar = (): JSX.Element => {
             }
             id="basic-nav-dropdown"
           >
-            <NavDropdown.Item>My profile</NavDropdown.Item>
+            <NavDropdown.Item onClick={() => navigateToPage("profile")}>
+              My profile
+            </NavDropdown.Item>
 
             <NavDropdown.Divider />
             <NavDropdown.Item onClick={logout}>Logout</NavDropdown.Item>

@@ -14,6 +14,7 @@ import Create from "./pages/Create/Create";
 import Edit from "./pages/Edit/Edit";
 import Detail from "./pages/Detail/Detail";
 import Home from "./pages/Home/Home";
+import NotFound from "./pages/NotFound/NotFound";
 
 const App = (): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -74,6 +75,7 @@ const App = (): JSX.Element => {
           </CheckLogged>
         }
       />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };
