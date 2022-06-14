@@ -66,7 +66,7 @@ const SummaryChart = ({ props }: LineChartProps): JSX.Element => {
       {
         type: "bar" as const,
         label: "Meaning",
-        backgroundColor: "rgb(75, 81, 192)",
+        backgroundColor: "rgb(184, 34, 152)",
         data: meaning,
         borderWidth: 2,
       },
