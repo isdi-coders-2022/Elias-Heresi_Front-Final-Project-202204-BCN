@@ -33,7 +33,7 @@ describe("Given the Home page component", () => {
         </BrowserRouter>
       );
 
-      const expectedNumberOfCalls = 2;
+      const expectedNumberOfCalls = 3;
 
       const searchedRegistryButton = screen.getByRole("button", {
         name: "See history",
@@ -41,9 +41,13 @@ describe("Given the Home page component", () => {
       const searchedCreateButton = screen.getByRole("button", {
         name: "Create an entry",
       });
+      const searchedInsightsButton = screen.getByRole("button", {
+        name: "Know yourself",
+      });
 
       userEvent.click(searchedRegistryButton);
       userEvent.click(searchedCreateButton);
+      userEvent.click(searchedInsightsButton);
 
       expect(mockUseNavigate).toHaveBeenCalledTimes(expectedNumberOfCalls);
     });

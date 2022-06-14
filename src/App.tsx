@@ -15,6 +15,7 @@ import Edit from "./pages/Edit/Edit";
 import Detail from "./pages/Detail/Detail";
 import Home from "./pages/Home/Home";
 import NotFound from "./pages/NotFound/NotFound";
+import Insights from "./pages/Insights/Insights";
 
 const App = (): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -56,6 +57,14 @@ const App = (): JSX.Element => {
         element={
           <CheckLogged>
             <Create />
+          </CheckLogged>
+        }
+      />
+      <Route
+        path="/insights"
+        element={
+          <CheckLogged>
+            <Insights />
           </CheckLogged>
         }
       />

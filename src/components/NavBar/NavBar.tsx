@@ -28,6 +28,12 @@ const NavBar = (): JSX.Element => {
     dispatch(loadEntriesThunk({ page, perPage }));
   };
 
+  const navigateToInsights = (): void => {
+    dispatch(resetCollectionActionCreator());
+    navigate(`/insights`);
+    dispatch(loadEntriesThunk({ page, perPage: 100 }));
+  };
+
   return (
     <NavBarContainer>
       <Navbar expand="lg">
@@ -43,6 +49,7 @@ const NavBar = (): JSX.Element => {
             <Nav.Link onClick={() => navigateToPage("historic")}>
               Historic
             </Nav.Link>
+            <Nav.Link onClick={() => navigateToInsights()}>Insights</Nav.Link>
             <Nav.Link onClick={() => navigateToPage("create")}>Create</Nav.Link>
           </Navbar.Collapse>
           <NavDropdown
