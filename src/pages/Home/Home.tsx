@@ -94,7 +94,15 @@ const Home = (): JSX.Element => {
                       ways to discover your strengths which will help you create
                       the life you want.
                     </Card.Text>
-                    <Button variant="primary">Know yourself</Button>
+                    <Button
+                      variant="primary"
+                      onClick={() => {
+                        navigate(`/know-thyself`);
+                        window.scrollTo(0, 0);
+                      }}
+                    >
+                      Know yourself
+                    </Button>
                   </Card.Body>
                 </Card>
               </Col>
