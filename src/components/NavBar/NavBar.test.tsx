@@ -55,15 +55,17 @@ describe("Given the navbar component", () => {
           <NavBar />
         </Provider>
       );
-      const expectedNumberOfCalls = 3;
+      const expectedNumberOfCalls = 4;
 
       const searchedBrandButton = screen.getByText("Bonanza");
       const searchedCreateButton = screen.getByText("Create");
       const searchedHistoricButton = screen.getByText("Historic");
+      const searchedInsightsButton = screen.getByText("Insights");
 
       userEvent.click(searchedBrandButton);
       userEvent.click(searchedCreateButton);
       userEvent.click(searchedHistoricButton);
+      userEvent.click(searchedInsightsButton);
 
       expect(mockUseNavigate).toHaveBeenCalledTimes(expectedNumberOfCalls);
     });

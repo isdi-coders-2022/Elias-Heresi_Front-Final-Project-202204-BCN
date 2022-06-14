@@ -103,7 +103,7 @@ const Home = (): JSX.Element => {
                     <Button
                       variant="primary"
                       onClick={() => {
-                        navigate(`/know-thyself`);
+                        navigate(`/insights`);
                         window.scrollTo(0, 0);
                       }}
                     >
