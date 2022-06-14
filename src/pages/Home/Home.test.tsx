@@ -5,7 +5,7 @@ import { render, screen } from "@testing-library/react";
 import Home from "./Home";
 import userEvent from "@testing-library/user-event";
 
-const mockUseNavigate = jest.fn();
+let mockUseNavigate = jest.fn();
 
 jest.mock("react-router-dom", () => ({
   ...jest.requireActual("react-router-dom"),
@@ -21,6 +21,33 @@ jest.mock("react-redux", () => ({
 }));
 
 describe("Given the Home page component", () => {
+  describe("When any of the buttons in the card is clicked", () => {
+    test("Then navigation will be called twice", () => {
+      window.scrollTo = jest.fn();
+      mockUseNavigate = jest.fn();
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <Home />
+          </Provider>
+        </BrowserRouter>
+      );
+
+      const expectedNumberOfCalls = 2;
+
+      const searchedRegistryButton = screen.getByRole("button", {
+        name: "See history",
+      });
+      const searchedCreateButton = screen.getByRole("button", {
+        name: "Create an entry",
+      });
+
+      userEvent.click(searchedRegistryButton);
+      userEvent.click(searchedCreateButton);
+
+      expect(mockUseNavigate).toHaveBeenCalledTimes(expectedNumberOfCalls);
+    });
+  });
   describe("When it's invoked and the user is logged in", () => {
     test("Then it should render 3 cards", () => {
       render(
@@ -38,8 +65,10 @@ describe("Given the Home page component", () => {
       expect(searchedCards).toHaveLength(expectedCards);
     });
   });
-  describe("When any of the buttons in the card is clicked", () => {
-    test("Then navigation will be called twice", () => {
+  describe("When the loading state is on", () => {
+    test("Then the loading component will be renderized", () => {
+      mockLoading = true;
+
       render(
         <BrowserRouter>
           <Provider store={store}>
@@ -48,15 +77,9 @@ describe("Given the Home page component", () => {
         </BrowserRouter>
       );
 
-      const expectedNumberOfCalls = 2;
+      const searchedTitle = screen.getByText("Loading...");
 
-      const searchedButtons = screen.getAllByRole("button");
-
-      userEvent.click(searchedButtons[0]);
-      userEvent.click(searchedButtons[1]);
-      userEvent.click(searchedButtons[2]);
-
-      expect(mockUseNavigate).toHaveBeenCalledTimes(expectedNumberOfCalls);
+      expect(searchedTitle).toBeInTheDocument();
     });
   });
 });
