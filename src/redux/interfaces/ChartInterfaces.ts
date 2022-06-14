@@ -17,3 +17,16 @@ export interface PolarChartProps {
   values: number[];
   legend?: boolean;
 }
+
+export interface LineChartProps {
+  props: {
+    dates: string[];
+    wellBeing: number[];
+    positiveEmotions: number[];
+    engagement: number[];
+    relationships: number[];
+    meaning: number[];
+    accomplishment: number[];
+    vitality: number[];
+  };
+}

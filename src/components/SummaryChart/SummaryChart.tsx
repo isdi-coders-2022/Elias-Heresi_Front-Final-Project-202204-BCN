@@ -9,6 +9,7 @@ import {
   Tooltip,
 } from "chart.js";
 import { Chart } from "react-chartjs-2";
+import { LineChartProps } from "../../redux/interfaces/ChartInterfaces";
 
 ChartJS.register(
   LinearScale,
@@ -20,37 +21,71 @@ ChartJS.register(
   Tooltip
 );
 
-const labels = ["January", "February", "March", "April", "May", "June", "July"];
+const SummaryChart = ({ props }: LineChartProps): JSX.Element => {
+  const {
+    dates: labels,
+    wellBeing,
+    positiveEmotions,
+    engagement,
+    relationships,
+    meaning,
+    accomplishment,
+    vitality,
+  } = props;
 
-export const data = {
-  labels,
-  datasets: [
-    {
-      type: "line" as const,
-      label: "Dataset 1",
-      borderColor: "rgb(255, 99, 132)",
-      borderWidth: 2,
-      fill: false,
-      data: [1, 2, 3, 4],
-    },
-    {
-      type: "bar" as const,
-      label: "Dataset 2",
-      backgroundColor: "rgb(75, 192, 192)",
-      data: [1, 2, 3, 4],
-      borderColor: "white",
-      borderWidth: 2,
-    },
-    {
-      type: "bar" as const,
-      label: "Dataset 3",
-      backgroundColor: "rgb(53, 162, 235)",
-      data: [1, 2, 3, 4],
-    },
-  ],
-};
-
-const SummaryChart = (): JSX.Element => {
+  const data = {
+    labels,
+    datasets: [
+      {
+        type: "line" as const,
+        label: "Well-being",
+        borderColor: "rgb(53, 162, 235)",
+        data: wellBeing,
+      },
+      {
+        type: "bar" as const,
+        label: "Positive emotions",
+        backgroundColor: "rgb(255, 99, 132)",
+        borderWidth: 2,
+        data: positiveEmotions,
+      },
+      {
+        type: "bar" as const,
+        label: "Engagement",
+        backgroundColor: "rgb(75, 192, 192)",
+        data: engagement,
+        borderWidth: 2,
+      },
+      {
+        type: "bar" as const,
+        label: "Relationships",
+        backgroundColor: "rgb(93, 192, 75)",
+        data: relationships,
+        borderWidth: 2,
+      },
+      {
+        type: "bar" as const,
+        label: "Meaning",
+        backgroundColor: "rgb(75, 81, 192)",
+        data: meaning,
+        borderWidth: 2,
+      },
+      {
+        type: "bar" as const,
+        label: "Accomplishment",
+        backgroundColor: "rgb(75, 81, 192)",
+        data: accomplishment,
+        borderWidth: 2,
+      },
+      {
+        type: "bar" as const,
+        label: "Vitality",
+        backgroundColor: "rgb(192, 128, 75)",
+        data: vitality,
+        borderWidth: 2,
+      },
+    ],
+  };
   return <Chart type="bar" data={data} />;
 };
 
