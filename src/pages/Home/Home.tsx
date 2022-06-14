@@ -96,9 +96,8 @@ const Home = (): JSX.Element => {
                   <Card.Body>
                     <Card.Title>Know yourself</Card.Title>
                     <Card.Text>
-                      More information about what is positive psychology and
-                      ways to discover your strengths which will help you create
-                      the life you want.
+                      Discover insights on your well-being which will help you
+                      create the life you want.
                     </Card.Text>
                     <Button
                       variant="primary"

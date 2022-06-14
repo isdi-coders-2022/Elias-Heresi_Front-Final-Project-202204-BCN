@@ -36,7 +36,7 @@ const Historic = (): JSX.Element => {
       <ToastContainer />
       {loading && <Loading />}
       <HistoricContainer>
-        <h1>{name}'s well-being history</h1>
+        <h1>{name}'s well-being entries</h1>
 
         {!loading ? (
           <Container>

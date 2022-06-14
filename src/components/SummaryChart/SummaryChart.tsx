@@ -25,7 +25,7 @@ const SummaryChart = ({ props }: LineChartProps): JSX.Element => {
   const {
     dates: labels,
     wellBeing,
-    positiveEmotions,
+    positiveEmotion,
     engagement,
     relationships,
     meaning,
@@ -44,10 +44,10 @@ const SummaryChart = ({ props }: LineChartProps): JSX.Element => {
       },
       {
         type: "bar" as const,
-        label: "Positive emotions",
+        label: "Positive emotion",
         backgroundColor: "rgb(255, 99, 132)",
         borderWidth: 2,
-        data: positiveEmotions,
+        data: positiveEmotion,
       },
       {
         type: "bar" as const,
@@ -66,7 +66,7 @@ const SummaryChart = ({ props }: LineChartProps): JSX.Element => {
       {
         type: "bar" as const,
         label: "Meaning",
-        backgroundColor: "rgb(75, 81, 192)",
+        backgroundColor: "rgb(184, 34, 152)",
         data: meaning,
         borderWidth: 2,
       },
