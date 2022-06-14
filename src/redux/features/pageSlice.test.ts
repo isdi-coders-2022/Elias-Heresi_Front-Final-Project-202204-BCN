@@ -1,5 +1,6 @@
 import pageReducer, {
   changePageActionCreator,
+  changePerPageActionCreator,
   nextPageActionCreator,
   previousPageActionCreator,
   totalPagesActionCreator,
@@ -72,6 +73,23 @@ describe("Given the changePageActionCreator", () => {
       };
 
       const action = changePageActionCreator(3);
+      const loadedState = pageReducer(initialState, action);
+
+      expect(loadedState).toEqual(expectedState);
+    });
+  });
+});
+
+describe("Given the changePerPageActionCreator", () => {
+  describe("When invoked with a payload of 3", () => {
+    test("Then the diary state should change to this page number", () => {
+      const expectedState = {
+        page: 2,
+        perPage: 3,
+        total: 100,
+      };
+
+      const action = changePerPageActionCreator(3);
       const loadedState = pageReducer(initialState, action);
 
       expect(loadedState).toEqual(expectedState);
