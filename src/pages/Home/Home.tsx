@@ -48,7 +48,6 @@ const Home = (): JSX.Element => {
                     <Button
                       variant="primary"
                       onClick={() => {
-                        debugger;
                         navigate(`/historic`);
                         window.scrollTo(0, 0);
                       }}
