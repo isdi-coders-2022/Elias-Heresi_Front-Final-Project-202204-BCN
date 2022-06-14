@@ -43,29 +43,33 @@ const Historic = (): JSX.Element => {
       <HistoricContainer>
         <h1>{name}'s well-being history</h1>
 
-        <Container>
-          {!loading ? (
-            <>
-              <Row>
-                <DateFilter />
-              </Row>
-
-              <Row>
-                {collection.map((entry, index) => (
-                  <Col key={index}>
-                    <EntrySummary entry={entry} />
-                  </Col>
-                ))}
-              </Row>
-
-              <Row>
-                <Paginator pagination={pagination} />
-              </Row>
-            </>
-          ) : (
-            <h2>@{username} hasn't created any entries!</h2>
-          )}
-        </Container>
+        {!loading ? (
+          <Container>
+            {collection.length > 0 ? (
+              <>
+                <Row>
+                  <DateFilter />
+                </Row>
+                <Row>
+                  {collection.map((entry, index) => (
+                    <Col key={index}>
+                      <EntrySummary entry={entry} />
+                    </Col>
+                  ))}
+                </Row>
+                <Row>
+                  <Paginator pagination={pagination} />
+                </Row>
+              </>
+            ) : (
+              <h2>
+                @{username} hasn't got any entries in the selected date range.
+              </h2>
+            )}
+          </Container>
+        ) : (
+          <></>
+        )}
       </HistoricContainer>
     </>
   );
