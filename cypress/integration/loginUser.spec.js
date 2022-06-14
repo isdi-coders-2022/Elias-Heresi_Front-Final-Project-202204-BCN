@@ -4,7 +4,7 @@ describe("Given the Bonanza application and its login page", () => {
       cy.visit("login");
       cy.get("label").contains("Username").type("test");
       cy.get("label").contains("Password").type(`1234{enter}`);
-      cy.url().should("include", "/historic");
+      cy.url().should("include", "/home");
     });
   });
 });
