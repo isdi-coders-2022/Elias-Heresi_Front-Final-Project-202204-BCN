@@ -6,10 +6,6 @@ import { usedToken } from "../../redux/mocks/userMocks";
 import store from "../../redux/store/store";
 import Historic from "./Historic";
 
-let mockCollection = mockApiGetResponse;
-let mockPage = 1;
-let mockperPage = 1;
-let mockTotal = 1;
 const mockUsername = "Chocolatero";
 
 jest.mock("react-redux", () => ({
