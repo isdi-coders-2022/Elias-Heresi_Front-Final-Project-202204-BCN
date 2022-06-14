@@ -80,7 +80,7 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "!src/index.ts",
+      "!src/index.tsx",
       "!src/reportWebVitals.ts",
       "!src/setupTests.ts",
       "!src/react-app-env.d.ts",
@@ -88,6 +88,8 @@
       "!src/redux/interfaces/*.ts",
       "!src/**/*.test.ts",
       "!src/**/*.test.ts.snap",
+      "!src/**/*.test.tsx.snap",
+      "!src/**/*.test.tsx.snap",
       "!src/**/*.test.tsx.snap"
     ]
   }

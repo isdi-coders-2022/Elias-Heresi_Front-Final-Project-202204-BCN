@@ -38,7 +38,7 @@ describe("Given the Paginator component", () => {
     });
   });
   describe("When the user clicks each button", () => {
-    test("Then an action will be dispatched each time", () => {
+    test("Then an action will be dispatched each time,", () => {
       render(
         <Provider store={store}>
           <Paginator pagination={mockPagination} />

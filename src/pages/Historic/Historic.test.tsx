@@ -16,6 +16,9 @@ jest.mock("react-redux", () => ({
     loading: false,
     username: "marta",
     name: mockUsername,
+    page: 1,
+    perPage: 10,
+    total: 20,
   }),
 }));
 

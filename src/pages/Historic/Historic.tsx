@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { Row, Col, Container } from "react-bootstrap";
-import { useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import DateFilter from "../../components/DateFilter/DateFilter";
 import EntrySummary from "../../components/EntrySummary/EntrySummary";
@@ -11,25 +10,21 @@ import { DiaryState } from "../../redux/interfaces/DiaryInterface";
 import { PaginationState } from "../../redux/interfaces/PageInterfaces";
 import { Ui } from "../../redux/interfaces/UiInterface";
 import { UserState } from "../../redux/interfaces/UserInterface";
-import { useAppDispatch } from "../../redux/store/hooks";
-import { RootState } from "../../redux/store/store";
+import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import { loadEntriesThunk } from "../../redux/thunks/diaryThunks/diaryThunks";
 import { HistoricContainer } from "./HistoricContainer";
 
 const Historic = (): JSX.Element => {
   const dispatch = useAppDispatch();
 
-  const { loading }: Ui = useSelector((state: RootState) => state.ui);
-  const diary: DiaryState = useSelector((state: RootState) => state.diary);
-  const { collection } = diary;
-  const { username, name }: UserState = useSelector(
-    (state: RootState) => state.user
-  );
-  const pagination: PaginationState = useSelector(
-    (state: RootState) => state.page
+  const { loading }: Ui = useAppSelector((state) => state.ui);
+  const { collection }: DiaryState = useAppSelector((state) => state.diary);
+  const { username, name }: UserState = useAppSelector((state) => state.user);
+  const { page, perPage, total }: PaginationState = useAppSelector(
+    (state) => state.page
   );
 
-  const { page, perPage } = pagination;
+  const paginatorProps = { page, perPage, total };
 
   useEffect(() => {
     dispatch(loadEntriesThunk({ page, perPage }));
@@ -58,7 +53,7 @@ const Historic = (): JSX.Element => {
                   ))}
                 </Row>
                 <Row>
-                  <Paginator pagination={pagination} />
+                  <Paginator pagination={paginatorProps} />
                 </Row>
               </>
             ) : (

@@ -13,9 +13,10 @@ jest.mock("react-redux", () => ({
   useSelector: () => ({ collection: [mockFirstEntry] }),
 }));
 
+let mockId: string | null = "aa";
 jest.mock("react-router-dom", () => ({
   ...jest.requireActual("react-router-dom"),
-  useParams: () => ({ id: "aa" }),
+  useParams: () => ({ id: mockId }),
 }));
 
 describe("Given the Edit page", () => {
@@ -36,6 +37,23 @@ describe("Given the Edit page", () => {
 
       expect(searchedHeader).toBeInTheDocument();
       expect(searchedSliders).toHaveLength(expectedSliders);
+    });
+  });
+  describe("When no id is passed", () => {
+    test("Then the text 'Entry doesn't exist' will be renderized,", () => {
+      mockId = null;
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <Edit />
+          </Provider>
+        </BrowserRouter>
+      );
+      const expectedText = "Entry doesn't exist";
+
+      const searchedHeader = screen.getAllByRole("heading");
+
+      expect(searchedHeader[1]).toHaveTextContent(expectedText);
     });
   });
 });
