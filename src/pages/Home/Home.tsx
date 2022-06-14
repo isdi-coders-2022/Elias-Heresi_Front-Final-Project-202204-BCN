@@ -7,6 +7,7 @@ import { HomeContainer } from "./HomeContainer";
 import NavBar from "../../components/NavBar/NavBar";
 import { Button, Card, Container, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import SummaryChart from "../../components/SummaryChart/SummaryChart";
 
 const Home = (): JSX.Element => {
   const { loading }: Ui = useSelector((state: RootState) => state.ui);
@@ -21,6 +22,9 @@ const Home = (): JSX.Element => {
       ) : (
         <HomeContainer>
           <Container>
+            <Row>
+              <SummaryChart />
+            </Row>
             <Row>
               <h1 className="homepage__main--title">
                 Grow towards a better life

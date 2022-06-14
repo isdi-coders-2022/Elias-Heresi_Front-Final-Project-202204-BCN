@@ -28,23 +28,34 @@ const Paginator = ({ pagination }: PaginatorProps): JSX.Element => {
 
   return (
     <Pagination>
-      <Pagination.First onClick={() => dispatch(changePageActionCreator(1))} />
-      <Pagination.Prev
-        onClick={() => {
-          if (page !== 1) {
-            dispatch(previousPageActionCreator());
-          }
-        }}
-      />
+      {page > 1 && (
+        <>
+          <Pagination.First
+            onClick={() => dispatch(changePageActionCreator(1))}
+          />
+          <Pagination.Prev
+            onClick={() => {
+              if (page !== 1) {
+                dispatch(previousPageActionCreator());
+              }
+            }}
+          />
+        </>
+      )}
+
       {items}
-      <Pagination.Next
-        onClick={() => {
-          if (page !== lastPage) dispatch(nextPageActionCreator());
-        }}
-      />
-      <Pagination.Last
-        onClick={() => dispatch(changePageActionCreator(lastPage))}
-      />
+      {page !== lastPage && (
+        <>
+          <Pagination.Next
+            onClick={() => {
+              if (page !== lastPage) dispatch(nextPageActionCreator());
+            }}
+          />
+          <Pagination.Last
+            onClick={() => dispatch(changePageActionCreator(lastPage))}
+          />
+        </>
+      )}
     </Pagination>
   );
 };
