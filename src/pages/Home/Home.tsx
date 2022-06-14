@@ -7,18 +7,7 @@ import { HomeContainer } from "./HomeContainer";
 import NavBar from "../../components/NavBar/NavBar";
 import { Button, Card, Container, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import SummaryChart from "../../components/SummaryChart/SummaryChart";
 
-const mockValues = {
-  dates: ["2020-01-01", "2020-06-01", "2021-01-01", "2021-02-01"],
-  wellBeing: [1, 2, 3, 4],
-  positiveEmotions: [4, 2, 3, 1],
-  engagement: [3, 4, 5, 6],
-  relationships: [5, 4, 3, 2],
-  meaning: [7, 5, 3, 1],
-  accomplishment: [5, 7, 8, 4],
-  vitality: [1, 6, 4, 8],
-};
 const Home = (): JSX.Element => {
   const { loading }: Ui = useSelector((state: RootState) => state.ui);
   const navigate = useNavigate();
@@ -32,9 +21,6 @@ const Home = (): JSX.Element => {
       ) : (
         <HomeContainer>
           <Container>
-            <Row>
-              <SummaryChart props={mockValues} />
-            </Row>
             <Row>
               <h1 className="homepage__main--title">
                 Grow towards a better life

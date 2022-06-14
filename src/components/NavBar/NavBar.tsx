@@ -43,6 +43,9 @@ const NavBar = (): JSX.Element => {
             <Nav.Link onClick={() => navigateToPage("historic")}>
               Historic
             </Nav.Link>
+            <Nav.Link onClick={() => navigateToPage("insights")}>
+              Insights
+            </Nav.Link>
             <Nav.Link onClick={() => navigateToPage("create")}>Create</Nav.Link>
           </Navbar.Collapse>
           <NavDropdown
