@@ -32,7 +32,7 @@ export const definePermaValues = (values: number[]) => {
 export const createLineChartElements = (collection: Collection) => {
   const dates: any[] = [];
   const wellBeing: any[] = [];
-  const positiveEmotions: any[] = [];
+  const positiveEmotion: any[] = [];
   const engagement: any[] = [];
   const relationships: any[] = [];
   const meaning: any[] = [];
@@ -42,7 +42,7 @@ export const createLineChartElements = (collection: Collection) => {
   collection.forEach((entry) => {
     dates.push(new Date(entry.date).toISOString().slice(0, 10));
     wellBeing.push(entry.wellBeing);
-    positiveEmotions.push(entry.date);
+    positiveEmotion.push(entry.positiveEmotion);
     engagement.push(entry.engagement);
     relationships.push(entry.relationships);
     meaning.push(entry.meaning);
@@ -53,7 +53,7 @@ export const createLineChartElements = (collection: Collection) => {
   return {
     dates,
     wellBeing,
-    positiveEmotions,
+    positiveEmotion,
     engagement,
     relationships,
     meaning,

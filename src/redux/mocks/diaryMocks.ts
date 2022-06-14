@@ -99,7 +99,7 @@ export const mockedFile = {
 export const mockProps = {
   dates: ["Date 1", "Date 2", "Date 3", "Date 4"],
   wellBeing: [1, 2, 3, 4],
-  positiveEmotions: [1, 2, 3, 4],
+  positiveEmotion: [1, 2, 3, 4],
   engagement: [1, 2, 3, 4],
   relationships: [1, 2, 3, 4],
   meaning: [1, 2, 3, 4],

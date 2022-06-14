@@ -22,7 +22,7 @@ export interface LineChartProps {
   props: {
     dates: string[];
     wellBeing: number[];
-    positiveEmotions: number[];
+    positiveEmotion: number[];
     engagement: number[];
     relationships: number[];
     meaning: number[];

@@ -25,6 +25,8 @@ const Insights = (): JSX.Element => {
     dispatch(loadEntriesThunk(paginatorProps));
   }, [dispatch]);
 
+  console.log(collection);
+
   return (
     <>
       <NavBar />
