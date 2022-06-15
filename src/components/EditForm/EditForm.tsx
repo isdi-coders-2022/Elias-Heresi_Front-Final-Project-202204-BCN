@@ -111,7 +111,7 @@ const EditForm = ({ entry }: OptionalEntry): JSX.Element => {
         <Form.Group className="mb-3 create-form__slider">
           <Form.Label htmlFor="engagement">Engagement</Form.Label>
           <Form.Label className="create-form__sublabel">
-            Feelings of hope, joy, love pride and gratitude
+            Being absorbed by the tasks you do daily
           </Form.Label>
           <Form.Range
             id="engagement"
@@ -126,7 +126,7 @@ const EditForm = ({ entry }: OptionalEntry): JSX.Element => {
         <Form.Group className="mb-3 create-form__slider">
           <Form.Label htmlFor="relationships">Relationships</Form.Label>
           <Form.Label className="create-form__sublabel">
-            Feelings of hope, joy, love pride and gratitude
+            Meaningful connections with people around you
           </Form.Label>
           <Form.Range
             id="relationships"
@@ -141,7 +141,7 @@ const EditForm = ({ entry }: OptionalEntry): JSX.Element => {
         <Form.Group className="mb-3 create-form__slider">
           <Form.Label htmlFor="meaning">Meaning</Form.Label>
           <Form.Label className="create-form__sublabel">
-            Feelings of hope, joy, love pride and gratitude
+            Striving towards a mission/purpose bigger than ourselves
           </Form.Label>
           <Form.Range
             id="meaning"
@@ -156,7 +156,7 @@ const EditForm = ({ entry }: OptionalEntry): JSX.Element => {
         <Form.Group className="mb-3 create-form__slider">
           <Form.Label htmlFor="accomplishment">Accomplishment</Form.Label>
           <Form.Label className="create-form__sublabel">
-            Feelings of hope, joy, love pride and gratitude
+            Achieving goals which are meaningful to you
           </Form.Label>
           <Form.Range
             id="accomplishment"
