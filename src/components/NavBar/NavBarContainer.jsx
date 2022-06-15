@@ -6,6 +6,7 @@ const NavBarContainer = styled.section`
       &.navbar-brand {
         font-size: 24px;
         cursor: pointer;
+        font-weight: bold;
       }
     }
     background-color: rgb(111, 219, 135);
