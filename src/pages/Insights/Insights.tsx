@@ -44,7 +44,7 @@ const Insights = (): JSX.Element => {
           <h1>{name}'s well-being history</h1>
           <Container>
             <Row>
-              <DateFilter />
+              <DateFilter perPage={100} />
             </Row>
             {collection.length > 0 ? (
               <Row>

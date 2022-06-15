@@ -48,7 +48,7 @@ const Historic = (): JSX.Element => {
           <h1>{name}'s well-being entries</h1>
           <Container>
             <Row>
-              <DateFilter />
+              <DateFilter perPage={4} />
             </Row>
             {collection.length > 0 ? (
               <>

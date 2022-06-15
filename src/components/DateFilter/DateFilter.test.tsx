@@ -20,7 +20,7 @@ describe("Given the DateFilter component", () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
-            <DateFilter />
+            <DateFilter perPage={4} />
           </Provider>
         </BrowserRouter>
       );
@@ -41,7 +41,7 @@ describe("Given the DateFilter component", () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
-            <DateFilter />
+            <DateFilter perPage={4} />
           </Provider>
         </BrowserRouter>
       );
@@ -71,7 +71,7 @@ describe("Given the DateFilter component", () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
-            <DateFilter />
+            <DateFilter perPage={4} />
           </Provider>
         </BrowserRouter>
       );
