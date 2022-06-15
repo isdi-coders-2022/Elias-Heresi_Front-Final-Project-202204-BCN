@@ -6,7 +6,7 @@ export const EditFormContainer = styled.div`
   border-radius: 25px;
   background-color: rgb(255, 255, 255);
   width: 80%;
-
+  max-width: 500px;
   form {
     min-width: 230px;
     max-width: 500px;

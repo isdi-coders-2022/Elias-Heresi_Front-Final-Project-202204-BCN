@@ -64,7 +64,7 @@ const EntryDetail = ({ entry }: { entry: DiaryEntry }): JSX.Element => {
               animated
               now={wellBeing * 10}
               style={{ height: "32px" }}
-              aria-label="progress-bar"
+              aria-label="progressbar"
             />
           </Col>
         </Row>
