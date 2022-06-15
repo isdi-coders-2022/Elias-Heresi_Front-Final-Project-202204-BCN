@@ -8,6 +8,7 @@ import {
   LineController,
   Legend,
   Tooltip,
+  BarController,
 } from "chart.js";
 import { Chart } from "react-chartjs-2";
 import { LineChartProps } from "../../redux/interfaces/ChartInterfaces";
@@ -16,6 +17,7 @@ ChartJS.register(
   LinearScale,
   CategoryScale,
   BarElement,
+  BarController,
   PointElement,
   LineElement,
   LineController,
