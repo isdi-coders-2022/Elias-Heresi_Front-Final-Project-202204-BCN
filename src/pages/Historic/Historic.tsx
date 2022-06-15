@@ -24,21 +24,28 @@ const Historic = (): JSX.Element => {
     (state) => state.page
   );
 
-  console.log(dates);
-
   useEffect(() => {
     dispatch(loadEntriesThunk({ dates, page, perPage }));
   }, [dispatch, dates, page, perPage]);
 
-  return (
-    <>
-      <NavBar />
-      <ToastContainer />
-      {loading && <Loading />}
-      <HistoricContainer>
-        <h1>{name}'s well-being entries</h1>
-
-        {!loading ? (
+  if (loading) {
+    return (
+      <>
+        <NavBar />
+        <ToastContainer />
+        <Loading />
+        <HistoricContainer>
+          <h1>{name}'s well-being entries</h1>
+        </HistoricContainer>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <NavBar />
+        <ToastContainer />
+        <HistoricContainer>
+          <h1>{name}'s well-being entries</h1>
           <Container>
             {collection.length > 0 ? (
               <>
@@ -62,12 +69,10 @@ const Historic = (): JSX.Element => {
               </h2>
             )}
           </Container>
-        ) : (
-          <></>
-        )}
-      </HistoricContainer>
-    </>
-  );
+        </HistoricContainer>
+      </>
+    );
+  }
 };
 
 export default Historic;
