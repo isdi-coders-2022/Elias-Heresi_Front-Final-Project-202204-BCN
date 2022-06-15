@@ -7,10 +7,13 @@ import { HomeContainer } from "./HomeContainer";
 import NavBar from "../../components/NavBar/NavBar";
 import { Button, Card, Container, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { useAppDispatch } from "../../redux/store/hooks";
+import { changePerPageActionCreator } from "../../redux/features/pageSlice";
 
 const Home = (): JSX.Element => {
   const { loading }: Ui = useSelector((state: RootState) => state.ui);
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
   return (
     <>
@@ -50,6 +53,7 @@ const Home = (): JSX.Element => {
                     <Button
                       variant="primary"
                       onClick={() => {
+                        dispatch(changePerPageActionCreator(4));
                         navigate(`/historic`);
                         window.scrollTo(0, 0);
                       }}
@@ -102,6 +106,7 @@ const Home = (): JSX.Element => {
                     <Button
                       variant="primary"
                       onClick={() => {
+                        dispatch(changePerPageActionCreator(100));
                         navigate(`/insights`);
                         window.scrollTo(0, 0);
                       }}

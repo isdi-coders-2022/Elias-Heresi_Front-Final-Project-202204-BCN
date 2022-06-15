@@ -1,6 +1,23 @@
 # Bonanza app: Improve your well-being (Front-end)
 
-## **MVP versions**
+## https://bonanza-elias-heresi.netlify.app/
+
+## **Versions**
+
+### V5: About (Current version)
+
+### V4: Pagination
+
+### V3: Entry modification
+
+### V2: Detailed PERMA
+
+- Information about each variable
+
+### V1: Historic
+
+- History page: see summary registry of all past entries. Edit each one.
+- Detail page: detailed account of past entries
 
 ### V0: Basic PERMA status
 
@@ -8,22 +25,7 @@
 - Register user
 - Entry creation. Optional text detail and image.
 
-### V1: Historic
-
-- History page: see summary registry of all past entries. Edit each one.
-- Detail page: detailed account of past entries
-
-### V2: Detailed PERMA
-
-- Information about each variable
-
-### V3: Entry modification
-
-### V4: Pagination (current version)
-
-## **Nice to have versions**
-
-### V5: About
+## **Future implementations**
 
 ### V6: Self learning
 

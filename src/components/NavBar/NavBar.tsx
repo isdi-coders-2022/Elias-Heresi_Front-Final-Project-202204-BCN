@@ -3,6 +3,7 @@ import { FaUser } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { resetCollectionActionCreator } from "../../redux/features/diarySlice";
+import { changePerPageActionCreator } from "../../redux/features/pageSlice";
 import { PaginationState } from "../../redux/interfaces/PageInterfaces";
 import { useAppDispatch } from "../../redux/store/hooks";
 import { RootState } from "../../redux/store/store";
@@ -24,14 +25,16 @@ const NavBar = (): JSX.Element => {
 
   const navigateToPage = (route: string): void => {
     dispatch(resetCollectionActionCreator());
+    dispatch(changePerPageActionCreator(4));
     navigate(`/${route}`);
     dispatch(loadEntriesThunk({ page, perPage }));
   };
 
   const navigateToInsights = (): void => {
     dispatch(resetCollectionActionCreator());
+    dispatch(changePerPageActionCreator(100));
     navigate(`/insights`);
-    dispatch(loadEntriesThunk({ page, perPage: 100 }));
+    dispatch(loadEntriesThunk({ page, perPage }));
   };
 
   return (

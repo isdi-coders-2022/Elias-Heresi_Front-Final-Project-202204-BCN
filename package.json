@@ -92,7 +92,6 @@
       "!src/**/*.test.ts",
       "!src/**/*.test.ts.snap",
       "!src/**/*.test.tsx.snap",
-      "!src/**/*.test.tsx.snap",
       "!src/**/*.test.tsx.snap"
     ]
   }

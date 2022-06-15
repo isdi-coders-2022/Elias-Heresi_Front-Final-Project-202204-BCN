@@ -9,7 +9,9 @@ import { DateFilterContainer } from "./DateFilterContainer";
 
 const DateFilter = (): JSX.Element => {
   const dispatch = useAppDispatch();
-  const { dates }: PaginationState = useAppSelector((state) => state.page);
+  const { dates, perPage }: PaginationState = useAppSelector(
+    (state) => state.page
+  );
   const [formData, setFormData] = useState(dates);
 
   const changeData = (event: ChangeEvent<HTMLInputElement>): void => {
@@ -22,11 +24,11 @@ const DateFilter = (): JSX.Element => {
 
   const filterEntries = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    dispatch(loadEntriesThunk({ dates: formData, page: 1, perPage: 4 }));
+    dispatch(loadEntriesThunk({ dates: formData, page: 1, perPage }));
   };
 
   const showAll = (): void => {
-    dispatch(loadEntriesThunk({ page: 1, perPage: 4 }));
+    dispatch(loadEntriesThunk({ page: 1, perPage }));
     dispatch(changeDateActionCreator(defaultDate));
     setFormData(defaultDate);
   };
@@ -38,14 +40,14 @@ const DateFilter = (): JSX.Element => {
           placeholder="startDate"
           type="date"
           id="startDate"
-          defaultValue={numberToDate(dates.startDate)}
+          defaultValue={numberToDate(formData.startDate)}
           onChange={changeData}
         />
         <Form.Control
           placeholder="endDate"
           type="date"
           id="endDate"
-          defaultValue={numberToDate(dates.endDate)}
+          defaultValue={numberToDate(formData.endDate)}
           onChange={changeData}
         />
         <div>

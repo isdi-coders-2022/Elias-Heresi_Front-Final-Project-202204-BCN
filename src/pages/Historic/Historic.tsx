@@ -20,25 +20,32 @@ const Historic = (): JSX.Element => {
   const { loading }: Ui = useAppSelector((state) => state.ui);
   const { collection }: DiaryState = useAppSelector((state) => state.diary);
   const { username, name }: UserState = useAppSelector((state) => state.user);
-  const { page, perPage, total }: PaginationState = useAppSelector(
+  const { dates, page, perPage, total }: PaginationState = useAppSelector(
     (state) => state.page
   );
 
-  const paginatorProps = { page, perPage, total };
-
   useEffect(() => {
-    dispatch(loadEntriesThunk({ page, perPage }));
-  }, [dispatch, page, perPage]);
+    dispatch(loadEntriesThunk({ dates, page, perPage }));
+  }, [dispatch, dates, page, perPage]);
 
-  return (
-    <>
-      <NavBar />
-      <ToastContainer />
-      {loading && <Loading />}
-      <HistoricContainer>
-        <h1>{name}'s well-being entries</h1>
-
-        {!loading ? (
+  if (loading) {
+    return (
+      <>
+        <NavBar />
+        <ToastContainer />
+        <Loading />
+        <HistoricContainer>
+          <h1>{name}'s well-being entries</h1>
+        </HistoricContainer>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <NavBar />
+        <ToastContainer />
+        <HistoricContainer>
+          <h1>{name}'s well-being entries</h1>
           <Container>
             {collection.length > 0 ? (
               <>
@@ -53,7 +60,7 @@ const Historic = (): JSX.Element => {
                   ))}
                 </Row>
                 <Row>
-                  <Paginator pagination={paginatorProps} />
+                  <Paginator pagination={{ page, perPage, total }} />
                 </Row>
               </>
             ) : (
@@ -62,12 +69,10 @@ const Historic = (): JSX.Element => {
               </h2>
             )}
           </Container>
-        ) : (
-          <></>
-        )}
-      </HistoricContainer>
-    </>
-  );
+        </HistoricContainer>
+      </>
+    );
+  }
 };
 
 export default Historic;

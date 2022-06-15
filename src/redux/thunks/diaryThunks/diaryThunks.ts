@@ -41,7 +41,7 @@ export const loadEntriesThunk =
       }: GetApiResponse = await axios.get(diaryRoute, passToken());
       dispatch(changePageActionCreator(page));
       dispatch(totalPagesActionCreator(numberOfEntries));
-      dispatch(changeDateActionCreator({ startDate, endDate }));
+      dispatch(changeDateActionCreator(dates));
       dispatch(loadActionCreator(entries));
     } catch (error) {
       notify({ message: "Failed to load user's entries", type: "error" });

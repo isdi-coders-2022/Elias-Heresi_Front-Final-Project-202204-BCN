@@ -24,15 +24,24 @@ const Insights = (): JSX.Element => {
     dispatch(loadEntriesThunk({ page: 1, perPage: 100 }));
   }, [dispatch]);
 
-  return (
-    <>
-      <NavBar />
-      <ToastContainer />
-      {loading && <Loading />}
-      <InsightsContainer>
-        <h1>{name}'s well-being history</h1>
-
-        {!loading ? (
+  if (loading) {
+    return (
+      <>
+        <NavBar />
+        <ToastContainer />
+        <Loading />
+        <InsightsContainer>
+          <h1>{name}'s well-being history</h1>
+        </InsightsContainer>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <NavBar />
+        <ToastContainer />
+        <InsightsContainer>
+          <h1>{name}'s well-being history</h1>
           <Container>
             {collection.length > 0 ? (
               <>
@@ -49,12 +58,10 @@ const Insights = (): JSX.Element => {
               </h2>
             )}
           </Container>
-        ) : (
-          <></>
-        )}
-      </InsightsContainer>
-    </>
-  );
+        </InsightsContainer>
+      </>
+    );
+  }
 };
 
 export default Insights;
