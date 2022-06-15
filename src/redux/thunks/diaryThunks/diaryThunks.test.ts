@@ -106,7 +106,7 @@ describe("Given the loadEntriesThunk", () => {
     test("Then the dispatch function will be called 6 times", async () => {
       await thunk(dispatch);
 
-      const expectedCalls = 6;
+      const expectedCalls = 7;
 
       expect(dispatch).toHaveBeenCalledTimes(expectedCalls);
     });

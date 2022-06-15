@@ -17,6 +17,7 @@ import {
 import { notify } from "../../../utils/toast";
 import { passToken } from "../../../utils/authorization";
 import {
+  changeDateActionCreator,
   changePageActionCreator,
   totalPagesActionCreator,
 } from "../../features/pageSlice";
@@ -41,6 +42,7 @@ export const loadEntriesThunk =
       }: GetApiResponse = await axios.get(diaryRoute, passToken());
       dispatch(changePageActionCreator(page));
       dispatch(totalPagesActionCreator(numberOfEntries));
+      dispatch(changeDateActionCreator({ startDate, endDate }));
       dispatch(loadActionCreator(entries));
     } catch (error) {
       notify({ message: "Failed to load user's entries", type: "error" });
