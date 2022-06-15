@@ -10,7 +10,9 @@ export const DetailContainer = styled.div`
   }
 
   h1 {
-    padding: 15px 0;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding: 0;
     font-weight: bold;
   }
 `;
