@@ -53,7 +53,7 @@ const Home = (): JSX.Element => {
                     <Button
                       variant="primary"
                       onClick={() => {
-                        dispatch(changePerPageActionCreator(4));
+                        dispatch(changePerPageActionCreator(6));
                         navigate(`/historic`);
                         window.scrollTo(0, 0);
                       }}

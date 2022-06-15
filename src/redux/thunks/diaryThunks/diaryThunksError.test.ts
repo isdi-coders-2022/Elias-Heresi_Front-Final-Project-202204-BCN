@@ -1,7 +1,6 @@
 import axios from "axios";
 import { mockCreatedEntry } from "../../mocks/diaryMocks";
 import {
-  numberOfEntriesThunk,
   deleteEntryThunk,
   createEntryThunk,
   loadEntryThunk,
@@ -13,24 +12,6 @@ jest.mock("axios");
 window.scrollTo = jest.fn();
 
 const mockId = "pakito chocolates";
-
-describe("Given the the numberOfEntriesThunks", () => {
-  describe("When invoked with an error", () => {
-    const dispatch = jest.fn();
-    const thunk = numberOfEntriesThunk();
-
-    test("Then the dispatch function will be called 0 times", async () => {
-      axios.get = jest.fn().mockImplementation(() => {
-        throw new Error();
-      });
-      await thunk(dispatch);
-
-      const expectedCalls = 0;
-
-      expect(dispatch).toHaveBeenCalledTimes(expectedCalls);
-    });
-  });
-});
 
 describe("Given the the loadEntriesThunks", () => {
   describe("When invoked with an error", () => {

@@ -25,7 +25,7 @@ const NavBar = (): JSX.Element => {
 
   const navigateToPage = (route: string): void => {
     dispatch(resetCollectionActionCreator());
-    dispatch(changePerPageActionCreator(4));
+    dispatch(changePerPageActionCreator(6));
     navigate(`/${route}`);
     dispatch(loadEntriesThunk({ page, perPage }));
   };
