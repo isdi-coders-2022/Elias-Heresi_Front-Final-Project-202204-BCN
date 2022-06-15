@@ -8,13 +8,14 @@ export const CreateContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  width: 100%;
   div {
     display: flex;
     flex-direction: column;
     align-items: center;
 
     h1 {
-      padding: 15px 0;
+      padding: 15px 10px;
       font-weight: bold;
     }
     h2 {

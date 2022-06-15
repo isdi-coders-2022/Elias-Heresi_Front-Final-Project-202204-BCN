@@ -4,7 +4,7 @@ const NavBarContainer = styled.section`
   nav {
     span {
       &.navbar-brand {
-        font-size: 36px;
+        font-size: 24px;
         cursor: pointer;
       }
     }
