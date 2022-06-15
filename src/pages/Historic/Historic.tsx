@@ -47,11 +47,11 @@ const Historic = (): JSX.Element => {
         <HistoricContainer>
           <h1>{name}'s well-being entries</h1>
           <Container>
+            <Row>
+              <DateFilter perPage={4} />
+            </Row>
             {collection.length > 0 ? (
               <>
-                <Row>
-                  <DateFilter />
-                </Row>
                 <Row>
                   {collection.map((entry, index) => (
                     <Col key={index}>

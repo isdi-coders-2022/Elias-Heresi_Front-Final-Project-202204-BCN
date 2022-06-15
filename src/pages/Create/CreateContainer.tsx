@@ -4,17 +4,18 @@ export const CreateContainer = styled.div`
   height: auto;
   min-height: 100vh;
   text-align: center;
-  align-items: top;
+  align-items: center;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-around;
+  width: 100vw;
   div {
     display: flex;
     flex-direction: column;
     align-items: center;
 
     h1 {
-      padding: 15px 0;
+      padding: 15px 10px;
       font-weight: bold;
     }
     h2 {

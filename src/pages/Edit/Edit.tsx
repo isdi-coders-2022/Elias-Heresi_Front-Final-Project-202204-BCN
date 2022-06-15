@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import EditForm from "../../components/EditForm/EditForm";
@@ -30,15 +29,13 @@ const Edit = (): JSX.Element => {
       {loading && <Loading />}
       <ToastContainer />
       <CreateContainer>
-        <Row>
-          <h1>Edit your well-being entry:</h1>
+        <h1>Edit your well-being entry:</h1>
 
-          {collection.length > 0 && collection[0].id === id ? (
-            <EditForm entry={collection[0]} />
-          ) : (
-            <h2>Entry doesn't exist</h2>
-          )}
-        </Row>
+        {collection.length > 0 && collection[0].id === id ? (
+          <EditForm entry={collection[0]} />
+        ) : (
+          <h2>Entry doesn't exist</h2>
+        )}
       </CreateContainer>
     </>
   );

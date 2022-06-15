@@ -1,4 +1,4 @@
-import { Row } from "react-bootstrap";
+import { Row, Container } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import EditForm from "../../components/EditForm/EditForm";
@@ -17,10 +17,12 @@ const Create = (): JSX.Element => {
       <ToastContainer />
       <CreateContainer>
         {loading && <Loading />}
-        <Row>
-          <h1>Create a new well-being entry:</h1>
-          <EditForm />
-        </Row>
+        <Container>
+          <Row>
+            <h1>Create a new well-being entry:</h1>
+            <EditForm />
+          </Row>
+        </Container>
       </CreateContainer>
     </>
   );

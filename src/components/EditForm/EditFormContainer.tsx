@@ -5,11 +5,11 @@ export const EditFormContainer = styled.div`
   padding: 20px 30px;
   border-radius: 25px;
   background-color: rgb(255, 255, 255);
-  width: 90%;
-  min-width: 300px;
-  max-width: 500px;
+  width: 80%;
 
   form {
+    min-width: 230px;
+    max-width: 500px;
     .create-form {
       &__slider {
         margin-bottom: 0px;

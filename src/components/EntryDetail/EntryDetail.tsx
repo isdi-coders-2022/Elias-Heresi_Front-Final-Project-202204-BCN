@@ -28,7 +28,6 @@ const EntryDetail = ({ entry }: { entry: DiaryEntry }): JSX.Element => {
     wellBeing,
     date,
     backup,
-    // id,
   } = entry;
 
   const { entryId }: Ui = useSelector((state: RootState) => state.ui);
@@ -50,6 +49,8 @@ const EntryDetail = ({ entry }: { entry: DiaryEntry }): JSX.Element => {
               <tbody>
                 <tr>
                   <td>{date.toString().slice(0, 10).replaceAll("-", "/")}</td>
+                </tr>
+                <tr>
                   <td>{commentary}</td>
                 </tr>
               </tbody>

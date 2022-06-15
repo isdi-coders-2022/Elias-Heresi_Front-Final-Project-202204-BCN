@@ -7,11 +7,9 @@ import { loadEntriesThunk } from "../../redux/thunks/diaryThunks/diaryThunks";
 import { defaultDate, numberToDate } from "../../utils/todaysDate";
 import { DateFilterContainer } from "./DateFilterContainer";
 
-const DateFilter = (): JSX.Element => {
+const DateFilter = ({ perPage }: { perPage: number }): JSX.Element => {
   const dispatch = useAppDispatch();
-  const { dates, perPage }: PaginationState = useAppSelector(
-    (state) => state.page
-  );
+  const { dates }: PaginationState = useAppSelector((state) => state.page);
   const [formData, setFormData] = useState(dates);
 
   const changeData = (event: ChangeEvent<HTMLInputElement>): void => {
