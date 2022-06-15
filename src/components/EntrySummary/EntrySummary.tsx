@@ -78,6 +78,7 @@ const EntrySummary = ({ entry }: { entry: DiaryEntry }): JSX.Element => {
                     variant="link"
                     onClick={deleteCard}
                     style={{ border: 0, marginTop: "-10px" }}
+                    aria-label="delete-icon"
                   >
                     <FaTimesCircle size={30} color={"red"} />
                   </Button>
