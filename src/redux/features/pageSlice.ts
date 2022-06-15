@@ -5,7 +5,7 @@ import { PaginationState } from "../interfaces/PageInterfaces";
 
 const todaysDate = new Date();
 let previousDate = new Date();
-previousDate.setMonth(todaysDate.getMonth() - 3);
+previousDate.setMonth(todaysDate.getMonth() - 24);
 
 const initialState = {
   page: 1,

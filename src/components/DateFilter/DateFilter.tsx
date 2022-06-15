@@ -38,14 +38,14 @@ const DateFilter = (): JSX.Element => {
           placeholder="startDate"
           type="date"
           id="startDate"
-          defaultValue={numberToDate(dates.startDate)}
+          defaultValue={numberToDate(formData.startDate)}
           onChange={changeData}
         />
         <Form.Control
           placeholder="endDate"
           type="date"
           id="endDate"
-          defaultValue={numberToDate(dates.endDate)}
+          defaultValue={numberToDate(formData.endDate)}
           onChange={changeData}
         />
         <div>

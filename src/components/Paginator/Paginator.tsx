@@ -4,11 +4,15 @@ import {
   nextPageActionCreator,
   previousPageActionCreator,
 } from "../../redux/features/pageSlice";
-import { PaginatorProps } from "../../redux/interfaces/PageInterfaces";
-import { useAppDispatch } from "../../redux/store/hooks";
+import {
+  PaginationState,
+  PaginatorProps,
+} from "../../redux/interfaces/PageInterfaces";
+import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 
 const Paginator = ({ pagination }: PaginatorProps): JSX.Element => {
   const { page, perPage, total } = pagination;
+  const { dates }: PaginationState = useAppSelector((state) => state.page);
 
   const lastPage = Math.ceil(total / perPage);
   const dispatch = useAppDispatch();

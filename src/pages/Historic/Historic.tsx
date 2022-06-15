@@ -20,15 +20,15 @@ const Historic = (): JSX.Element => {
   const { loading }: Ui = useAppSelector((state) => state.ui);
   const { collection }: DiaryState = useAppSelector((state) => state.diary);
   const { username, name }: UserState = useAppSelector((state) => state.user);
-  const { page, perPage, total }: PaginationState = useAppSelector(
+  const { dates, page, perPage, total }: PaginationState = useAppSelector(
     (state) => state.page
   );
 
-  const paginatorProps = { page, perPage, total };
+  console.log(dates);
 
   useEffect(() => {
-    dispatch(loadEntriesThunk({ page, perPage }));
-  }, [dispatch, page, perPage]);
+    dispatch(loadEntriesThunk({ dates, page, perPage }));
+  }, [dispatch, dates, page, perPage]);
 
   return (
     <>
@@ -53,7 +53,7 @@ const Historic = (): JSX.Element => {
                   ))}
                 </Row>
                 <Row>
-                  <Paginator pagination={paginatorProps} />
+                  <Paginator pagination={{ page, perPage, total }} />
                 </Row>
               </>
             ) : (
