@@ -4,7 +4,7 @@ const LoadingContainer = styled.section`
   z-index: 0;
   background-color: rgb(111, 219, 135, 0.4);
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   position: absolute;
   div {
     position: absolute;
