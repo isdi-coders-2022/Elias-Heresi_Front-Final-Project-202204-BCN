@@ -81,6 +81,7 @@ const EntrySummary = ({ entry }: { entry: DiaryEntry }): JSX.Element => {
                     animated
                     now={wellBeing * 10}
                     style={{ height: "12px" }}
+                    aria-label="progress-bar"
                   />
                 </span>
               </Card.Title>
