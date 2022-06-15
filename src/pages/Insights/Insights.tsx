@@ -21,8 +21,7 @@ const Insights = (): JSX.Element => {
   const { username, name }: UserState = useAppSelector((state) => state.user);
 
   useEffect(() => {
-    const paginatorProps = { page: 1, perPage: 100 };
-    dispatch(loadEntriesThunk(paginatorProps));
+    dispatch(loadEntriesThunk({ page: 1, perPage: 100 }));
   }, [dispatch]);
 
   return (

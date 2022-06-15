@@ -30,14 +30,14 @@ export const definePermaValues = (values: number[]) => {
 };
 
 export const createLineChartElements = (collection: Collection) => {
-  const dates: any[] = [];
-  const wellBeing: any[] = [];
-  const positiveEmotion: any[] = [];
-  const engagement: any[] = [];
-  const relationships: any[] = [];
-  const meaning: any[] = [];
-  const accomplishment: any[] = [];
-  const vitality: any[] = [];
+  const dates: string[] = [];
+  const wellBeing: number[] = [];
+  const positiveEmotion: number[] = [];
+  const engagement: number[] = [];
+  const relationships: number[] = [];
+  const meaning: number[] = [];
+  const accomplishment: number[] = [];
+  const vitality: number[] = [];
 
   collection.forEach((entry) => {
     dates.push(new Date(entry.date).toISOString().slice(0, 10));

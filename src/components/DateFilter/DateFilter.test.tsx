@@ -11,6 +11,7 @@ const mockDispatch = jest.fn();
 jest.mock("react-redux", () => ({
   ...jest.requireActual("react-redux"),
   useDispatch: () => mockDispatch,
+  useSelector: () => ({ dates: { startDate: 20200101, endDate: 20220101 } }),
 }));
 
 describe("Given the DateFilter component", () => {
@@ -65,7 +66,7 @@ describe("Given the DateFilter component", () => {
   });
   describe("When the 'Show all' button is clicked", () => {
     test("Then the dispatch function will be called once", () => {
-      const expectedNumberOfCalls = 1;
+      const expectedNumberOfCalls = 2;
 
       render(
         <BrowserRouter>

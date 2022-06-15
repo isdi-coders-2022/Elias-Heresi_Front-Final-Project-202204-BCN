@@ -19,6 +19,7 @@ jest.mock("react-redux", () => ({
     page: 1,
     perPage: 10,
     total: 20,
+    dates: { startDate: 20200101, endDate: 20220101 },
   }),
 }));
 

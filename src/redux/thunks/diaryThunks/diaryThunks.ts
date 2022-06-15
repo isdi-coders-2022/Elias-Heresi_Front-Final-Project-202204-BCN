@@ -17,11 +17,11 @@ import {
 import { notify } from "../../../utils/toast";
 import { passToken } from "../../../utils/authorization";
 import {
+  changeDateActionCreator,
   changePageActionCreator,
   totalPagesActionCreator,
 } from "../../features/pageSlice";
-
-const defaultDate = { startDate: 20000101, endDate: 20400101 };
+import { defaultDate } from "../../../utils/todaysDate";
 
 export const loadEntriesThunk =
   ({ dates = defaultDate, page, perPage }: GetEntriesProps) =>
@@ -41,6 +41,7 @@ export const loadEntriesThunk =
       }: GetApiResponse = await axios.get(diaryRoute, passToken());
       dispatch(changePageActionCreator(page));
       dispatch(totalPagesActionCreator(numberOfEntries));
+      dispatch(changeDateActionCreator({ startDate, endDate }));
       dispatch(loadActionCreator(entries));
     } catch (error) {
       notify({ message: "Failed to load user's entries", type: "error" });

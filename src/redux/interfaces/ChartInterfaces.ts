@@ -18,15 +18,23 @@ export interface PolarChartProps {
   legend?: boolean;
 }
 
+export interface LineChart {
+  dates: string[];
+  wellBeing: number[];
+  positiveEmotion: number[];
+  engagement: number[];
+  relationships: number[];
+  meaning: number[];
+  accomplishment: number[];
+  vitality: number[];
+}
+
 export interface LineChartProps {
-  props: {
-    dates: string[];
-    wellBeing: number[];
-    positiveEmotion: number[];
-    engagement: number[];
-    relationships: number[];
-    meaning: number[];
-    accomplishment: number[];
-    vitality: number[];
-  };
+  props: LineChart;
+}
+
+export interface TrendData {
+  name: string;
+  average: number;
+  sd: number;
 }

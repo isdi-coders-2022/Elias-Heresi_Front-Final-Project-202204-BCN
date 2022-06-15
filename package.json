@@ -20,6 +20,7 @@
     "jest": "^28.1.0",
     "jest-canvas-mock": "^2.4.0",
     "jwt-decode": "^3.1.2",
+    "mathjs": "^10.6.1",
     "mongodb": "^4.6.0",
     "mongoose": "^6.3.5",
     "msw": "^0.42.0",

@@ -1,4 +1,5 @@
 import pageReducer, {
+  changeDateActionCreator,
   changePageActionCreator,
   changePerPageActionCreator,
   nextPageActionCreator,
@@ -10,6 +11,10 @@ let initialState = {
   page: 2,
   perPage: 6,
   total: 100,
+  dates: {
+    startDate: 20200101,
+    endDate: 20210101,
+  },
 };
 
 describe("Given the nextPageActionCreator", () => {
@@ -19,6 +24,10 @@ describe("Given the nextPageActionCreator", () => {
         page: 3,
         perPage: 6,
         total: 100,
+        dates: {
+          startDate: 20200101,
+          endDate: 20210101,
+        },
       };
 
       const action = nextPageActionCreator;
@@ -36,6 +45,10 @@ describe("Given the previousPageActionCreator", () => {
         page: 1,
         perPage: 6,
         total: 100,
+        dates: {
+          startDate: 20200101,
+          endDate: 20210101,
+        },
       };
 
       const action = previousPageActionCreator;
@@ -53,6 +66,10 @@ describe("Given the totalEntriesActionCreator", () => {
         page: 2,
         perPage: 6,
         total: 10,
+        dates: {
+          startDate: 20200101,
+          endDate: 20210101,
+        },
       };
 
       const action = totalPagesActionCreator(10);
@@ -70,6 +87,10 @@ describe("Given the changePageActionCreator", () => {
         page: 3,
         perPage: 6,
         total: 100,
+        dates: {
+          startDate: 20200101,
+          endDate: 20210101,
+        },
       };
 
       const action = changePageActionCreator(3);
@@ -87,9 +108,37 @@ describe("Given the changePerPageActionCreator", () => {
         page: 2,
         perPage: 3,
         total: 100,
+        dates: {
+          startDate: 20200101,
+          endDate: 20210101,
+        },
       };
 
       const action = changePerPageActionCreator(3);
+      const loadedState = pageReducer(initialState, action);
+
+      expect(loadedState).toEqual(expectedState);
+    });
+  });
+});
+
+describe("Given the changeDateActionCreator", () => {
+  describe("When invoked with a payload of 20210101", () => {
+    test("Then the diary state should change to this start date", () => {
+      const expectedState = {
+        page: 2,
+        perPage: 6,
+        total: 100,
+        dates: {
+          startDate: 20210101,
+          endDate: 20220101,
+        },
+      };
+
+      const action = changeDateActionCreator({
+        startDate: 20210101,
+        endDate: 20220101,
+      });
       const loadedState = pageReducer(initialState, action);
 
       expect(loadedState).toEqual(expectedState);
