@@ -43,15 +43,13 @@ const Insights = (): JSX.Element => {
         <InsightsContainer>
           <h1>{name}'s well-being history</h1>
           <Container>
+            <Row>
+              <DateFilter />
+            </Row>
             {collection.length > 0 ? (
-              <>
-                <Row>
-                  <DateFilter />
-                </Row>
-                <Row>
-                  <SummaryChart props={createLineChartElements(collection)} />
-                </Row>
-              </>
+              <Row>
+                <SummaryChart props={createLineChartElements(collection)} />
+              </Row>
             ) : (
               <h2>
                 @{username} hasn't got any entries in the selected date range.

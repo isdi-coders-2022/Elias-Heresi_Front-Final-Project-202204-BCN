@@ -4,9 +4,9 @@ export const CreateContainer = styled.div`
   height: auto;
   min-height: 100vh;
   text-align: center;
-  align-items: top;
+  align-items: center;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-around;
   width: 100vw;
   div {

@@ -36,7 +36,7 @@ export const DateFilterContainer = styled.span`
       flex-direction: column;
       align-items: center;
       div {
-        width: 400px;
+        width: 320px;
         flex-direction: row;
       }
     }
