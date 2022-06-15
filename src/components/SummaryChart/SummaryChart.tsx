@@ -43,7 +43,7 @@ const SummaryChart = ({ props }: LineChartProps): JSX.Element => {
       {
         type: "line" as const,
         label: "Well-being",
-        borderColor: "rgb(53, 162, 235)",
+        borderColor: "rgb(54, 162, 235)",
         data: wellBeing,
       },
       {
@@ -63,28 +63,28 @@ const SummaryChart = ({ props }: LineChartProps): JSX.Element => {
       {
         type: "bar" as const,
         label: "Relationships",
-        backgroundColor: "rgb(93, 192, 75)",
+        backgroundColor: "rgb(255, 205, 86)",
         data: relationships,
         borderWidth: 2,
       },
       {
         type: "bar" as const,
         label: "Meaning",
-        backgroundColor: "rgb(184, 34, 152)",
+        backgroundColor: "rgb(201, 203, 207)",
         data: meaning,
         borderWidth: 2,
       },
       {
         type: "bar" as const,
         label: "Accomplishment",
-        backgroundColor: "rgb(75, 81, 192)",
+        backgroundColor: "rgb(54, 162, 235)",
         data: accomplishment,
         borderWidth: 2,
       },
       {
         type: "bar" as const,
         label: "Vitality",
-        backgroundColor: "rgb(192, 128, 75)",
+        backgroundColor: "rgb(217, 54, 235)",
         data: vitality,
         borderWidth: 2,
       },
