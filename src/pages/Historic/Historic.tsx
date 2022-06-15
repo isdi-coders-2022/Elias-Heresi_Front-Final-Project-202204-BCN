@@ -6,6 +6,7 @@ import EntrySummary from "../../components/EntrySummary/EntrySummary";
 import Loading from "../../components/Loading/Loading";
 import NavBar from "../../components/NavBar/NavBar";
 import Paginator from "../../components/Paginator/Paginator";
+import { changePerPageActionCreator } from "../../redux/features/pageSlice";
 import { DiaryState } from "../../redux/interfaces/DiaryInterface";
 import { PaginationState } from "../../redux/interfaces/PageInterfaces";
 import { Ui } from "../../redux/interfaces/UiInterface";

@@ -1,25 +1,15 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { changeDateActionCreator } from "../../redux/features/pageSlice";
-import { FilterDates } from "../../redux/interfaces/DiaryInterface";
 import { PaginationState } from "../../redux/interfaces/PageInterfaces";
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import { loadEntriesThunk } from "../../redux/thunks/diaryThunks/diaryThunks";
-import {
-  dateToNumber,
-  defaultDate,
-  numberToDate,
-} from "../../utils/todaysDate";
+import { defaultDate, numberToDate } from "../../utils/todaysDate";
 import { DateFilterContainer } from "./DateFilterContainer";
 
 const DateFilter = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const { dates }: PaginationState = useAppSelector((state) => state.page);
-
-  const todaysDate = new Date();
-  let previousDate = new Date();
-  previousDate.setMonth(todaysDate.getMonth() - 3);
-
   const [formData, setFormData] = useState(dates);
 
   const changeData = (event: ChangeEvent<HTMLInputElement>): void => {
