@@ -19,4 +19,13 @@ export const InsightsContainer = styled.div`
   .pagination {
     justify-content: center;
   }
+
+  div.row {
+    justify-content: center;
+  }
+  canvas {
+    max-width: 800px;
+    max-height: 400px;
+    display: flex;
+  }
 `;
