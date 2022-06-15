@@ -21,8 +21,7 @@ import {
   changePageActionCreator,
   totalPagesActionCreator,
 } from "../../features/pageSlice";
-
-const defaultDate = { startDate: 20000101, endDate: 20400101 };
+import { defaultDate } from "../../../utils/todaysDate";
 
 export const loadEntriesThunk =
   ({ dates = defaultDate, page, perPage }: GetEntriesProps) =>

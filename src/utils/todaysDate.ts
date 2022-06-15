@@ -7,3 +7,12 @@ export const numberToDate = (inputNumber: number): string => {
   const day = inputNumber.toString().slice(6, 8);
   return year + "-" + month + "-" + day;
 };
+
+const todaysDate = new Date();
+let previousDate = new Date();
+previousDate.setMonth(todaysDate.getMonth() - 24);
+
+export const defaultDate = {
+  startDate: dateToNumber(previousDate),
+  endDate: dateToNumber(todaysDate),
+};

@@ -1,29 +1,26 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
+import { changeDateActionCreator } from "../../redux/features/pageSlice";
 import { FilterDates } from "../../redux/interfaces/DiaryInterface";
-import { useAppDispatch } from "../../redux/store/hooks";
+import { PaginationState } from "../../redux/interfaces/PageInterfaces";
+import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import { loadEntriesThunk } from "../../redux/thunks/diaryThunks/diaryThunks";
-import { dateToNumber, numberToDate } from "../../utils/todaysDate";
+import {
+  dateToNumber,
+  defaultDate,
+  numberToDate,
+} from "../../utils/todaysDate";
 import { DateFilterContainer } from "./DateFilterContainer";
 
 const DateFilter = (): JSX.Element => {
   const dispatch = useAppDispatch();
+  const { dates }: PaginationState = useAppSelector((state) => state.page);
 
   const todaysDate = new Date();
   let previousDate = new Date();
   previousDate.setMonth(todaysDate.getMonth() - 3);
 
-  const formInitialState = {
-    startDate: dateToNumber(previousDate),
-    endDate: dateToNumber(todaysDate),
-  } as FilterDates;
-
-  const unfilteredDates = {
-    startDate: dateToNumber(new Date(1900, 1, 1)),
-    endDate: dateToNumber(new Date(2100, 1, 1)),
-  } as FilterDates;
-
-  const [formData, setFormData] = useState(formInitialState);
+  const [formData, setFormData] = useState(dates);
 
   const changeData = (event: ChangeEvent<HTMLInputElement>): void => {
     event.preventDefault();
@@ -39,8 +36,9 @@ const DateFilter = (): JSX.Element => {
   };
 
   const showAll = (): void => {
-    dispatch(loadEntriesThunk({ dates: unfilteredDates, page: 1, perPage: 4 }));
-    setFormData(formInitialState);
+    dispatch(loadEntriesThunk({ page: 1, perPage: 4 }));
+    dispatch(changeDateActionCreator(defaultDate));
+    setFormData(defaultDate);
   };
 
   return (
@@ -50,14 +48,14 @@ const DateFilter = (): JSX.Element => {
           placeholder="startDate"
           type="date"
           id="startDate"
-          defaultValue={numberToDate(formData.startDate)}
+          defaultValue={numberToDate(dates.startDate)}
           onChange={changeData}
         />
         <Form.Control
           placeholder="endDate"
           type="date"
           id="endDate"
-          defaultValue={numberToDate(formData.endDate)}
+          defaultValue={numberToDate(dates.endDate)}
           onChange={changeData}
         />
         <div>
