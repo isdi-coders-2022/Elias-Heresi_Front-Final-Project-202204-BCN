@@ -1,10 +1,19 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { dateToNumber } from "../../utils/todaysDate";
 import { PaginationState } from "../interfaces/PageInterfaces";
+
+const todaysDate = new Date();
+let previousDate = new Date();
+previousDate.setMonth(todaysDate.getMonth() - 3);
 
 const initialState = {
   page: 1,
   perPage: 4,
   total: 0,
+  dates: {
+    startDate: dateToNumber(previousDate),
+    endDate: dateToNumber(todaysDate),
+  },
 } as PaginationState;
 
 const pageSlice = createSlice({
@@ -40,6 +49,20 @@ const pageSlice = createSlice({
       ...pagination,
       perPage: action.payload,
     }),
+    changeStartDate: (
+      pagination: PaginationState,
+      action: PayloadAction<number>
+    ) => ({
+      ...pagination,
+      dates: { ...pagination.dates, startDate: action.payload },
+    }),
+    changeEndDate: (
+      pagination: PaginationState,
+      action: PayloadAction<number>
+    ) => ({
+      ...pagination,
+      dates: { ...pagination.dates, endDate: action.payload },
+    }),
   },
 });
 
@@ -49,5 +72,7 @@ export const {
   previousPage: previousPageActionCreator,
   changePage: changePageActionCreator,
   changePerPage: changePerPageActionCreator,
+  changeStartDate: changeStartDateActionCreator,
+  changeEndDate: changeEndDateActionCreator,
 } = pageSlice.actions;
 export default pageSlice.reducer;
