@@ -1,8 +1,27 @@
-import { Chart as ChartJS, registerables } from "chart.js";
+import {
+  Chart as ChartJS,
+  LinearScale,
+  CategoryScale,
+  BarElement,
+  PointElement,
+  LineElement,
+  LineController,
+  Legend,
+  Tooltip,
+} from "chart.js";
 import { Chart } from "react-chartjs-2";
 import { LineChartProps } from "../../redux/interfaces/ChartInterfaces";
 
-ChartJS.register(...registerables);
+ChartJS.register(
+  LinearScale,
+  CategoryScale,
+  BarElement,
+  PointElement,
+  LineElement,
+  LineController,
+  Legend,
+  Tooltip
+);
 
 const SummaryChart = ({ props }: LineChartProps): JSX.Element => {
   const {
