@@ -3,8 +3,10 @@ import styled from "styled-components";
 const NavBarContainer = styled.section`
   nav {
     span {
-      font-size: 36px;
-      cursor: pointer;
+      &.navbar-brand {
+        font-size: 36px;
+        cursor: pointer;
+      }
     }
     background-color: rgb(111, 219, 135);
     a {
