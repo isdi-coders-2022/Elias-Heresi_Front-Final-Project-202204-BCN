@@ -9,7 +9,7 @@ previousDate.setMonth(todaysDate.getMonth() - 24);
 
 const initialState = {
   page: 1,
-  perPage: 4,
+  perPage: 6,
   total: 0,
   dates: {
     startDate: dateToNumber(previousDate),

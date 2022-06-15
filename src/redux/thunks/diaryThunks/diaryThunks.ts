@@ -50,18 +50,6 @@ export const loadEntriesThunk =
     }
   };
 
-export const numberOfEntriesThunk = () => async (dispatch: AppDispatch) => {
-  try {
-    const diaryRoute: string = `${process.env.REACT_APP_API_URL}diary/entries`;
-    const {
-      data: { numberOfEntries },
-    }: GetApiResponse = await axios.get(diaryRoute, passToken());
-    dispatch(totalPagesActionCreator(numberOfEntries));
-  } catch (error) {
-    notify({ message: "Failed to load number of entries", type: "error" });
-  }
-};
-
 export const loadEntryThunk = (id: string) => async (dispatch: AppDispatch) => {
   try {
     dispatch(loadingActionCreator());
