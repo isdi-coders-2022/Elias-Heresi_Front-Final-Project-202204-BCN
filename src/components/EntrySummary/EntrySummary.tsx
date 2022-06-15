@@ -1,4 +1,11 @@
-import { Button, Card, Row, Col, Container } from "react-bootstrap";
+import {
+  Button,
+  Card,
+  Row,
+  Col,
+  Container,
+  ProgressBar,
+} from "react-bootstrap";
 import { FaTimesCircle } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -42,89 +49,101 @@ const EntrySummary = ({ entry }: { entry: DiaryEntry }): JSX.Element => {
   };
 
   return (
-    <>
-      <EntrySummaryContainer>
-        <ConfirmationModal
-          displayText={`Are you sure you want to delete this entry?`}
-          action={() => {
-            dispatch(deleteEntryThunk(entryId));
-            dispatch(resetEntryIdActionCreator());
-            dispatch(feedbackOffActionCreator());
-          }}
-        />
-        <Card>
-          <Row className="no-gutters">
-            <Col xs={{ span: 6 }}>
-              <Row>
-                <PermaChart
-                  legend={false}
-                  values={[
-                    positiveEmotion,
-                    engagement,
-                    relationships,
-                    meaning,
-                    accomplishment,
-                    vitality,
-                  ]}
-                />
-              </Row>
-            </Col>
-            <Col>
-              <Card.Body>
-                <Row>
-                  <Col xs={{ span: 8 }}>
-                    <Card.Subtitle>
-                      {date.toString().slice(0, 10).replaceAll("-", "/")}
-                    </Card.Subtitle>
-                  </Col>
-                  <Col xs={{ span: 2 }}>
-                    <Button
-                      variant="link"
-                      onClick={deleteCard}
-                      style={{ border: 0, marginTop: "-10px" }}
-                      aria-label="delete-icon"
-                    >
-                      <FaTimesCircle size={30} color={"red"} />
-                    </Button>
-                  </Col>
-                </Row>
-
-                <Card.Title>Well being: {wellBeing}</Card.Title>
-                <Card.Text>{`${commentary.slice(0, 70)}...`}</Card.Text>
-                <Row>
-                  <Col>
-                    <Button
-                      variant="secondary"
-                      className="d-flex align-items-center justify-content-center"
-                      onClick={() => {
-                        dispatch(resetCollectionActionCreator());
-                        navigate(`/edit/${id}`);
-                        window.scrollTo(0, 0);
-                      }}
-                    >
-                      Edit
-                    </Button>
-                  </Col>
-                  <Col>
-                    <Button
-                      variant="primary"
-                      className="d-flex align-items-center justify-content-center"
-                      onClick={() => {
-                        dispatch(resetCollectionActionCreator());
-                        navigate(`/detail/${id}`);
-                        window.scrollTo(0, 0);
-                      }}
-                    >
-                      Details
-                    </Button>
-                  </Col>
-                </Row>
-              </Card.Body>
+    <EntrySummaryContainer>
+      <ConfirmationModal
+        displayText={`Are you sure you want to delete this entry?`}
+        action={() => {
+          dispatch(deleteEntryThunk(entryId));
+          dispatch(resetEntryIdActionCreator());
+          dispatch(feedbackOffActionCreator());
+        }}
+      />
+      <Card>
+        <Container>
+          <Row className="summary__top no-gutters">
+            <Col xs={{ span: 2, offset: 10 }}>
+              <Button
+                variant="link"
+                onClick={deleteCard}
+                style={{ border: 0 }}
+                aria-label="delete-icon"
+              >
+                <FaTimesCircle size={20} color={"red"} />
+              </Button>
             </Col>
           </Row>
-        </Card>
-      </EntrySummaryContainer>
-    </>
+          <Row className="summary__header no-gutters">
+            <Col xs={{ span: 7 }}>
+              <Card.Title>
+                Well being:
+                <span>
+                  <ProgressBar
+                    animated
+                    now={wellBeing * 10}
+                    style={{ height: "12px" }}
+                  />
+                </span>
+              </Card.Title>
+            </Col>
+            <Col>
+              <Row>
+                <Col>
+                  <Card.Subtitle>
+                    {date.toString().slice(0, 10).replaceAll("-", "/")}
+                  </Card.Subtitle>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+          <Row className="summary__mid no-gutters">
+            <Col xs={{ span: 7 }}>
+              <PermaChart
+                legend={false}
+                values={[
+                  positiveEmotion,
+                  engagement,
+                  relationships,
+                  meaning,
+                  accomplishment,
+                  vitality,
+                ]}
+              />
+            </Col>
+            <Col>
+              <Card.Text>{`${commentary.slice(0, 30)}...`}</Card.Text>
+            </Col>
+          </Row>
+          <Row className="summary__lower no-gutters">
+            <Col xs={{ span: 7 }} align="center">
+              <Button
+                variant="primary"
+                className="d-flex align-items-center justify-content-center"
+                onClick={() => {
+                  dispatch(resetCollectionActionCreator());
+                  navigate(`/detail/${id}`);
+                  window.scrollTo(0, 0);
+                }}
+              >
+                Details
+              </Button>
+            </Col>
+            <Col>
+              <Button
+                variant="secondary"
+                className="d-flex align-items-center justify-content-center"
+                onClick={() => {
+                  dispatch(resetCollectionActionCreator());
+                  navigate(`/edit/${id}`);
+                  window.scrollTo(0, 0);
+                }}
+              >
+                Edit
+              </Button>
+            </Col>
+          </Row>
+        </Container>
+      </Card>
+    </EntrySummaryContainer>
   );
 };
 
