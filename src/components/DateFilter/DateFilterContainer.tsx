@@ -14,7 +14,7 @@ export const DateFilterContainer = styled.span`
       width: 150px;
     }
     input {
-      width: 400px;
+      width: 300px;
       height: 45px;
     }
     div {

@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const EntrySummaryContainer = styled.section`
   font-size: 17px;
   .card {
-    width: 25rem;
-    height: 260px;
+    width: 18rem;
+    height: 250px;
     &-text {
     }
     &-subtitle {
@@ -12,15 +12,27 @@ export const EntrySummaryContainer = styled.section`
       font-size: 16px;
     }
     &-title {
-      font-size: 23px;
+      font-size: 18px;
       font-weight: bold;
     }
     &-text {
       height: 105px;
     }
+    .summary {
+      &__top {
+        height: 25px;
+      }
+      &__header {
+        align-items: center;
+      }
+      &__mid {
+        height: 136px;
+        col {
+          margin: auto;
+        }
+      }
+    }
   }
   canvas {
-    margin-top: 29px;
-    margin-left: 33px;
   }
 `;
