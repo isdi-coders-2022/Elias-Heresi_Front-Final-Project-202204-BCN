@@ -25,6 +25,7 @@ jest.mock("react-redux", () => ({
     logged: mockLogged,
     loading: mockLoading,
     collection: mockApiGetResponse,
+    dates: { startDate: 20200101, endDate: 20220101 },
   }),
 }));
 

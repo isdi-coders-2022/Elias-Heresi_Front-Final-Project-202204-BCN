@@ -5,11 +5,7 @@ import DateFilter from "../../components/DateFilter/DateFilter";
 import Loading from "../../components/Loading/Loading";
 import NavBar from "../../components/NavBar/NavBar";
 import SummaryChart from "../../components/SummaryChart/SummaryChart";
-import { changePageActionCreator } from "../../redux/features/pageSlice";
-import {
-  DiaryState,
-  PaginationState,
-} from "../../redux/interfaces/DiaryInterface";
+import { DiaryState } from "../../redux/interfaces/DiaryInterface";
 import { Ui } from "../../redux/interfaces/UiInterface";
 import { UserState } from "../../redux/interfaces/UserInterface";
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
