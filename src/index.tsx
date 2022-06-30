@@ -6,6 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import { AppContainer } from "./AppContainer";
 import store from "./redux/store/store";
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(
@@ -22,5 +23,7 @@ root.render(
     </BrowserRouter>
   </React.StrictMode>
 );
+
+serviceWorkerRegistration.register();
 
 reportWebVitals();
